@@ -1,0 +1,7 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewBag.Title.</h2>
+
+Choose from the following forms:
+<a href="forms/addServer">@{ Html.RenderAction("AddServerIntro", "Forms");}</a>
