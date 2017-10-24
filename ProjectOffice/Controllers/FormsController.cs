@@ -29,5 +29,11 @@ namespace ProjectOffice.Controllers
             return PartialView("~/Views/Forms/AddServer/Index.cshtml");
         }
 
+        public ActionResult createForm()
+        {
+            ViewBag.Title = "Create Form";
+
+            return PartialView("~/Views/Forms/createForm/Index.cshtml");
+        }
     }
 }

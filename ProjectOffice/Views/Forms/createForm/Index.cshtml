@@ -1,12 +1,18 @@
-﻿<!--Blog section-->
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Blog section-->
 <section id="test" class="test bg-grey roomy-60 fix">
     <div class="container">
         <div class="row">
             <div class="main_test fix">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="head_title text-center fix">
-                        <h2 class="text-uppercase">What Client Say</h2>
-                        <h5>Clean and Modern design is our best specialist</h5>
+                        <h2 class="text-uppercase">@ViewBag.Title</h2>
+                        <h5>Create a form to gather data, then create a view to present!</h5>
+                    </div>
+                    <div class="head_title text-center fix">
+                        <h5>*Form Name: <input type="text" name="formName" class="input-Field-Text" /></h5>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -16,13 +22,13 @@
                             <i class="fa fa-quote-left"></i>
                         </div>
                         <div class="item_text">
-                            <h5>User 1</h5>
-                            <h6>Test.com</h6>
-                            <p>
-                                Natus voluptatum enim quod necessitatibus quis
-                                expedita harum provident eos obcaecati id culpa
-                                corporis molestias.
-                            </p>
+                            <p>*Field Name: <input type="text" name="formName" class="form-control" /></p>
+                            <p>*Field Type: 
+                            
+                            <input type="text" name="formName" class="form-control" /></p>
+                            <p>*Field Required: <input type="text" name="formName" class="form-control" /></p>
+                            <p>*Field Validation: <input type="text" name="formName" class="form-control" /></p>
+
                         </div>
                     </div>
                 </div>
@@ -33,8 +39,8 @@
                             <i class="fa fa-quote-left"></i>
                         </div>
                         <div class="item_text">
-                            <h5>User 2</h5>
-                            <h6>Test.com</h6>
+                            <h5>Sarah Smith</h5>
+                            <h6>envato.com</h6>
                             <p>
                                 Natus voluptatum enim quod necessitatibus quis
                                 expedita harum provident eos obcaecati id culpa

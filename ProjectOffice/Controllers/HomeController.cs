@@ -27,6 +27,13 @@ namespace ProjectOffice.Controllers
             return PartialView("~/Views/Home/About/Intro.cshtml");
         }
 
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Blog";
+
+            return PartialView("~/Views/Home/Blog/Index.cshtml");
+        }
+
         public ActionResult BlogIntro()
         {
             ViewBag.Message = "BlogIntro";
@@ -34,11 +41,25 @@ namespace ProjectOffice.Controllers
             return PartialView("~/Views/Home/Blog/Intro.cshtml");
         }
 
+        public ActionResult Features()
+        {
+            ViewBag.Message = "Features";
+
+            return PartialView("~/Views/Home/Features/Index.cshtml");
+        }
+
         public ActionResult FeaturesIntro()
         {
             ViewBag.Message = "FeaturesIntro";
 
             return PartialView("~/Views/Home/Features/Intro.cshtml");
+        }
+
+        public ActionResult Portfolio()
+        {
+            ViewBag.Message = "Portfolio";
+
+            return PartialView("~/Views/Home/Portfolio/Index.cshtml");
         }
 
         public ActionResult PortfolioIntro()
@@ -53,6 +74,20 @@ namespace ProjectOffice.Controllers
             ViewBag.Message = "Promotion";
 
             return PartialView("~/Views/Home/Promotion/Intro.cshtml");
+        }
+
+        public ActionResult Promotion()
+        {
+            ViewBag.Message = "Promotion";
+
+            return PartialView("~/Views/Home/Promotion/Index.cshtml");
+        }
+
+        public ActionResult Service()
+        {
+            ViewBag.Message = "Service";
+
+            return PartialView("~/Views/Home/Service/Index.cshtml");
         }
 
         public ActionResult ServiceIntro()
