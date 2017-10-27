@@ -17,7 +17,7 @@
     <AssemblyName>ProjectOffice</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -284,6 +284,12 @@
     <Content Include="Views\Forms\Index.cshtml" />
     <Content Include="Views\Forms\AddServer\Intro.cshtml" />
     <Content Include="Views\Forms\createForm\Index.cshtml" />
+    <Content Include="Views\Forms\_components\fieldTypes\textField.cshtml" />
+    <Content Include="Views\Forms\_components\fieldTypes\selectField.cshtml" />
+    <Content Include="Views\Forms\_components\fieldTypes\radioField.cshtml" />
+    <Content Include="Views\Forms\_components\fieldTypes\textAreaField.cshtml" />
+    <Content Include="Views\Forms\_components\fieldTypes\messageField.cshtml" />
+    <Content Include="Views\Forms\_components\fieldTypes\submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,7 +327,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50932</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50932/</IISUrl>
+          <IISUrl>http://localhost</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

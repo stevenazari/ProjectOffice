@@ -10,23 +10,19 @@ namespace ProjectOffice
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
-                "~/scripts/vendor/jquery-1.11.2.min.js",
-                "~/scripts/formJS/jquery-2.1.3.js",
                 "~/scripts/jquery.magnific-popup.js",
                 "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/jquery.collapse.js"
             ));
 
-            //Form bundles
+            //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
-               "~/Scripts/formJS/bootstrapValidator.min.js",
-               "~/Scripts/formJS/index.js"
+                "~/scripts/formJS/jquery-2.1.3.js",
+                "~/scripts/formJS/bootstrap.min.js",
+                "~/Scripts/formJS/bootstrapValidator.min.js",
+                "~/Scripts/formJS/index.js"
             ));
-
-            bundles.Add(new ScriptBundle("~/bundles/formCSS").Include(
-                "~/css/formCSS/bootstrapValidator.css",
-                "~/css/formCSS/style.css"
-            ));
+            //End of form bundle JS
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"
@@ -74,6 +70,13 @@ namespace ProjectOffice
                 //--Theme custom css--
                     "~/css/style.css"
                     //"~/css/colors/maron.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/bundles/formCSS").Include(
+                "~/css/formCSS/bootstrap.min.css",
+                "~/css/formCSS/bootstrap-theme.min.css",
+                "~/css/formCSS/bootstrapValidator.min.css",
+                "~/css/formCSS/style.css"
             ));
         }
     }
