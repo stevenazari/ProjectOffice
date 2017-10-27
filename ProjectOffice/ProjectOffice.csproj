@@ -17,7 +17,7 @@
     <AssemblyName>ProjectOffice</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -159,6 +159,10 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\flexslider.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\formCSS\bootstrap-theme.min.css" />
+    <Content Include="css\formCSS\bootstrap.min.css" />
+    <Content Include="css\formCSS\bootstrapValidator.min.css" />
+    <Content Include="css\formCSS\style.css" />
     <Content Include="css\iconfont.css" />
     <Content Include="css\magnific-popup.css" />
     <Content Include="css\plugins.css" />
@@ -220,6 +224,10 @@
     <Content Include="css\slick\slick.less" />
     <Content Include="css\slick\slick.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\formJS\bootstrap.min.js" />
+    <Content Include="Scripts\formJS\bootstrapValidator.min.js" />
+    <Content Include="Scripts\formJS\index.js" />
+    <Content Include="Scripts\formJS\jquery-2.1.3.js" />
     <Content Include="Scripts\gmaps.min.js" />
     <Content Include="Scripts\isotope.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -313,7 +321,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50932</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://ProjectOffice.local</IISUrl>
+          <IISUrl>http://localhost:50932/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
