@@ -15,18 +15,20 @@ namespace ProjectOffice
                 "~/scripts/jquery.collapse.js"
             ));
 
-            //Form bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
-                "~/scripts/formJS/jquery-2.1.3.js",
-                "~/scripts/formJS/bootstrap.min.js",
-                "~/Scripts/formJS/bootstrapValidator.min.js",
-                "~/Scripts/formJS/index.js"
-            ));
-            //End of form bundle JS
-
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"
             ));
+
+            //Form bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
+                //Form Validation
+                "~/scripts/formJS/bootstrap.min.js",
+                "~/Scripts/formJS/bootstrapValidator.min.js",
+                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
+                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
+                "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
+            ));
+            //End of form bundle JS
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                 "~/scripts/owl.carousel.min.js",
@@ -57,7 +59,6 @@ namespace ProjectOffice
                 "~/css/animate.css",
                 "~/css/iconfont.css",
                 "~/css/font-awesome.min.css",
-                "~/css/bootstrap.css",
                 "~/css/magnific-popup.css",
                 "~/css/bootsnav.css",
                 //Theme Responsive css
@@ -75,8 +76,8 @@ namespace ProjectOffice
             bundles.Add(new StyleBundle("~/bundles/formCSS").Include(
                 "~/css/formCSS/bootstrap.min.css",
                 "~/css/formCSS/bootstrap-theme.min.css",
-                "~/css/formCSS/bootstrapValidator.min.css",
                 "~/css/formCSS/style.css"
+                "~/css/formCSS/bootstrapValidator.min.css",
             ));
         }
     }
