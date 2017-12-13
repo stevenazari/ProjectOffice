@@ -9,7 +9,7 @@ namespace ProjectOffice
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery-2.1.3.js",
                 "~/scripts/jquery.magnific-popup.js",
                 "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/jquery.collapse.js"
@@ -19,14 +19,13 @@ namespace ProjectOffice
                 "~/Scripts/jquery.validate*"
             ));
 
-            //Form bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
-                //Form Validation
-                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
-                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
-                "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
-            ));
-            //End of form bundle JS
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                "~/scripts/formJS/bootstrap.min.js",
+                //"~/scripts/vendor/bootstrap.min.js",
+                //"~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/formJS/bootstrapValidator.min.js"
+           ));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                 "~/scripts/owl.carousel.min.js",
@@ -37,18 +36,19 @@ namespace ProjectOffice
                 "~/scripts/main.js"
             ));
 
+            //Form bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
+                //Form Validation
+                //"~/Scripts/formJS/Validation/Add_Application_Validation.js",
+                //"~/Scripts/formJS/Validation/Add_Server_Validation.js",
+                "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
+            ));
+            //End of form bundle JS
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                 "~/Scripts/vendor/modernizr-*"
-            ));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/formJS/bootstrap.min.js",
-                "~/Scripts/formJS/bootstrapValidator.min.js",
-                "~/scripts/vendor/bootstrap.min.js",
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"
             ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
