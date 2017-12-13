@@ -1,24 +1,26 @@
 ﻿<br />
 <div class="container">
-    <form class="well form-horizontal" action=" " method="post" id="Add_Support_Company_Form">
+    <form role="form" class="well form-horizontal" data-toggle="validator" id="Add_Support_Company_Form">
         <fieldset>
             <!-- Form Name -->
             <legend>Add Support Company</legend>
 
             <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Company name:</label>
+            <div class="form-group has-feedback">
+                <label for="Support_Name" class="col-md-4 control-label">Company name:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="Support_Name" placeholder="Company Name" class="form-control" type="text">
+                        <input type="text" id="Support_Name" name="Support_Name" placeholder="Company Name" class="form-control" data-minlength="3" required data-error="Minimum character length is 3 characters">
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label">First Line Address:</label>
+                <label for="Support_Address_1" class="col-md-4 control-label">First Line Address:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -61,12 +63,12 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail:</label>
+            <div class="form-group has-feedback">
+                <label for="Support_Email" class="col-md-4 control-label">E-Mail:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="Support_Email" placeholder="E-Mail Address" class="form-control" type="text">
+                        <input type="email" name="Support_Email" class="form-control" id="Support_Email" placeholder="EMail@Address.com" data-error="Invalid Email address">
                     </div>
                 </div>
             </div>
@@ -88,12 +90,12 @@
                 <div class="col-md-4">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="Support_Contract" value="1" /> Yes
+                            <input type="radio" name="Support_Contract" value="1" required /> Yes
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="Support_Contract" value="0" /> No
+                            <input type="radio" name="Support_Contract" value="0" required/> No
                         </label>
                     </div>
                 </div>
@@ -105,8 +107,9 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" name="Support_Comment" placeholder="Project Description"></textarea>
+                        <textarea id="Support_Comment" name="Support_Comment" placeholder="Project Description" class="form-control" data-minlength="10" data-error="Description required"></textarea>
                     </div>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
 

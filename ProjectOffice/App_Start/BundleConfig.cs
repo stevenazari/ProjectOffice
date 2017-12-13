@@ -9,7 +9,8 @@ namespace ProjectOffice
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-{version}.js",
+//                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery-2.1.3.js",
                 "~/scripts/jquery.magnific-popup.js",
                 "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/jquery.collapse.js"
@@ -19,13 +20,20 @@ namespace ProjectOffice
                 "~/Scripts/jquery.validate*"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+//                "~/scripts/formJS/bootstrap.min.js",
+//                "~/Scripts/bootstrap.js",
+                "~/Scripts/vendor/bootstrap.js",
+                "~/scripts/vendor/bootstrap.min.js",
+                "~/Scripts/formJS/bootstrapValidator.min.js",
+                "~/Scripts/respond.js"
+            ));
+
             //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
                 //Form Validation
-                "~/scripts/formJS/bootstrap.min.js",
-                "~/Scripts/formJS/bootstrapValidator.min.js",
-                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
-                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
+//                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
+//                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
                 "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
             ));
             //End of form bundle JS
@@ -42,13 +50,7 @@ namespace ProjectOffice
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                "~/Scripts/vendor/modernizr-*"
-            ));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/vendor/bootstrap.min.js",
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"
+                "~/Scripts/vendor/modernizr-2.8.3-respond-1.4.2.min.js"
             ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -73,11 +75,11 @@ namespace ProjectOffice
                     //"~/css/colors/maron.css"
             ));
 
-            bundles.Add(new StyleBundle("~/bundles/formCSS").Include(
+            bundles.Add(new StyleBundle("~/Content/formCSS").Include(
                 "~/css/formCSS/bootstrap.min.css",
                 "~/css/formCSS/bootstrap-theme.min.css",
-                "~/css/formCSS/style.css"
                 "~/css/formCSS/bootstrapValidator.min.css",
+                "~/css/formCSS/style.css"
             ));
         }
     }

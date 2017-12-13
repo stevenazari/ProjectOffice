@@ -1,1 +1,11 @@
-#success_message{ display: none;}
+#Application_Success_Message {
+    display: none;
+}
+
+#Server_Success_Message {
+    display: none;
+}
+
+#Support_Success_Message {
+    display: none;
+}

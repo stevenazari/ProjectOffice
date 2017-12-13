@@ -63,22 +63,23 @@ $(document).ready(function () {
             }
         }
     })
-        .on('success.form.bv', function (e) {
-            $('#Application_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
-            $('#Add_Application_form').data('bootstrapValidator').resetForm();
+    .on('success.form.bv', function (e) {
+        alert("test");
+        $('#Application_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
+//        $('#Add_Application_form').data('bootstrapValidator').resetForm();
 
-            // Prevent form submission
-            e.preventDefault();
+        // Prevent form submission
+        e.preventDefault();
 
-            // Get the form instance
-            var $form = $(e.target);
+        // Get the form instance
+        var $form = $(e.target);
 
-            // Get the BootstrapValidator instance
-            var bv = $form.data('bootstrapValidator');
+        // Get the BootstrapValidator instance
+        var bv = $form.data('bootstrapValidator');
 
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function (result) {
-                console.log(result);
-            }, 'json');
-        });
+        // Use Ajax to submit form data
+        $.post($form.attr('action'), $form.serialize(), function (result) {
+            console.log(result);
+        }, 'json');
+    });
 });
