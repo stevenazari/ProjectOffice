@@ -49,26 +49,22 @@ $(document).ready(function () {
             }
         }
     })
-    .on('success.form.bv', function (e) {
-        $('#Support_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
-        //$('#Add_Support_Company_Form').data('bootstrapValidator').resetForm();
+        .on('success.form.bv', function (e) {
+            $('#Support_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
+            $('#Add_Support_Company_Form').data('bootstrapValidator').resetForm();
 
-        // Prevent form submission
-        //e.preventDefault();
+            // Prevent form submission
+            e.preventDefault();
 
-        // Get the form instance
-        var $form = $(e.target);
+            // Get the form instance
+            var $form = $(e.target);
 
-        // Get the BootstrapValidator instance
-        var bv = $form.data('bootstrapValidator');
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
 
-        // Use Ajax to submit form data
-        $.post($form.attr('action'), $form.serialize(), function (result) {
-            console.log(result);
-        }, 'json');
-    });
-    $('#Add_Support_Company_Form').on('submit', function (e) {
-        alert("try");
-        e.preventDefault();
-    });
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function (result) {
+                console.log(result);
+            }, 'json');
+        });
 });
