@@ -10,7 +10,7 @@ namespace ProjectOffice
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-2.1.4.js",
+                "~/Scripts/jquery-3.2.1.js",
                 "~/scripts/jquery.magnific-popup.js",
                 "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/jquery.collapse.js"
@@ -21,14 +21,15 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/vendor/bootstrap.js",
+                "~/scripts/bootstrap.js",
                 "~/Scripts/respond.js",
-                "~/Scripts/vendor/validator.js"
+                "~/Scripts/validator.js"
             ));
 
             //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
                 //Form Validation
+                "~/Scripts/formJS/Validation/sharedJS.js",
 //                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
 //                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
                 "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
@@ -41,6 +42,11 @@ namespace ProjectOffice
                 "~/css/slick/slick.min.js",
                 "~/scripts/bootsnav.js",
                 "~/scripts/plugins.js",
+                "~/scripts/jquery.waypoints.js",
+                "~/scripts/owl.carousel.js",
+                "~/scripts/jquery.localScroll.js",
+                "~/scripts/jquery.counterup.js",
+                "~/scripts/wow.js",
                 "~/scripts/main.js"
             ));
 

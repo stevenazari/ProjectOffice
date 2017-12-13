@@ -11,17 +11,13 @@ $(document).ready(function(){
         var bv = $form.data('bootstrapValidator');
 
         // Use Ajax to submit form data
+ //       alert($form.serialize());
         $.post($form.attr('action'), $form.serialize(), function (result) {
             console.log(result);
         }, 'json');
 
         $('#Support_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
-        clearForm($('#Support_Success_Message'));
+
+        clearForm($form);
     });
 });
-
-function clearForm($form) {
-    $('#Add_Support_Company_Form').validator('destroy');
-    $('#Add_Support_Company_Form').validator('options');
-    $('#Add_Support_Company_Form')[0].reset();
-}
