@@ -10,7 +10,10 @@ namespace ProjectOffice
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-2.1.4.js"
+                "~/Scripts/jquery-2.1.4.js",
+                "~/scripts/jquery.magnific-popup.js",
+                "~/scripts/jquery.easing.1.3.js",
+                "~/scripts/jquery.collapse.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -20,9 +23,6 @@ namespace ProjectOffice
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/scripts/vendor/bootstrap.js",
                 "~/Scripts/respond.js",
-                "~/scripts/jquery.magnific-popup.js",
-                "~/scripts/jquery.easing.1.3.js",
-                "~/scripts/jquery.collapse.js",
                 "~/Scripts/vendor/validator.js"
             ));
 
