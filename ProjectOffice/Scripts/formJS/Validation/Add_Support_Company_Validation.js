@@ -1,14 +1,10 @@
-$(document).ready(function () {
+$(document).ready(function(){
     $('#Add_Support_Company_Form')
-    .on('submit', function (e) {
+    .on('submit', function(e){
         // Prevent form submission
         e.preventDefault();
 
-        $('#Support_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
-/*        $('#Add_Support_Company_Form').data('bootstrapValidator').resetForm();
-*/
-
-        // Get the form instance
+       // Get the form instance
         var $form = $(e.target);
 
         // Get the BootstrapValidator instance
@@ -18,5 +14,14 @@ $(document).ready(function () {
         $.post($form.attr('action'), $form.serialize(), function (result) {
             console.log(result);
         }, 'json');
+
+        $('#Support_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
+        clearForm($('#Support_Success_Message'));
     });
 });
+
+function clearForm($form) {
+    $('#Add_Support_Company_Form').validator('destroy');
+    $('#Add_Support_Company_Form').validator('options');
+    $('#Add_Support_Company_Form')[0].reset();
+}

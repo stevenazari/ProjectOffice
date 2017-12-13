@@ -9,11 +9,8 @@ namespace ProjectOffice
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-//                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-2.1.3.js",
-                "~/scripts/jquery.magnific-popup.js",
-                "~/scripts/jquery.easing.1.3.js",
-                "~/scripts/jquery.collapse.js"
+                //                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery-2.1.4.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -21,12 +18,12 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-//                "~/scripts/formJS/bootstrap.min.js",
-//                "~/Scripts/bootstrap.js",
-                "~/Scripts/vendor/bootstrap.js",
-                "~/scripts/vendor/bootstrap.min.js",
-                "~/Scripts/formJS/bootstrapValidator.min.js",
-                "~/Scripts/respond.js"
+                "~/scripts/vendor/bootstrap.js",
+                "~/Scripts/respond.js",
+                "~/scripts/jquery.magnific-popup.js",
+                "~/scripts/jquery.easing.1.3.js",
+                "~/scripts/jquery.collapse.js",
+                "~/Scripts/vendor/validator.js"
             ));
 
             //Form bundles JS

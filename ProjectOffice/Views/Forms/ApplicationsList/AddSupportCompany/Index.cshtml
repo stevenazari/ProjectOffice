@@ -14,8 +14,8 @@
                         <input type="text" id="Support_Name" name="Support_Name" placeholder="Company Name" class="form-control" data-minlength="3" required data-error="Minimum character length is 3 characters">
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    <div class="help-block with-errors"></div>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Text input-->
@@ -70,8 +70,10 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                         <input type="email" name="Support_Email" class="form-control" id="Support_Email" placeholder="EMail@Address.com" data-error="Invalid Email address">
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
-            </div>
+                <label class="help-block with-errors">*</label>
+           </div>
 
             <!-- Text input-->
             <div class="form-group">
@@ -85,9 +87,9 @@
             </div>
 
             <!-- radio checks -->
-            <div class="form-group">
+            <div class="form-group has-feedback">
                 <label class="col-md-4 control-label">Support Contract:</label>
-                <div class="col-md-4">
+                <div class="col-md-4 inputGroupContainer">
                     <div class="radio">
                         <label>
                             <input type="radio" name="Support_Contract" value="1" required /> Yes
@@ -98,19 +100,22 @@
                             <input type="radio" name="Support_Contract" value="0" required/> No
                         </label>
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Text area -->
-            <div class="form-group">
+            <div class="form-group has-feedback">
                 <label class="col-md-4 control-label">Company Notes:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea id="Support_Comment" name="Support_Comment" placeholder="Project Description" class="form-control" data-minlength="10" data-error="Description required"></textarea>
+                        <textarea type="text" id="Support_Comment" name="Support_Comment" placeholder="Project Description" class="form-control" data-minlength="10" required data-error="Description required"></textarea>
                     </div>
-                    <div class="help-block with-errors"></div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Success message -->
