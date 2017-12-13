@@ -22,6 +22,8 @@ namespace ProjectOffice
             //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
                 //Form Validation
+                "~/scripts/formJS/bootstrap.min.js",
+                "~/Scripts/formJS/bootstrapValidator.min.js",
                 "~/Scripts/formJS/Validation/Add_Application_Validation.js",
                 "~/Scripts/formJS/Validation/Add_Server_Validation.js",
                 "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
@@ -44,8 +46,6 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/formJS/bootstrap.min.js",
-                "~/Scripts/formJS/bootstrapValidator.min.js",
                 "~/scripts/vendor/bootstrap.min.js",
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"
@@ -76,8 +76,8 @@ namespace ProjectOffice
             bundles.Add(new StyleBundle("~/bundles/formCSS").Include(
                 "~/css/formCSS/bootstrap.min.css",
                 "~/css/formCSS/bootstrap-theme.min.css",
-                "~/css/formCSS/bootstrapValidator.min.css",
                 "~/css/formCSS/style.css"
+                "~/css/formCSS/bootstrapValidator.min.css",
             ));
         }
     }
