@@ -144,13 +144,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\FormControllers\FormsController.cs" />
+    <Compile Include="Controllers\FormControllers\SupportCompany.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectOfficeDatabaseController.cs" />
     <Compile Include="Controllers\SiteLayoutController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\formController.cs" />
+    <Compile Include="Models\Forms\SupportCompanyController.cs" />
+    <Compile Include="Models\Forms\SupportCompany\SupportCompanyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -323,7 +327,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\form\" />
+    <Folder Include="Controllers\PageControllers\" />
+    <Folder Include="Views\ProjectOfficeDatabase\" />
+    <Folder Include="Views\SupportCompany\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

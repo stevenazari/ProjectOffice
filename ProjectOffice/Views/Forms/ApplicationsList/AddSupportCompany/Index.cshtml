@@ -1,6 +1,6 @@
 ﻿<br />
 <div class="container">
-    <form role="form" class="well form-horizontal" data-toggle="validator" action="/forms/ApplicationList/submit" id="Add_Support_Company_Form">
+    <form role="form" class="well form-horizontal" data-toggle="validator" action="SupportCompany/save" id="Add_Support_Company_Form">
         <fieldset>
             <!-- Form Name -->
             <legend>Add Support Company</legend>
@@ -68,12 +68,12 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input type="email" name="Support_Email" class="form-control" id="Support_Email" placeholder="EMail@Address.com" data-error="Invalid Email address">
+                        <input type="email" name="Support_Email" class="form-control" id="Support_Email" placeholder="EMail@Address.com" required data-error="Invalid Email address">
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <label class="help-block with-errors">*</label>
-           </div>
+            </div>
 
             <!-- Text input-->
             <div class="form-group">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="Support_Contract" value="0" required/> No
+                            <input type="radio" name="Support_Contract" value="0" required /> No
                         </label>
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -130,4 +130,30 @@
             </div>
         </fieldset>
     </form>
+</div>
+
+<div class="container">
+    <div class="well form-horizontal">
+        <fieldset>
+            <legend>Support Companies</legend>
+            <table id="SupportCompanies" class="table-list">
+                <thead>
+                </thead>
+                <tbody id="SupportCompaniesBody">
+                    <tr id='SupportHeadRow'>
+                        <th class="table-list-th">ID</th>
+                        <th class="table-list-th">Support Name</th>
+                        <th class="table-list-th">Address 1</th>
+                        <th class="table-list-th">Address 2</th>
+                        <th class="table-list-th">Post Code</th>
+                        <th class="table-list-th">Tel</th>
+                        <th class="table-list-th">Email</th>
+                        <th class="table-list-th">Website</th>
+                        <th class="table-list-th">Contract</th>
+                        <th class="table-list-th">Comment</th>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
 </div><!-- /.container -->
