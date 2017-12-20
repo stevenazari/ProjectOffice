@@ -10,7 +10,7 @@ namespace ProjectOffice
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-3.2.1.js",
+                "~/Scripts/jquery-2.1.3.js",
                 "~/scripts/jquery.magnific-popup.js",
                 "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/jquery.collapse.js"
@@ -21,17 +21,16 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/bootstrap.js",
+                "~/scripts/vendor/bootstrap.js",
                 "~/Scripts/respond.js",
-                "~/Scripts/validator.js"
+                "~/Scripts/vendor/validator.js"
             ));
 
             //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
                 //Form Validation
-                "~/Scripts/formJS/Validation/sharedJS.js",
-//                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
-//                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
+                //                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
+                //                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
                 "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
             ));
             //End of form bundle JS
@@ -42,11 +41,6 @@ namespace ProjectOffice
                 "~/css/slick/slick.min.js",
                 "~/scripts/bootsnav.js",
                 "~/scripts/plugins.js",
-                "~/scripts/jquery.waypoints.js",
-                "~/scripts/owl.carousel.js",
-                "~/scripts/jquery.localScroll.js",
-                "~/scripts/jquery.counterup.js",
-                "~/scripts/wow.js",
                 "~/scripts/main.js"
             ));
 
@@ -70,12 +64,15 @@ namespace ProjectOffice
                 "~/css/responsive.css",
 
                 //--xsslider slider css--
-                    //"~/css/xsslider.css"
+                //"~/css/xsslider.css"
                 //--For Plugins external css--
-                    //"~/css/plugins.css"
+                //"~/css/plugins.css"
                 //--Theme custom css--
-                    "~/css/style.css"
-                    //"~/css/colors/maron.css"
+                "~/css/style.css",
+                //"~/css/colors/maron.css"
+
+                //Custom CSS
+                "~/css/table-styles.css"
             ));
 
             bundles.Add(new StyleBundle("~/Content/formCSS").Include(
