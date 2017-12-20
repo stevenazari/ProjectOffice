@@ -153,7 +153,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\formController.cs" />
-    <Compile Include="Models\Forms\SupportCompanyController.cs" />
     <Compile Include="Models\Forms\SupportCompany\SupportCompanyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,6 +182,7 @@
     <Content Include="css\slick\slick.js" />
     <Content Include="css\slick\slick.min.js" />
     <Content Include="css\style.css" />
+    <Content Include="css\table-styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\bootstrapThemesCo-icon.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
