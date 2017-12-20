@@ -1,24 +1,26 @@
 ﻿<br />
 <div class="container">
-    <form class="well form-horizontal" action=" " method="post" id="Add_Support_Company_Form">
+    <form role="form" class="well form-horizontal" data-toggle="validator" action="../SupportCompany/save" id="Add_Support_Company_Form">
         <fieldset>
             <!-- Form Name -->
             <legend>Add Support Company</legend>
 
             <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Company name:</label>
+            <div class="form-group has-feedback">
+                <label for="Support_Name" class="col-md-4 control-label">Company name:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="Support_Name" placeholder="Company Name" class="form-control" type="text">
+                        <input type="text" id="Support_Name" name="Support_Name" placeholder="Company Name" class="form-control" data-minlength="3" required data-error="Minimum character length is 3 characters">
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label">First Line Address:</label>
+                <label for="Support_Address_1" class="col-md-4 control-label">First Line Address:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -61,14 +63,16 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail:</label>
+            <div class="form-group has-feedback">
+                <label for="Support_Email" class="col-md-4 control-label">E-Mail:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="Support_Email" placeholder="E-Mail Address" class="form-control" type="text">
+                        <input type="email" name="Support_Email" class="form-control" id="Support_Email" placeholder="EMail@Address.com" required data-error="Invalid Email address">
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Text input-->
@@ -83,31 +87,35 @@
             </div>
 
             <!-- radio checks -->
-            <div class="form-group">
+            <div class="form-group has-feedback">
                 <label class="col-md-4 control-label">Support Contract:</label>
-                <div class="col-md-4">
+                <div class="col-md-4 inputGroupContainer">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="Support_Contract" value="1" /> Yes
+                            <input type="radio" name="Support_Contract" value="1" required /> Yes
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="Support_Contract" value="0" /> No
+                            <input type="radio" name="Support_Contract" value="0" required /> No
                         </label>
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Text area -->
-            <div class="form-group">
+            <div class="form-group has-feedback">
                 <label class="col-md-4 control-label">Company Notes:</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" name="Support_Comment" placeholder="Project Description"></textarea>
+                        <textarea type="text" id="Support_Comment" name="Support_Comment" placeholder="Project Description" class="form-control" data-minlength="10" required data-error="Description required"></textarea>
                     </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label class="help-block with-errors">*</label>
             </div>
 
             <!-- Success message -->
@@ -122,4 +130,30 @@
             </div>
         </fieldset>
     </form>
+</div>
+
+<div class="container">
+    <div class="well form-horizontal">
+        <fieldset>
+            <legend>Support Companies</legend>
+            <table id="SupportCompanies" class="table-list">
+                <thead>
+                </thead>
+                <tbody id="SupportCompaniesBody">
+                    <tr id='SupportHeadRow'>
+                        <th class="table-list-th">ID</th>
+                        <th class="table-list-th">Support Name</th>
+                        <th class="table-list-th">Address 1</th>
+                        <th class="table-list-th">Address 2</th>
+                        <th class="table-list-th">Post Code</th>
+                        <th class="table-list-th">Tel</th>
+                        <th class="table-list-th">Email</th>
+                        <th class="table-list-th">Website</th>
+                        <th class="table-list-th">Contract</th>
+                        <th class="table-list-th">Comment</th>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
 </div><!-- /.container -->

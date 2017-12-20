@@ -66,8 +66,9 @@ $(document).ready(function () {
         }
     })
         .on('success.form.bv', function (e) {
+            alert("test");
             $('#Server_Success_Message').slideDown({ opacity: "show" }, "slow") // Do something ...
-            $('#Add_Server_Form').data('bootstrapValidator').resetForm();
+//            $('#Add_Server_Form').data('bootstrapValidator').resetForm();
 
             // Prevent form submission
             e.preventDefault();

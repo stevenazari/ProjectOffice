@@ -1,0 +1,13 @@
+﻿.table-list {
+    width: 100%;
+    text-align: center;
+}
+
+.table-list-th {
+    padding-right: 10px;
+}
+
+.table-list-td {
+    text-align: left;
+    padding-right: 10px;
+}
