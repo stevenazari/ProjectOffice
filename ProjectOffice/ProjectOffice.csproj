@@ -329,6 +329,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\PageControllers\" />
     <Folder Include="Views\ProjectOfficeDatabase\" />
+    <Folder Include="Views\SupportCompany1\" />
     <Folder Include="Views\SupportCompany\" />
   </ItemGroup>
   <ItemGroup>

@@ -18,15 +18,23 @@ namespace ProjectOffice.Controllers.FormControllers
         }
 
         [HttpPost]
-        public ActionResult Save()
+        public JsonResult Save(SupportCompanyModel supportCompanyData)
         {
             string message = "";
-            DataTable payload = null;
             string jsonResult = "";
+            DataTable payload = null;
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            var supportCompanyDataProperties = supportCompanyData.GetType().GetProperties();
+
+            foreach (PropertyInfo property in supportCompanyDataProperties)
+            {
+                dict.Add(property.Name, property.GetValue(supportCompanyData, null).ToString());
+            }
 
             if (ModelState.IsValid)
             {
-                var result = DBClassController.SQLConnection("Insert_Support_Companies", buildSupportCompanyFields());
+                var result = DBClassController.SQLConnection("Insert_Support_Companies", dict);
                 message = result.Item1;
                 payload = result.Item2;
             }
@@ -37,32 +45,10 @@ namespace ProjectOffice.Controllers.FormControllers
 
             jsonResult = DBClassController.BuildDataTableToJson(payload);
 
-            if (Request.IsAjaxRequest())
-            {
                 var jsonResponse = new { message = message, results = jsonResult };
                 return Json(jsonResponse, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                ViewBag.Message = message;
-                return View(payload);
-            }
         }
 
-        public static StringDictionary buildSupportCompanyFields()
-        {
-            SupportCompanyModel supportCompany = new SupportCompanyModel();
-            Type SCD = supportCompany.GetType();
-            PropertyInfo[] properties = SCD.GetProperties();
-            StringDictionary dict = new StringDictionary();
-
-            foreach (PropertyInfo property in properties)
-            {
-                dict.Add(property.Name, property.GetValue(supportCompany, null).ToString());
-            }
-
-            return dict;
-        }
         /*
                 public JsonResult GetSupportCompany(Support_Companies searchCriteria)
                 {

@@ -21,7 +21,7 @@ namespace ProjectOffice.Controllers
             return View();
         }
 
-        public static Tuple<string, DataTable> SQLConnection(string StoredProcedure, StringDictionary colVal)
+        public static Tuple<string, DataTable> SQLConnection(string StoredProcedure, Dictionary<string,string> colVal)
         {
             DBClassController dbClass = new DBClassController();
             DataTable dataTable = new DataTable();
@@ -43,11 +43,11 @@ namespace ProjectOffice.Controllers
             return Tuple.Create(message, dataTable);
         }
 
-        public string BuildStoredProcedure(string StoredProcedure, StringDictionary colVal)
+        public string BuildStoredProcedure(string StoredProcedure, Dictionary<string, string> colVal)
         {
             string procedure = "EXEC " + StoredProcedure + " ";
 
-            foreach (DictionaryEntry value in colVal)
+            foreach (KeyValuePair<string,string> value in colVal)
             {
                 procedure += "@" + value.Key + " = " + value.Value + " ";
             }

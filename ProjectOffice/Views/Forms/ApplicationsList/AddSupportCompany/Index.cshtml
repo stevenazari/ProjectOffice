@@ -1,159 +1,165 @@
-﻿<br />
-<div class="container">
-    <form role="form" class="well form-horizontal" data-toggle="validator" action="../SupportCompany/save" id="Add_Support_Company_Form">
-        <fieldset>
-            <!-- Form Name -->
-            <legend>Add Support Company</legend>
+﻿@model ProjectOffice.Models.Forms.SupportCompany.SupportCompanyModel
+@{
+    <br />
+    <div class="container">
+        <form role="form" class="well form-horizontal" data-toggle="validator" method="post" action="/SupportCompany/save" id="Add_Support_Company_Form">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Add Support Company</legend>
 
-            <!-- Text input-->
-            <div class="form-group has-feedback">
-                <label for="Support_Name" class="col-md-4 control-label">Company name:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" id="Support_Name" name="Support_Name" placeholder="Company Name" class="form-control" data-minlength="3" required data-error="Minimum character length is 3 characters">
+                <!-- Text input-->
+                <div class="form-group has-feedback">
+                    
+                    <label for="Support_Name" class="col-md-4 control-label">@Html.LabelFor(m => m.Name, "Name:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            @Html.TextBoxFor(m => m.Name, new { placeholder = "Company Name", ID = "Support_Name", @class = "form-control", required = "required" })
+                        </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Name)</label>
                 </div>
-                <label class="help-block with-errors">*</label>
-            </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label for="Support_Address_1" class="col-md-4 control-label">First Line Address:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="Support_Address_1" placeholder="1 Road Name" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Second Line Address:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="Support_Address_2" placeholder="Town/City" class="form-control" type="text">
+                <!-- Text input-->
+                <div class="form-group">
+                    <label for="Support_Address_1" class="col-md-4 control-label">@Html.LabelFor(m => m.Address_1, "Address 1:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                            @Html.TextBoxFor(m => m.Address_1, new { placeholder = "1 Street Name", @class = "form-control" })
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Post Code:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input name="Support_Post_Code" placeholder="Post Code" class="form-control" type="text">
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Address_2, "Address 2:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                            @Html.TextBoxFor(m => m.Address_2, new { placeholder = "Town/City", @class = "form-control" })
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Tel:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input name="Support_Tel" placeholder="00441234355188" class="form-control" type="text">
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Post_Code, "Post Code:"):</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                            @Html.TextBoxFor(m => m.Post_Code, new { placeholder = "Post Code", @class = "form-control" })
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Text input-->
-            <div class="form-group has-feedback">
-                <label for="Support_Email" class="col-md-4 control-label">E-Mail:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input type="email" name="Support_Email" class="form-control" id="Support_Email" placeholder="EMail@Address.com" required data-error="Invalid Email address">
-                    </div>
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                </div>
-                <label class="help-block with-errors">*</label>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">Website:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                        <input name="Support_Website" placeholder="Website or domain name" class="form-control" type="text">
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Tel, "Tel:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            @Html.TextBoxFor(m => m.Tel, new { placeholder = "00000 000000", @class = "form-control" })
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- radio checks -->
-            <div class="form-group has-feedback">
-                <label class="col-md-4 control-label">Support Contract:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="Support_Contract" value="1" required /> Yes
-                        </label>
+                <!-- Text input-->
+                <div class="form-group has-feedback">
+                    <label for="Support_Email" class="col-md-4 control-label">@Html.LabelFor(m => m.Email, "Email:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email@Address.com", @class = "form-control", type = "email", required = "required" })
+                        </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="Support_Contract" value="0" required /> No
-                        </label>
+                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Email)</label>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Website, "Website:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                            @Html.TextBoxFor(m => m.Website, new { placeholder = "Website or domain name", @class = "form-control" })
+                        </div>
                     </div>
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
-                <label class="help-block with-errors">*</label>
-            </div>
-
-            <!-- Text area -->
-            <div class="form-group has-feedback">
-                <label class="col-md-4 control-label">Company Notes:</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea type="text" id="Support_Comment" name="Support_Comment" placeholder="Project Description" class="form-control" data-minlength="10" required data-error="Description required"></textarea>
+ 
+                <!-- radio checks -->
+                <div class="form-group has-feedback">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Out_Of_Hours, "Support Contract:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(m => m.Out_Of_Hours, "Yes", new { required = "required" }) Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(m => m.Out_Of_Hours, "No", new { required = "required" }) No
+                            </label>
+                        </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Out_Of_Hours)</label>
                 </div>
-                <label class="help-block with-errors">*</label>
-            </div>
 
-            <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="Support_Success_Message">Added Support Company <i class="glyphicon glyphicon-thumbs-up"></i></div>
 
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-warning">Add Support Company <span class="glyphicon glyphicon-send"></span></button>
+
+               <!-- Text area -->
+                <div class="form-group has-feedback">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Company Notes:")</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            @Html.TextAreaFor(m => m.Comment, new { placeholder = "Description", @class = "form-control", required = "required" })
+                        </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Comment) </label>
                 </div>
-            </div>
-        </fieldset>
-    </form>
-</div>
 
-<div class="container">
-    <div class="well form-horizontal">
-        <fieldset>
-            <legend>Support Companies</legend>
-            <table id="SupportCompanies" class="table-list">
-                <thead>
-                </thead>
-                <tbody id="SupportCompaniesBody">
-                    <tr id='SupportHeadRow'>
-                        <th class="table-list-th">ID</th>
-                        <th class="table-list-th">Support Name</th>
-                        <th class="table-list-th">Address 1</th>
-                        <th class="table-list-th">Address 2</th>
-                        <th class="table-list-th">Post Code</th>
-                        <th class="table-list-th">Tel</th>
-                        <th class="table-list-th">Email</th>
-                        <th class="table-list-th">Website</th>
-                        <th class="table-list-th">Contract</th>
-                        <th class="table-list-th">Comment</th>
-                    </tr>
-                </tbody>
-            </table>
-        </fieldset>
+                <!-- Success message -->
+                <div class="alert alert-success" role="alert" id="Support_Success_Message">Added Support Company <i class="glyphicon glyphicon-thumbs-up"></i></div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-warning">Add Support Company <span class="glyphicon glyphicon-send"></span></button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
     </div>
-</div><!-- /.container -->
+
+    <div class="container">
+        <div class="well form-horizontal">
+            <fieldset>
+                <legend>Support Companies</legend>
+                <table id="SupportCompanies" class="table-list">
+                    <thead>
+                    </thead>
+                    <tbody id="SupportCompaniesBody">
+                        <tr id='SupportHeadRow'>
+                            <th class="table-list-th">ID</th>
+                            <th class="table-list-th">Support Name</th>
+                            <th class="table-list-th">Address 1</th>
+                            <th class="table-list-th">Address 2</th>
+                            <th class="table-list-th">Post Code</th>
+                            <th class="table-list-th">Tel</th>
+                            <th class="table-list-th">Email</th>
+                            <th class="table-list-th">Website</th>
+                            <th class="table-list-th">Contract</th>
+                            <th class="table-list-th">Comment</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div><!-- /.container -->
+}
