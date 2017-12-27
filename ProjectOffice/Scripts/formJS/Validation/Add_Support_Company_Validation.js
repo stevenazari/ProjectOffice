@@ -16,38 +16,25 @@ $(document).ready(function () {
                 dataType: 'json',
                 data: $form.serialize(),
                 type: 'POST',
-                success: function (SupportCompanies) {
-                    $("#SupportCompanies tr").remove();
-                    var items = '';
-
-                    var rows = "<tr id='SupportHeadRow'>" +
-                        "<th class='table-list-th'>ID</th>" +
-                        "<th class='table-list-th'>Support Name</th>" +
-                        "<th class='table-list-th'>Address 1</th>" +
-                        "<th class='table-list-th'>Address 2</th>" +
-                        "<th class='table-list-th'>Post Code</th>" +
-                        "<th class='table-list-th'>Tel</th>" +
-                        "<th class='table-list-th'>Email</th>" +
-                        "<th class='table-list-th'>Website</th>" +
-                        "<th class='table-list-th'>Contract</th>" +
-                        "<th class='table-list-th'>Comment</th>" +
-                        "</tr>";
-                    $('#SupportCompanies').append(rows);
-
-                    $.each(SupportCompanies, function (i, item) {
-                        var rows = "<tr id='SupportRow" + item.SupportID + "'>" +
-                            "<td class='table-list-td'>" + item.SupportID + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportName + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportAddress1 + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportAddress2 + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportPostCode + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportTel + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportEmail + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportWebsite + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportContract + "</td>" +
-                            "<td class='table-list-td'>" + item.SupportComment + "</td>" +
+                success: function (JSONResult) {
+                    //$("#SupportCompanies tr").remove();
+                    var items = JSON.parse(JSONResult.results);
+                    var rows = ""
+                   
+                    $.each(items, function (name, item) {
+                        var rows = "<tr id='SupportRow" + this.ID + "'>" +
+                            "<td class='table-list-td'>" + this.ID + "</td>" +
+                            "<td class='table-list-td'>" + this.Name + "</td>" +
+                            "<td class='table-list-td'>" + this.Address_1 + "</td>" +
+                            "<td class='table-list-td'>" + this.Address_2 + "</td>" +
+                            "<td class='table-list-td'>" + this.Post_Code + "</td>" +
+                            "<td class='table-list-td'>" + this.Tel + "</td>" +
+                            "<td class='table-list-td'>" + this.Email + "</td>" +
+                            "<td class='table-list-td'>" + this.Website + "</td>" +
+                            "<td class='table-list-td'>" + this.Out_Of_Hours + "</td>" +
+                            "<td class='table-list-td'>" + this.Comment + "</td>" +
                             "</tr>";
-                        $('#SupportCompanies').append(rows);
+                        $("#SupportCompanies tr:first").after(rows);
                     });
 
                     $("#imgLoading").hide();

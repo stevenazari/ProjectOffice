@@ -35,6 +35,13 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="projectOffice" Order="1">
+          <Destination Path="Data Source=BH024783\SQLEXPRESS%3bInitial Catalog=projectOffice%3bPersist Security Info=True%3bUser ID=projectOffice%3bPassword=projectOffice" />
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -144,6 +151,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FormControllers\ApplicationController.cs" />
     <Compile Include="Controllers\FormControllers\FormsController.cs" />
     <Compile Include="Controllers\FormControllers\SupportCompany.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -153,6 +161,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\formController.cs" />
+    <Compile Include="Models\Forms\Application\ApplicationController.cs" />
     <Compile Include="Models\Forms\SupportCompany\SupportCompanyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -328,6 +337,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\PageControllers\" />
+    <Folder Include="Views\Application\" />
     <Folder Include="Views\ProjectOfficeDatabase\" />
     <Folder Include="Views\SupportCompany1\" />
     <Folder Include="Views\SupportCompany\" />

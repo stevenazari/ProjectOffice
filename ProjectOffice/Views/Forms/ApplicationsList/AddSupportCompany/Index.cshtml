@@ -95,12 +95,12 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="radio">
                             <label>
-                                @Html.RadioButtonFor(m => m.Out_Of_Hours, "Yes", new { required = "required" }) Yes
+                                @Html.RadioButtonFor(m => m.Out_Of_Hours, true, new { required = "required" }) Yes
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                @Html.RadioButtonFor(m => m.Out_Of_Hours, "No", new { required = "required" }) No
+                                @Html.RadioButtonFor(m => m.Out_Of_Hours, true, new { required = "required" }) No
                             </label>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>

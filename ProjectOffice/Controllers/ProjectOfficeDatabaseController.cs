@@ -10,6 +10,9 @@ using System.Reflection;
 using System.Text;
 using System.Collections;
 using System.Collections.Specialized;
+using System.Diagnostics;
+using Newtonsoft.Json;
+
 
 namespace ProjectOffice.Controllers
 {
@@ -21,79 +24,43 @@ namespace ProjectOffice.Controllers
             return View();
         }
 
-        public static Tuple<string, DataTable> SQLConnection(string StoredProcedure, Dictionary<string,string> colVal)
+        public static Tuple<string, DataTable> SQLConnection(string StoredProcedure, string values)
         {
-            DBClassController dbClass = new DBClassController();
-            DataTable dataTable = new DataTable();
             string message = "";
-            string Query = dbClass.BuildStoredProcedure(StoredProcedure, colVal);
+            string procedure = "EXEC " + StoredProcedure + " " + values;
+            DataTable results = new DataTable(StoredProcedure);
+            Debug.WriteLine("procedure SQLConnection: " + procedure);
 
             try
             {
-                using (SqlDataAdapter connection = new SqlDataAdapter(Query, ConfigurationManager.ConnectionStrings["ProjectOffice"].ToString()))
-                connection.Fill(dataTable);
-                
-                message = "Success";
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnection"].ToString()))
+                using (SqlCommand query = new SqlCommand(procedure, connection))
+                {
+                    SqlDataAdapter data = new SqlDataAdapter(query);
+                    connection.Open();
+                    data.Fill(results);
+                    connection.Close();
+
+                    message = "Success";
+                }
+
             }
             catch (Exception ex)
             {
-                message = "Error running query (" + Query + ") " + ex;
+                //Debug.WriteLine("Erroring trying to run: " + procedure);
+                message = "Error running query (" + StoredProcedure + ") " + ex;
             }
 
-            return Tuple.Create(message, dataTable);
-        }
-
-        public string BuildStoredProcedure(string StoredProcedure, Dictionary<string, string> colVal)
-        {
-            string procedure = "EXEC " + StoredProcedure + " ";
-
-            foreach (KeyValuePair<string,string> value in colVal)
-            {
-                procedure += "@" + value.Key + " = " + value.Value + " ";
-            }
-
-            return procedure;
+            return Tuple.Create(message, results);
         }
 
         public static string BuildDataTableToJson(DataTable colVal)
         {
-            DataSet ds = new DataSet();
-            ds.Merge(colVal);
-            StringBuilder JsonString = new StringBuilder();
+            string JSONresult;
+            JSONresult = JsonConvert.SerializeObject(colVal);
+            //Debug.WriteLine("JSONResult: " + JSONresult);
 
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-            {
-                JsonString.Append("[");
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    JsonString.Append("{");
-                    for (int j = 0; j < ds.Tables[0].Columns.Count; j++)
-                    {
-                        if (j < ds.Tables[0].Columns.Count - 1)
-                        {
-                            JsonString.Append("\"" + ds.Tables[0].Columns[j].ColumnName.ToString() + "\":" + "\"" + ds.Tables[0].Rows[i][j].ToString() + "\",");
-                        }
-                        else if (j == ds.Tables[0].Columns.Count - 1)
-                        {
-                            JsonString.Append("\"" + ds.Tables[0].Columns[j].ColumnName.ToString() + "\":" + "\"" + ds.Tables[0].Rows[i][j].ToString() + "\"");
-                        }
-                    }
-                    if (i == ds.Tables[0].Rows.Count - 1)
-                    {
-                        JsonString.Append("}");
-                    }
-                    else
-                    {
-                        JsonString.Append("},");
-                    }
-                }
-                JsonString.Append("]");
-                return JsonString.ToString();
-            }
-            else
-            {
-                return null;
-            }
+            return JSONresult;
         }
     }
 }
