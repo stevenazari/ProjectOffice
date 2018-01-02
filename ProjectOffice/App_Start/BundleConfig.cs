@@ -28,12 +28,23 @@ namespace ProjectOffice
 
             //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
-                //Form Validation
-                //                "~/Scripts/formJS/Validation/Add_Application_Validation.js",
-                //                "~/Scripts/formJS/Validation/Add_Server_Validation.js",
+                "~/Scripts/formJS/formJS.js"
+            ));
+
+            //Support Company bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/addSupportCompany").Include(
                 "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
             ));
-            //End of form bundle JS
+
+            //Application bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/addApplication").Include(
+                "~/Scripts/formJS/Validation/Add_Application_Validation.js"
+            ));
+
+            //Server bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/addServer").Include(
+                "~/Scripts/formJS/Validation/Add_Server.js"
+            ));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                 "~/scripts/owl.carousel.min.js",

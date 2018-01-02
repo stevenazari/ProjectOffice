@@ -48,35 +48,5 @@ namespace ProjectOffice.Controllers
 
             return PartialView("~/Views/Forms/ApplicationsList/AddServer/Intro.cshtml");
         }
-
-        //Add application section
-        public ActionResult AddApplication()
-        {
-            ViewBag.Title = "Add Application";
-
-            return PartialView("~/Views/Forms/ApplicationsList/AddApplication/Index.cshtml");
-        }
-
-        public ActionResult AddApplicationIntro()
-        {
-            ViewBag.Title = "Add Application";
-
-            return PartialView("~/Views/Forms/ApplicationsList/AddApplication/Intro.cshtml");
-        }
-
-        //Add Support Company section
-        public ActionResult AddSupportCompany()
-        {
-            ViewBag.Title = "Add Support Company";
-
-            return PartialView("~/Views/Forms/ApplicationsList/AddSupportCompany/Index.cshtml");
-        }
-
-        public ActionResult AddSupportCompanyIntro()
-        {
-            ViewBag.Title = "Add Support Company";
-
-            return PartialView("~/Views/Forms/ApplicationsList/AddSupportCompany/Intro.cshtml");
-        }
     }
 }

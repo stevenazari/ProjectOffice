@@ -5,8 +5,6 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +17,10 @@
 
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/formCSS")
 </head>
-
-
-
 <body data-spy="scroll" data-target=".navbar-collapse">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     <!-- Preloader -->
     <div id="loading">
         <div id="loading-center">

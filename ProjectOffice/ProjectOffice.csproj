@@ -153,6 +153,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FormControllers\ApplicationController.cs" />
     <Compile Include="Controllers\FormControllers\FormsController.cs" />
+    <Compile Include="Controllers\FormControllers\ServerController.cs" />
     <Compile Include="Controllers\FormControllers\SupportCompany.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectOfficeDatabaseController.cs" />
@@ -162,6 +163,7 @@
     </Compile>
     <Compile Include="Models\formController.cs" />
     <Compile Include="Models\Forms\Application\ApplicationController.cs" />
+    <Compile Include="Models\Forms\Server\ServerController.cs" />
     <Compile Include="Models\Forms\SupportCompany\SupportCompanyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -249,6 +251,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\formJS\formJS.js" />
     <Content Include="Scripts\formJS\Validation\Add_Server_Validation.js" />
     <Content Include="Scripts\formJS\Validation\Add_Support_Company_Validation.js" />
     <Content Include="Scripts\formJS\Validation\Add_Application_Validation.js" />
@@ -339,8 +342,7 @@
     <Folder Include="Controllers\PageControllers\" />
     <Folder Include="Views\Application\" />
     <Folder Include="Views\ProjectOfficeDatabase\" />
-    <Folder Include="Views\SupportCompany1\" />
-    <Folder Include="Views\SupportCompany\" />
+    <Folder Include="Views\Server\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

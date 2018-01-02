@@ -2,7 +2,82 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Applications List";
 }
+@Styles.Render("~/Content/formCSS")
+@Scripts.Render("~/bundles/formJS")
 
-@{ Html.RenderAction("AddSupportCompany", "Forms");}
-@{ Html.RenderAction("AddApplication", "Forms");}
-@{ Html.RenderAction("AddServer", "Forms");}
+<br />
+<div class="container">
+    <div class="panel-group" id="collapse" role="tablist" aria-multiselectable="false">
+
+        <div class="panel panel-default well form-horizontal">
+            <div role="tab" id="collapse-heading-one">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-one" aria-expanded="false" aria-controls="collapse-one">
+                        Add Support Company
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse-one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-one">
+                <div class="panel-body">
+                    @{ Html.RenderAction("Index", "SupportCompany");}
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default well form-horizontal">
+            <div role="tab" id="collapse-heading-two">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
+                        Add Application
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-two">
+                <div class="panel-body">
+                    @{ Html.RenderAction("Index", "Application");}
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default well form-horizontal">
+            <div role="tab" id="collapse-heading-three">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-three" aria-expanded="false" aria-controls="collapse-three">
+                        Add Server
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-three">
+                <div class="panel-body">
+                    @{ Html.RenderAction("AddServer", "Forms");}
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.container -->
+
+<div class="container">
+    <div class="well form-horizontal">
+        <fieldset>
+            <legend>Support Companies</legend>
+            <table id="SupportCompanies" class="table-list">
+                <thead>
+                </thead>
+                <tbody id="SupportCompaniesBody">
+                    <tr id='SupportHeadRow'>
+                        <th class="table-list-th">ID</th>
+                        <th class="table-list-th">Support Name</th>
+                        <th class="table-list-th">Address 1</th>
+                        <th class="table-list-th">Address 2</th>
+                        <th class="table-list-th">Post Code</th>
+                        <th class="table-list-th">Tel</th>
+                        <th class="table-list-th">Email</th>
+                        <th class="table-list-th">Website</th>
+                        <th class="table-list-th">Contract</th>
+                        <th class="table-list-th">Comment</th>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div><!-- /.container -->

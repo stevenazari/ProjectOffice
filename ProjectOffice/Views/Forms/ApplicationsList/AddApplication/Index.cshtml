@@ -1,11 +1,10 @@
 ﻿@model ProjectOffice.Models.Forms.Application.ApplicationModel
 @{
     <br />
-    <div class="container">
-        <form role="form" class="well form-horizontal" data-toggle="validator" method="post" action="/SupportCompany/save" id="Add_Support_Company_Form">
+        <form role="form" data-toggle="validator" method="post" action="/Application/save" id="Add_Application_Form">
             <fieldset>
                 <!-- Form Name -->
-                <legend>Add Application</legend>
+                <!--<legend>Add Application</legend>-->
 
                 <!-- Text input-->
                 <div class="form-group has-feedback">
@@ -23,7 +22,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label for="Support_Address_1" class="col-md-4 control-label">@Html.LabelFor(m => m.Version, "Address 1:")</label>
+                    <label for="Support_Address_1" class="col-md-4 control-label">@Html.LabelFor(m => m.Version, "Version:")</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -33,89 +32,34 @@
                 </div>
 
                 <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Package_Type, "Package Type:")</label>
+                <div class="form-group has-feedback">
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Support_Company_ID, "Support Company:")</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <asp:DropDownList ID="Package_Type" runat="server" AppendDataBoundItems="true">
-                                <asp:ListItem Text="<Select Subject>" Value="0" />
-                            </asp:DropDownList>
-                            @Html.DropDownListFor(m => m.Package_Type, new { ID = "Package_Type", placeholder = "Town/City", @class = "form-control" })
+                            @Html.DropDownListFor(m => m.Support_Company_ID, (SelectList)ProjectOffice.Models.Forms.Application.ApplicationModel.GetSupportCompanies(), "Select Support Company", new { ID = "Support_Company_ID", @class = "form-control" })
                         </div>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Post_Code, "Post Code:"):</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            @Html.TextBoxFor(m => m.Post_Code, new { placeholder = "Post Code", @class = "form-control" })
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Tel, "Tel:")</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            @Html.TextBoxFor(m => m.Tel, new { placeholder = "00000 000000", @class = "form-control" })
-                        </div>
-                    </div>
+                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Comment) </label>
                 </div>
 
                 <!-- Text input-->
                 <div class="form-group has-feedback">
-                    <label for="Support_Email" class="col-md-4 control-label">@Html.LabelFor(m => m.Email, "Email:")</label>
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Package_Type_ID, "Package Type:")</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email@Address.com", @class = "form-control", type = "email", required = "required" })
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                            @Html.DropDownListFor(m => m.Package_Type_ID, ProjectOffice.Models.Forms.Application.ApplicationModel.GetPackageTypes(), "Select Application Type", new { ID = "Package_Type_ID", @class = "form-control" })
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
-                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Email)</label>
+                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Comment) </label>
                 </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Website, "Website:")</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                            @Html.TextBoxFor(m => m.Website, new { placeholder = "Website or domain name", @class = "form-control" })
-                        </div>
-                    </div>
-                </div>
-
-                <!-- radio checks -->
-                <div class="form-group has-feedback">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Out_Of_Hours, "Support Contract:")</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="radio">
-                            <label>
-                                @Html.RadioButtonFor(m => m.Out_Of_Hours, true, new { required = "required" }) Yes
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                @Html.RadioButtonFor(m => m.Out_Of_Hours, true, new { required = "required" }) No
-                            </label>
-                        </div>
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Out_Of_Hours)</label>
-                </div>
-
-
 
                 <!-- Text area -->
                 <div class="form-group has-feedback">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Company Notes:")</label>
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Application Notes:")</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
@@ -127,42 +71,16 @@
                 </div>
 
                 <!-- Success message -->
-                <div class="alert alert-success" role="alert" id="Support_Success_Message">Added Support Company <i class="glyphicon glyphicon-thumbs-up"></i></div>
+                <div class="alert alert-success" role="alert" id="Application_Success_Message">Added Support Company <i class="glyphicon glyphicon-thumbs-up"></i></div>
 
                 <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-warning">Add Support Company <span class="glyphicon glyphicon-send"></span></button>
+                        <button type="submit" class="btn btn-warning">Add Application<span class="glyphicon glyphicon-send"></span></button>
                     </div>
                 </div>
             </fieldset>
         </form>
-    </div>
-
-    <div class="container">
-        <div class="well form-horizontal">
-            <fieldset>
-                <legend>Support Companies</legend>
-                <table id="SupportCompanies" class="table-list">
-                    <thead>
-                    </thead>
-                    <tbody id="SupportCompaniesBody">
-                        <tr id='SupportHeadRow'>
-                            <th class="table-list-th">ID</th>
-                            <th class="table-list-th">Support Name</th>
-                            <th class="table-list-th">Address 1</th>
-                            <th class="table-list-th">Address 2</th>
-                            <th class="table-list-th">Post Code</th>
-                            <th class="table-list-th">Tel</th>
-                            <th class="table-list-th">Email</th>
-                            <th class="table-list-th">Website</th>
-                            <th class="table-list-th">Contract</th>
-                            <th class="table-list-th">Comment</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </fieldset>
-        </div>
-    </div><!-- /.container -->
+    @Scripts.Render("~/bundles/addApplication")
 }

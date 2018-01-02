@@ -1,11 +1,10 @@
 ﻿@model ProjectOffice.Models.Forms.SupportCompany.SupportCompanyModel
 @{
     <br />
-    <div class="container">
-        <form role="form" class="well form-horizontal" data-toggle="validator" method="post" action="/SupportCompany/save" id="Add_Support_Company_Form">
+        <form role="form" data-toggle="validator" method="post" action="/SupportCompany/save" id="Add_Support_Company_Form">
             <fieldset>
                 <!-- Form Name -->
-                <legend>Add Support Company</legend>
+                <!--<legend>Add Support Company</legend>-->
 
                 <!-- Text input-->
                 <div class="form-group has-feedback">
@@ -45,7 +44,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Post_Code, "Post Code:"):</label>
+                    <label class="col-md-4 control-label">@Html.LabelFor(m => m.Post_Code, "Post Code:")</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -108,8 +107,6 @@
                     <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Out_Of_Hours)</label>
                 </div>
 
-
-
                <!-- Text area -->
                 <div class="form-group has-feedback">
                     <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Company Notes:")</label>
@@ -135,31 +132,5 @@
                 </div>
             </fieldset>
         </form>
-    </div>
-
-    <div class="container">
-        <div class="well form-horizontal">
-            <fieldset>
-                <legend>Support Companies</legend>
-                <table id="SupportCompanies" class="table-list">
-                    <thead>
-                    </thead>
-                    <tbody id="SupportCompaniesBody">
-                        <tr id='SupportHeadRow'>
-                            <th class="table-list-th">ID</th>
-                            <th class="table-list-th">Support Name</th>
-                            <th class="table-list-th">Address 1</th>
-                            <th class="table-list-th">Address 2</th>
-                            <th class="table-list-th">Post Code</th>
-                            <th class="table-list-th">Tel</th>
-                            <th class="table-list-th">Email</th>
-                            <th class="table-list-th">Website</th>
-                            <th class="table-list-th">Contract</th>
-                            <th class="table-list-th">Comment</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </fieldset>
-        </div>
-    </div><!-- /.container -->
+    @Scripts.Render("~/bundles/addSupportCompany")
 }
