@@ -8,39 +8,44 @@ using ProjectOffice.Controllers;
 using System.Data;
 using System.Web.UI.WebControls;
 
-namespace ProjectOffice.Models.Forms.Application
+namespace ProjectOffice.Models.Forms.ApplicationList.Environment
 {
-    public class ApplicationModel
+    public class EnvironmentModel
     {
-        public string ORDER_BY { get; set; }
-        public int? Get_All { get; set; }
         public int? ID { get; set; }
-        public string Name { get; set; }
-        public string Version { get; set; }
+        public int Application_ID { get; set; }
         public int Support_Company_ID { get; set; }
-        public int Package_Type_ID { get; set; }
+        public int Server_ID { get; set; }
+        public int Environment_Type_ID { get; set; }
         public string Comment { get; set; }
-        public DateTime Last_Used { get; set; } = DateTime.Now;
         public DateTime Created { get; set; } = DateTime.Now;
-        public bool? Status { get; set; }
         public bool? Deleted { get; set; }
 
-        public static SelectList GetSupportCompanies()
+        public static SelectList GetApplications()
         {
-            var resultCompanies = DBClassController.SQLConnection("Select_Support_Companies", "1");
+            var resultCompanies = DBClassController.SQLConnection("Select_Applications", "1");
             string message = resultCompanies.Item1;
             DataTable companiesTable = resultCompanies.Item2;
 
             return new SelectList(companiesTable.AsDataView(), "ID", "Name");
         }
 
-        public static SelectList GetPackageTypes()
+        public static SelectList GetServers()
         {
-            var resultPackageTypes = DBClassController.SQLConnection("Select_Application_Package_Types", null);
+            var resultPackageTypes = DBClassController.SQLConnection("Select_Servers", "1");
             string message = resultPackageTypes.Item1;
             DataTable PackageTypeTable = resultPackageTypes.Item2;
 
             return new SelectList(PackageTypeTable.AsDataView(), "ID", "Name");
+        }
+
+        public static SelectList GetEnvironmentTypes()
+        {
+            var resultEnvironmentTypes = DBClassController.SQLConnection("Select_Environment_Types", null);
+            string message = resultEnvironmentTypes.Item1;
+            DataTable environmentTypeTable = resultEnvironmentTypes.Item2;
+
+            return new SelectList(environmentTypeTable.AsDataView(), "ID", "Name");
         }
     }
 }

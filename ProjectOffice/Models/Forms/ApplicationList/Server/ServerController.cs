@@ -8,7 +8,7 @@ using ProjectOffice.Controllers;
 using System.Data;
 using System.Web.UI.WebControls;
 
-namespace ProjectOffice.Models.Forms.Server
+namespace ProjectOffice.Models.Forms.ApplicationList.Server
 {
     public class ServerModel
     {
@@ -17,8 +17,8 @@ namespace ProjectOffice.Models.Forms.Server
         public int? ID { get; set; }
         public string Name { get; set; }
         public string IP_Address { get; set; }
-        public int Operating_System_ID { get; set; }
-        public int Server_Type_ID { get; set; }
+        public int Operating_Systems_ID { get; set; }
+        public int Server_Types_ID { get; set; }
         public string Comment { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public bool? Status { get; set; }

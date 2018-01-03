@@ -28,13 +28,13 @@
             <div role="tab" id="collapse-heading-two">
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
-                        Add Application
+                        Add Server
                     </a>
                 </h4>
             </div>
             <div id="collapse-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-two">
                 <div class="panel-body">
-                    @{ Html.RenderAction("Index", "Application");}
+                    @{ Html.RenderAction("Index", "Server");}
                 </div>
             </div>
         </div>
@@ -43,13 +43,28 @@
             <div role="tab" id="collapse-heading-three">
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-three" aria-expanded="false" aria-controls="collapse-three">
-                        Add Server
+                        Add Application
                     </a>
                 </h4>
             </div>
             <div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-three">
                 <div class="panel-body">
-                    @{ Html.RenderAction("AddServer", "Forms");}
+                    @{ Html.RenderAction("Index", "Application");}
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default well form-horizontal">
+            <div role="tab" id="collapse-heading-four">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-four" aria-expanded="false" aria-controls="collapse-four">
+                        Create Environment
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-four">
+                <div class="panel-body">
+                    @{ Html.RenderAction("Index", "Environment");}
                 </div>
             </div>
         </div>
@@ -59,22 +74,18 @@
 <div class="container">
     <div class="well form-horizontal">
         <fieldset>
-            <legend>Support Companies</legend>
+            <legend>Environments</legend>
             <table id="SupportCompanies" class="table-list">
                 <thead>
                 </thead>
                 <tbody id="SupportCompaniesBody">
                     <tr id='SupportHeadRow'>
                         <th class="table-list-th">ID</th>
-                        <th class="table-list-th">Support Name</th>
-                        <th class="table-list-th">Address 1</th>
-                        <th class="table-list-th">Address 2</th>
-                        <th class="table-list-th">Post Code</th>
-                        <th class="table-list-th">Tel</th>
-                        <th class="table-list-th">Email</th>
-                        <th class="table-list-th">Website</th>
-                        <th class="table-list-th">Contract</th>
-                        <th class="table-list-th">Comment</th>
+                        <th class="table-list-th">Application</th>
+                        <th class="table-list-th">Support</th>
+                        <th class="table-list-th">Package Type</th>
+                        <th class="table-list-th">Servers</th>
+                        <th class="table-list-th">Application Comment</th>
                     </tr>
                 </tbody>
             </table>

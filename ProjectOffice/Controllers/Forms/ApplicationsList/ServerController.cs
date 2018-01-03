@@ -4,9 +4,9 @@ using System.Data;
 using System.Reflection;
 using System.Diagnostics;
 using System.Linq;
-using ProjectOffice.Models.Forms.Server;
+using ProjectOffice.Models.Forms.ApplicationList.Server;
 
-namespace ProjectOffice.Controllers.FormControllers
+namespace ProjectOffice.Controllers.FormsController.ApplicationsListController
 {
     public class ServerController : Controller
     {
@@ -17,6 +17,14 @@ namespace ProjectOffice.Controllers.FormControllers
 
             return PartialView("~/Views/Forms/ApplicationsList/AddServer/Index.cshtml");
         }
+
+        public ActionResult AddServerIntro()
+        {
+            ViewBag.Title = "Add Server";
+
+            return PartialView("~/Views/Forms/ApplicationsList/AddServer/Intro.cshtml");
+        }
+
 
         [HttpPost]
         public JsonResult Save(ServerModel data)

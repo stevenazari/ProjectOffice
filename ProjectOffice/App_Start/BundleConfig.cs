@@ -43,7 +43,12 @@ namespace ProjectOffice
 
             //Server bundles JS
             bundles.Add(new ScriptBundle("~/bundles/addServer").Include(
-                "~/Scripts/formJS/Validation/Add_Server.js"
+                "~/Scripts/formJS/Validation/Add_Server_Validation.js"
+            ));
+
+            //Environment bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/addEnvironment").Include(
+                "~/Scripts/formJS/Validation/Add_Environment_Validation.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(

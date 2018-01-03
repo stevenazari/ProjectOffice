@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $('#Add_Application_Form')
+﻿$(document).ready(function () {
+    $('#Add_Environment_Form')
         .on('submit', function (e) {
             e.preventDefault();
 
@@ -20,9 +20,9 @@ $(document).ready(function () {
                     "<td class='table-list-td'>" + this.Out_Of_Hours + "</td>" +
                     "<td class='table-list-td'>" + this.Comment + "</td>" +
                     "</tr>";
-                $("#Applications tr:first").after(rows);
+                $("#Servers tr:first").after(rows);
             });
 
-            $('#Application_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
+            $('#Server_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
         });
 });

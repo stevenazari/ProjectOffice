@@ -151,10 +151,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\FormControllers\ApplicationController.cs" />
-    <Compile Include="Controllers\FormControllers\FormsController.cs" />
-    <Compile Include="Controllers\FormControllers\ServerController.cs" />
-    <Compile Include="Controllers\FormControllers\SupportCompany.cs" />
+    <Compile Include="Controllers\Forms\ApplicationsList\ApplicationController.cs" />
+    <Compile Include="Controllers\Forms\ApplicationsList\ApplicationsListController.cs" />
+    <Compile Include="Controllers\Forms\ApplicationsList\EnvironmentController.cs" />
+    <Compile Include="Controllers\Forms\FormsController.cs" />
+    <Compile Include="Controllers\Forms\ApplicationsList\ServerController.cs" />
+    <Compile Include="Controllers\Forms\ApplicationsList\SupportCompany.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectOfficeDatabaseController.cs" />
     <Compile Include="Controllers\SiteLayoutController.cs" />
@@ -162,9 +164,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\formController.cs" />
-    <Compile Include="Models\Forms\Application\ApplicationController.cs" />
-    <Compile Include="Models\Forms\Server\ServerController.cs" />
-    <Compile Include="Models\Forms\SupportCompany\SupportCompanyController.cs" />
+    <Compile Include="Models\Forms\ApplicationList\ApplicationList.cs" />
+    <Compile Include="Models\Forms\ApplicationList\Application\ApplicationController.cs" />
+    <Compile Include="Models\Forms\ApplicationList\Environment\EnvironmentController.cs" />
+    <Compile Include="Models\Forms\ApplicationList\Server\ServerController.cs" />
+    <Compile Include="Models\Forms\ApplicationList\SupportCompany\SupportCompanyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +256,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\formJS\formJS.js" />
+    <Content Include="Scripts\formJS\Validation\Add_Environment_Validation.js" />
     <Content Include="Scripts\formJS\Validation\Add_Server_Validation.js" />
     <Content Include="Scripts\formJS\Validation\Add_Support_Company_Validation.js" />
     <Content Include="Scripts\formJS\Validation\Add_Application_Validation.js" />
@@ -336,12 +341,10 @@
     <Content Include="Views\Forms\ApplicationsList\Intro.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Views\Forms\ApplicationsList\AddEnvironment\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\PageControllers\" />
-    <Folder Include="Views\Application\" />
-    <Folder Include="Views\ProjectOfficeDatabase\" />
     <Folder Include="Views\Server\" />
   </ItemGroup>
   <ItemGroup>

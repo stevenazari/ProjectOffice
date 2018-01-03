@@ -1,46 +1,50 @@
 ﻿using System;
 using System.Web.Mvc;
+using ProjectOffice.Models.Forms.ApplicationList.SupportCompany;
+using ProjectOffice.Controllers;
 using System.Data;
 using System.Reflection;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
-using ProjectOffice.Models.Forms.Application;
 
-
-
-namespace ProjectOffice.Controllers.FormControllers
+namespace ProjectOffice.Controllers.FormsController.ApplicationsListController
 {
-    public class ApplicationController : Controller
+    public class SupportCompanyController : Controller
     {
-        // GET: Application
+        // GET: SupportCompany
         public ActionResult Index()
         {
-            ViewBag.Title = "Add Application";
+            var resultCompanies = DBClassController.SQLConnection("Select_Support_Companies", "1");
+            DataTable companiesTable = resultCompanies.Item2;
 
-            return PartialView("~/Views/Forms/ApplicationsList/AddApplication/Index.cshtml");
+            ViewBag.SupportCompaniesTable = companiesTable;
+            ViewBag.Title = "Add Support Company";
+
+            return PartialView("~/Views/Forms/ApplicationsList/AddSupportCompany/Index.cshtml");
         }
 
-
-        public ActionResult AddApplicationIntro()
+        public ActionResult AddSupportCompanyIntro()
         {
-            ViewBag.Title = "Add Application";
+            ViewBag.Title = "Add Support Company";
 
-            return PartialView("~/Views/Forms/ApplicationsList/AddApplication/Intro.cshtml");
+            return PartialView("~/Views/Forms/ApplicationsList/AddSupportCompany/Intro.cshtml");
         }
 
         [HttpPost]
-        public JsonResult Save(ApplicationModel data)
+        public JsonResult Save(SupportCompanyModel data)
         {
             string message = "";
-            string jsonResult = "";
             string procedureValues = "";
+            string jsonResult = "";
             DataTable payload = null;
 
             procedureValues = BuildProcedureValues(data);
 
             if (ModelState.IsValid)
             {
-                var result = DBClassController.SQLConnection("Insert_Applications", procedureValues);
+                var result = DBClassController.SQLConnection("Insert_Support_Companies", procedureValues);
                 message = result.Item1;
                 payload = result.Item2;
 
@@ -48,12 +52,8 @@ namespace ProjectOffice.Controllers.FormControllers
             }
             else
             {
-                var err = string.Join(" | ", ModelState.Values
-                    .SelectMany(v => v.Errors)
-                    .Select(e => e.ErrorMessage));
-
-                Debug.WriteLine("ModelState Failed " + err);
-                message = "Please provide required fields: " + err;
+                Debug.WriteLine("ModelState Failed ");
+                message = "Please provide required fields.";
             }
 
             jsonResult = DBClassController.BuildDataTableToJson(payload);
@@ -62,7 +62,7 @@ namespace ProjectOffice.Controllers.FormControllers
             return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public string BuildProcedureValues(ApplicationModel data)
+        public string BuildProcedureValues(SupportCompanyModel data)
         {
             string returnValue = "";
             Type type = data.GetType();
