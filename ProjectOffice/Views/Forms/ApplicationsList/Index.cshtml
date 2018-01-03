@@ -88,6 +88,15 @@
                         <th class="table-list-th">Application Comment</th>
                     </tr>
                 </tbody>
+                @foreach (System.Data.DataRow row in Model.Rows)
+                {
+                    <tr>
+                        @foreach (var cell in row.ItemArray)
+                        {
+                            <td>@cell.ToString()</td>
+                        }
+                    </tr>
+                }      
             </table>
         </fieldset>
     </div>
