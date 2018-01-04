@@ -12,9 +12,11 @@ namespace ProjectOffice.Models.Forms.ApplicationList.Environment
 {
     public class EnvironmentModel
     {
+        public int? Get_All { get; set; }
+        public string ORDER_BY { get; set; }
         public int? ID { get; set; }
         public int Application_ID { get; set; }
-        public int Support_Company_ID { get; set; }
+        public int? Support_Company_ID { get; set; }
         public int Server_ID { get; set; }
         public int Environment_Type_ID { get; set; }
         public string Comment { get; set; }

@@ -24,7 +24,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        @Html.DropDownListFor(m => m.Environment_Type_ID, ProjectOffice.Models.Forms.ApplicationList.Environment.EnvironmentModel.GetServers(), "Select Server", new { ID = "Environment_Server_ID", @class = "form-control" })
+                        @Html.DropDownListFor(m => m.Server_ID, ProjectOffice.Models.Forms.ApplicationList.Environment.EnvironmentModel.GetServers(), "Select Server", new { ID = "Environment_Server_ID", @class = "form-control" })
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
@@ -33,7 +33,7 @@
 
             <!-- Dropdown input-->
             <div class="form-group has-feedback">
-                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Environment_Type_ID, "Package Type:")</label>
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Environment_Type_ID, "Environment Type:")</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -46,7 +46,7 @@
 
             <!-- Text area -->
             <div class="form-group has-feedback">
-                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Application Notes:")</label>
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Environment Notes:")</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
@@ -58,13 +58,13 @@
             </div>
 
             <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="Application_Success_Message">Added Support Company <i class="glyphicon glyphicon-thumbs-up"></i></div>
+            <div class="alert alert-success hidden" role="alert" id="Environment_Success_Message">Created Environment <i class="glyphicon glyphicon-thumbs-up"></i></div>
 
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-warning">Add Application<span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" class="btn btn-warning">Create Environment<span class="glyphicon glyphicon-send"></span></button>
                 </div>
             </div>
         </fieldset>

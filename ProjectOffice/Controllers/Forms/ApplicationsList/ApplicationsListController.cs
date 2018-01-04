@@ -16,10 +16,12 @@ namespace ProjectOffice.Controllers.Forms.ApplicationsList
         [Route("Forms/ApplicationsList")]
         public ActionResult Index()
         {
+            Debug.WriteLine("Start: environmentsTable");
             var resultEnvironments = DBClassController.SQLConnection("Select_Environments", "1");
             string message = resultEnvironments.Item1;
             DataTable environmentsTable = resultEnvironments.Item2;
 
+            Debug.WriteLine("Table: " + environmentsTable); 
             return View("~/Views/Forms/ApplicationsList/Index.cshtml", environmentsTable);
         }
 

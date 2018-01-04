@@ -1,102 +1,113 @@
-﻿@{
+﻿@model System.Data.DataTable 
+@using System.Data;
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Applications List";
 }
-@Styles.Render("~/Content/formCSS")
 @Scripts.Render("~/bundles/formJS")
 
 <br />
 <div class="container">
-    <div class="panel-group" id="collapse" role="tablist" aria-multiselectable="false">
-
-        <div class="panel panel-default well form-horizontal">
-            <div role="tab" id="collapse-heading-one">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-one" aria-expanded="false" aria-controls="collapse-one">
-                        Add Support Company
-                    </a>
-                </h4>
-            </div>
-            <div id="collapse-one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-one">
-                <div class="panel-body">
-                    @{ Html.RenderAction("Index", "SupportCompany");}
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default well form-horizontal">
-            <div role="tab" id="collapse-heading-two">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
-                        Add Server
-                    </a>
-                </h4>
-            </div>
-            <div id="collapse-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-two">
-                <div class="panel-body">
-                    @{ Html.RenderAction("Index", "Server");}
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default well form-horizontal">
-            <div role="tab" id="collapse-heading-three">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-three" aria-expanded="false" aria-controls="collapse-three">
-                        Add Application
-                    </a>
-                </h4>
-            </div>
-            <div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-three">
-                <div class="panel-body">
-                    @{ Html.RenderAction("Index", "Application");}
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default well form-horizontal">
-            <div role="tab" id="collapse-heading-four">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-four" aria-expanded="false" aria-controls="collapse-four">
-                        Create Environment
-                    </a>
-                </h4>
-            </div>
-            <div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-four">
-                <div class="panel-body">
-                    @{ Html.RenderAction("Index", "Environment");}
-                </div>
-            </div>
-        </div>
-    </div>
-</div><!-- /.container -->
-
-<div class="container">
     <div class="well form-horizontal">
+        <div class="business_btn">
+            <h3>
+                Environments
+                <a class="btn-sm btn-primary" data-toggle="collapse" data-target="#collapse-add" aria-expanded="false" aria-controls="collapse">
+                    New Entry
+                </a>
+            </h3>
+        </div>
+        <br />
         <fieldset>
-            <legend>Environments</legend>
-            <table id="SupportCompanies" class="table-list">
+            <div id="collapse-add" class="collapse">
+                <div class="panel-group" id="collapse" role="tablist" aria-multiselectable="false">
+
+                    <div class="panel panel-default well form-horizontal">
+                        <div role="tab" id="collapse-heading-one">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-one" aria-expanded="false" aria-controls="collapse-one">
+                                    Add Support Company
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-one">
+                            <div class="panel-body">
+                                @{ Html.RenderAction("Index", "SupportCompany");}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default well form-horizontal">
+                        <div role="tab" id="collapse-heading-two">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
+                                    Add Server
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-two">
+                            <div class="panel-body">
+                                @{ Html.RenderAction("Index", "Server");}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default well form-horizontal">
+                        <div role="tab" id="collapse-heading-three">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-three" aria-expanded="false" aria-controls="collapse-three">
+                                    Add Application
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-three">
+                            <div class="panel-body">
+                                @{ Html.RenderAction("Index", "Application");}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default well form-horizontal">
+                        <div role="tab" id="collapse-heading-four">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-four" aria-expanded="false" aria-controls="collapse-four">
+                                    Create Environment
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-four">
+                            <div class="panel-body">
+                                @{ Html.RenderAction("Index", "Environment");}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table id="environmentsTable" class="table-list">
                 <thead>
-                </thead>
-                <tbody id="SupportCompaniesBody">
-                    <tr id='SupportHeadRow'>
-                        <th class="table-list-th">ID</th>
-                        <th class="table-list-th">Application</th>
+                    <tr id='environmentsHeader'>
+                        <th class="table-list-th">Server</th>
+                        <th class="table-list-th">Environment Type</th>
+                        <th class="table-list-th">Environment Comment</th>
                         <th class="table-list-th">Support</th>
-                        <th class="table-list-th">Package Type</th>
-                        <th class="table-list-th">Servers</th>
-                        <th class="table-list-th">Application Comment</th>
+                        <th class="table-list-th">Application</th>
+                        <th class="table-list-th">Application Type</th>
                     </tr>
+                </thead>
+                <tbody id="environmentsBody">
+                    @foreach (System.Data.DataRow row in Model.Rows)
+                    {
+                        <tr id="environment@row["Environment_ID"]">
+                            <td class="table-list-td">@row["Server_Name"]</td>
+                            <td class="table-list-td">@row["Environment_Type"]</td>
+                            <td class="table-list-td">@row["Environment_Comment"]</td>
+                            <td class="table-list-td">@row["Support_Company_Name"]</td>
+                            <td class="table-list-td">@row["Application_Name"]</td>
+                            <td class="table-list-td">@row["Application_Type"]</td>
+                        </tr>
+                    }
                 </tbody>
-                @foreach (System.Data.DataRow row in Model.Rows)
-                {
-                    <tr>
-                        @foreach (var cell in row.ItemArray)
-                        {
-                            <td>@cell.ToString()</td>
-                        }
-                    </tr>
-                }      
             </table>
         </fieldset>
     </div>

@@ -35,7 +35,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        @Html.DropDownListFor(m => m.Support_Company_ID, (SelectList)ProjectOffice.Models.Forms.ApplicationList.Application.ApplicationModel.GetSupportCompanies(), "Select Support Company", new { ID = "Support_Company_ID", @class = "form-control" })
+                        @Html.DropDownListFor(m => m.Support_Company_ID, (SelectList)ProjectOffice.Models.Forms.ApplicationList.Application.ApplicationModel.GetSupportCompanies(), "Select Support Company", new { ID = "Application_Support_Company_ID", @class = "form-control" })
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>

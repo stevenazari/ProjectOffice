@@ -12,8 +12,8 @@ namespace ProjectOffice.Models.Forms.ApplicationList.Application
 {
     public class ApplicationModel
     {
-        public string ORDER_BY { get; set; }
         public int? Get_All { get; set; }
+        public string ORDER_BY { get; set; }
         public int? ID { get; set; }
         public string Name { get; set; }
         public string Version { get; set; }

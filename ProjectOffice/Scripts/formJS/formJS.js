@@ -1,4 +1,4 @@
-﻿function submitForm(formObject) {
+﻿function submitForm(formObject, callback) {
     // Prevent form submission
     $("#loading").show();
 
@@ -10,31 +10,31 @@
     // Get the BootstrapValidator instance
     var bv = form.data('bootstrapValidator');
 
-    doAjax(form, function (ajaxResults) {
-        console.log(JSON.parse(ajaxResults.results));
-        message = ajaxResults.message;
-
-        clearForm(form);
-        $("#loading").hide();
-
-        return JSON.parse(ajaxResults.results);
-    });
-
-//    console.log(formResults);
+    doAjax(form, callback);
 }
 
 function doAjax(form, callback) {
+    var message = "";
+    var results = "";
+
     // Use Ajax to submit form data
     $.ajax({
         url: form.attr('action'),
         dataType: 'json',
         data: form.serialize(),
         type: 'POST',
-        success: callback,
+        success: function(ajaxResults){
+            message = ajaxResults.message;
+            results = JSON.parse(ajaxResults.results);
+            window[callback](message, results);
+        },
         error: function (err) {
-            alert("There was an error: " + err);
+            message = "There was an error: " + err;
+            window[callback](message, results);
         }
     });
+    clearForm(form);
+    $("#loading").hide();
 }
 function clearForm(form) {
     form.validator('destroy');

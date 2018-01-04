@@ -3,26 +3,23 @@ $(document).ready(function () {
         .on('submit', function (e) {
             e.preventDefault();
 
-            var items = submitForm(e);
-            console.log(items);
-
-            $.each(items, function (key, value) {
-                alert("ID: " + this.ID);
-                var rows = "<tr id='SupportRow" + this.ID + "'>" +
-                    "<td class='table-list-td'>" + this.ID + "</td>" +
-                    "<td class='table-list-td'>" + this.Name + "</td>" +
-                    "<td class='table-list-td'>" + this.Address_1 + "</td>" +
-                    "<td class='table-list-td'>" + this.Address_2 + "</td>" +
-                    "<td class='table-list-td'>" + this.Post_Code + "</td>" +
-                    "<td class='table-list-td'>" + this.Tel + "</td>" +
-                    "<td class='table-list-td'>" + this.Email + "</td>" +
-                    "<td class='table-list-td'>" + this.Website + "</td>" +
-                    "<td class='table-list-td'>" + this.Out_Of_Hours + "</td>" +
-                    "<td class='table-list-td'>" + this.Comment + "</td>" +
-                    "</tr>";
-                $("#Servers tr:first").after(rows);
-            });
-
-            $('#Server_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
+            submitForm(e, "addServerResponse");
         });
 });
+
+function addServerResponse(message, results) {
+    $.each(results, function (key, value) {
+        alert("ID: " + this.ID);
+        var rows = "<tr id='environment" + this.Environment_ID + "'>" +
+            "<td class='table-list-td'>" + this.Application_Name + "</td>" +
+            "<td class='table-list-td'>" + this.Support_Company_Name + "</td>" +
+            "<td class='table-list-td'>" + this.Application_Type + "</td>" +
+            "<td class='table-list-td'>" + this.IP_Address + "</td>" +
+            "<td class='table-list-td'>" + this.Application_Comment + "</td>" +
+            "</tr>";
+        $("#environmentsTable tr:first").after(rows);
+    alert(message);
+    });
+
+    $('#Server_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
+}
