@@ -29,7 +29,6 @@ namespace ProjectOffice.Controllers
             string message = "";
             string procedure = "EXEC " + StoredProcedure + " " + values;
             DataTable results = new DataTable(StoredProcedure);
-            Debug.WriteLine("procedure SQLConnection: " + procedure);
 
             try
             {
@@ -47,7 +46,6 @@ namespace ProjectOffice.Controllers
             }
             catch (Exception ex)
             {
-                //Debug.WriteLine("Erroring trying to run: " + procedure);
                 message = "Error running query (" + StoredProcedure + ") " + ex;
             }
 
@@ -58,9 +56,18 @@ namespace ProjectOffice.Controllers
         {
             string JSONresult;
             JSONresult = JsonConvert.SerializeObject(colVal);
-            //Debug.WriteLine("JSONResult: " + JSONresult);
 
             return JSONresult;
+        }
+
+        public static string FirstCharToUpper(string input)
+        {
+            switch (input)
+            {
+                case null: return input;
+                case "": return input;
+                default: return input.First().ToString().ToUpper() + input.Substring(1);
+            }
         }
     }
 }

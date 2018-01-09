@@ -5,32 +5,30 @@
     ViewBag.Title = "Applications List";
 }
 @Scripts.Render("~/bundles/formJS")
-
+@Scripts.Render("~/bundles/applicationList")
 <br />
 <div class="container">
     <div class="well form-horizontal">
-        <div class="business_btn">
-            <h3>
+        <div class="action_btn text-left sm-text-center">
+            <h2>
                 Environments
-                <a class="btn-sm btn-primary" data-toggle="collapse" data-target="#collapse-add" aria-expanded="false" aria-controls="collapse">
-                    New Entry
-                </a>
-            </h3>
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#ApplicationListAdd" aria-expanded="false" aria-controls="collapse" style="color: black">Administration</button>
+            </h2>
         </div>
         <br />
         <fieldset>
-            <div id="collapse-add" class="collapse">
-                <div class="panel-group" id="collapse" role="tablist" aria-multiselectable="false">
+            <div id="ApplicationListAdd" class="collapse">
+                <div class="panel-group" id="NewEntry" role="tablist" aria-multiselectable="false">
 
                     <div class="panel panel-default well form-horizontal">
-                        <div role="tab" id="collapse-heading-one">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-one" aria-expanded="false" aria-controls="collapse-one">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#AddSupportCompanyContainer" aria-expanded="false" aria-controls="SupportCompanyContainer">
+                            <div role="tab" id="AddSupportCompanyButton">
+                                <h4 class="panel-title">
                                     Add Support Company
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapse-one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-one">
+                                </h4>
+                            </div>
+                        </a>
+                        <div id="AddSupportCompanyContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="AddSupportCompanyButton">
                             <div class="panel-body">
                                 @{ Html.RenderAction("Index", "SupportCompany");}
                             </div>
@@ -38,14 +36,14 @@
                     </div>
 
                     <div class="panel panel-default well form-horizontal">
-                        <div role="tab" id="collapse-heading-two">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-two" aria-expanded="false" aria-controls="collapse-two">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#AddServerContainer" aria-expanded="false" aria-controls="AddServerContainer">
+                            <div role="tab" id="AddServerButton">
+                                <h4 class="panel-title">
                                     Add Server
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapse-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-two">
+                                </h4>
+                            </div>
+                        </a>
+                        <div id="AddServerContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="AddServerButton">
                             <div class="panel-body">
                                 @{ Html.RenderAction("Index", "Server");}
                             </div>
@@ -53,14 +51,14 @@
                     </div>
 
                     <div class="panel panel-default well form-horizontal">
-                        <div role="tab" id="collapse-heading-three">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-three" aria-expanded="false" aria-controls="collapse-three">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#AddApplicationContainer" aria-expanded="false" aria-controls="AddApplicationContainer">
+                            <div role="tab" id="AddApplicationButton">
+                                <h4 class="panel-title">
                                     Add Application
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-three">
+                                </h4>
+                            </div>
+                        </a>
+                        <div id="AddApplicationContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="AddApplicationButton">
                             <div class="panel-body">
                                 @{ Html.RenderAction("Index", "Application");}
                             </div>
@@ -68,14 +66,14 @@
                     </div>
 
                     <div class="panel panel-default well form-horizontal">
-                        <div role="tab" id="collapse-heading-four">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#collapse" href="#collapse-four" aria-expanded="false" aria-controls="collapse-four">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#AddEnvironmentContainer" aria-expanded="false" aria-controls="AddEnvironmentContainer">
+                            <div role="tab" id="CreateEnvironmentButton">
+                                <h4 class="panel-title">
                                     Create Environment
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapse-heading-four">
+                                </h4>
+                            </div>
+                        </a>
+                        <div id="AddEnvironmentContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="AddEnvironmentButton">
                             <div class="panel-body">
                                 @{ Html.RenderAction("Index", "Environment");}
                             </div>
@@ -87,24 +85,77 @@
             <table id="environmentsTable" class="table-list">
                 <thead>
                     <tr id='environmentsHeader'>
-                        <th class="table-list-th">Server</th>
-                        <th class="table-list-th">Environment Type</th>
-                        <th class="table-list-th">Environment Comment</th>
-                        <th class="table-list-th">Support</th>
                         <th class="table-list-th">Application</th>
-                        <th class="table-list-th">Application Type</th>
+                        <th class="table-list-th">Environment Type</th>
+                        <th class="table-list-th">Server Type</th>
+                        <th class="table-list-th">Server Name</th>
+                        <th class="table-list-th">Environment Comment</th>
+                        <th class="table-list-th">Support Company</th>
                     </tr>
                 </thead>
                 <tbody id="environmentsBody">
                     @foreach (System.Data.DataRow row in Model.Rows)
                     {
-                        <tr id="environment@row["Environment_ID"]">
-                            <td class="table-list-td">@row["Server_Name"]</td>
-                            <td class="table-list-td">@row["Environment_Type"]</td>
-                            <td class="table-list-td">@row["Environment_Comment"]</td>
-                            <td class="table-list-td">@row["Support_Company_Name"]</td>
-                            <td class="table-list-td">@row["Application_Name"]</td>
-                            <td class="table-list-td">@row["Application_Type"]</td>
+                        <tr id="environmentHead_@row["Environment_ID"]" class="m-top-20" data-toggle="collapse" data-target="#environmentDetailsDiv_@row["Environment_ID"]" aria-expanded="false" aria-controls="environmentContainer_@row["Environment_ID"]">
+                            <td class="table-list-td">
+                                <h5>@row["Application_Name"]</h5>
+                            </td>
+                            <td class="table-list-td">
+                                <h5>@row["Environment_Type"]</h5>
+                            </td>
+                            <td class="table-list-td">
+                                <h5>@row["Server_Type"]</h5>
+                            </td>
+                            <td class="table-list-td">
+                                <h5>@row["Server_Name"]</h5>
+                            </td>
+                            <td class="table-list-td">
+                                <h5>@row["Environment_Comment"]</h5>
+                            </td>
+                            <td class="table-list-td">
+                                <h5>@row["Support_Company_Name"]</h5>
+                            </td>
+                        </tr>
+                        <tr id="EnvironmentDetails_@row["Environment_ID"]">
+                            <td class="table-list-td" colspan="6">
+                                <div id="environmentDetailsDiv_@row["Environment_ID"]" class="collapse">
+                                    <div class="jumbotron">
+                                        <form role="form" class="environmentForm" data-toggle="validator" method="post" action="/ApplicationsList/Update" name="environmentForm" id="environmentForm_@row["Environment_ID"]">
+                                            <p>
+                                                <h5>Details for @row["Application_Name"] @row["Environment_Type"] environment<br /></h5>
+
+                                                <input name="ID" id="ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_ID"]' />
+                                                <input name="Application_ID" id="Application_ID_@row["Environment_ID"]" type="hidden" value='@row["Application_ID"]' />
+                                                <input name="Server_ID" id="Server_ID_@row["Environment_ID"]" type="hidden" value='@row["Server_ID"]' />
+                                                <input name="Environment_Type_ID" id="Environment_Type_ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_Type_ID"]' />
+                                                <input name="Support_Company_ID" id="Support_Company_ID_@row["Environment_ID"]" type="hidden" value='@row["Support_Company_ID"]' />
+                                                <input name="Comment" id="Comment_@row["Environment_ID"]" type="hidden" value='@row["Environment_Comment"]' />
+                                                <input name="Deleted" id="Deleted_@row["Environment_ID"]" type="hidden" value='@row["Environment_Deleted"]' />
+
+                                                <b>Environment Created:</b> @row["Environment_Created"]<br />
+                                                <b>Application Comment:</b> @row["Application_Comment"]<br />
+                                                <b>Application Package Type:</b> @row["Application_Type"]<br /><br />
+
+                                                <b>Server:</b> @row["Server_Name"]<br />
+                                                <b>Server Type:</b> @row["Server_Type"]<br />
+                                                <b>Server Address:</b> @row["IP_Address"]<br />
+                                            </p>
+                                            <div class="btn-group" role="group" aria-label="...">
+                                                <button type="button" class="btn btn-danger" name="Delete" id="Delete_@row["Environment_ID"]" onclick="updateEnvironment('Delete', @row["Environment_ID"])">Delete <span class="glyphicon glyphicon-warning-sign"></span></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Success message -->
+                                    <div class="alert alert-success collapse" role="alert" id="Application_List_Success_Message_@row["Environment_ID"]">
+                                        message <i class="glyphicon glyphicon-thumbs-up"></i>
+                                    </div>
+
+                                    <!-- Error message -->
+                                    <div class="alert alert-danger collapse" role="alert" id="Application_List_Error_Message_@row["Environment_ID"]">
+                                        message <i class="glyphicon glyphicon-thumbs-down"></i>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     }
                 </tbody>

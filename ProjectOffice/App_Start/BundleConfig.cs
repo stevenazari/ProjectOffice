@@ -10,7 +10,7 @@ namespace ProjectOffice
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-2.1.3.js",
+                "~/Scripts/jquery-2.1.4.js",
                 "~/scripts/jquery.magnific-popup.js",
                 "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/jquery.collapse.js"
@@ -31,24 +31,29 @@ namespace ProjectOffice
                 "~/Scripts/formJS/formJS.js"
             ));
 
+            //Application List bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/applicationList").Include(
+                "~/Scripts/formJS/ApplicationList/ApplicationList.js"
+            ));
+
             //Support Company bundles JS
             bundles.Add(new ScriptBundle("~/bundles/addSupportCompany").Include(
-                "~/Scripts/formJS/Validation/Add_Support_Company_Validation.js"
+                "~/Scripts/formJS/ApplicationList/Add_Support_Company_Validation.js"
             ));
 
             //Application bundles JS
             bundles.Add(new ScriptBundle("~/bundles/addApplication").Include(
-                "~/Scripts/formJS/Validation/Add_Application_Validation.js"
+                "~/Scripts/formJS/ApplicationList/Add_Application_Validation.js"
             ));
 
             //Server bundles JS
             bundles.Add(new ScriptBundle("~/bundles/addServer").Include(
-                "~/Scripts/formJS/Validation/Add_Server_Validation.js"
+                "~/Scripts/formJS/ApplicationList/Add_Server_Validation.js"
             ));
 
             //Environment bundles JS
             bundles.Add(new ScriptBundle("~/bundles/addEnvironment").Include(
-                "~/Scripts/formJS/Validation/Add_Environment_Validation.js"
+                "~/Scripts/formJS/ApplicationList/Add_Environment_Validation.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(

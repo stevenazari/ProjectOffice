@@ -256,11 +256,11 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\formJS\formJS.js" />
-    <Content Include="Scripts\formJS\Validation\Add_Environment_Validation.js" />
-    <Content Include="Scripts\formJS\Validation\Add_Server_Validation.js" />
-    <Content Include="Scripts\formJS\Validation\Add_Support_Company_Validation.js" />
-    <Content Include="Scripts\formJS\Validation\Add_Application_Validation.js" />
-    <Content Include="Scripts\formJS\Validation\sharedJS.js" />
+    <Content Include="Scripts\formJS\ApplicationList\Add_Environment_Validation.js" />
+    <Content Include="Scripts\formJS\ApplicationList\Add_Server_Validation.js" />
+    <Content Include="Scripts\formJS\ApplicationList\Add_Support_Company_Validation.js" />
+    <Content Include="Scripts\formJS\ApplicationList\Add_Application_Validation.js" />
+    <Content Include="Scripts\formJS\ApplicationList\ApplicationList.js" />
     <Content Include="Scripts\jquery.counterup.js" />
     <Content Include="Scripts\jquery.localScroll.js" />
     <Content Include="Scripts\jquery.waypoints.js" />

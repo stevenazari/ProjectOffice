@@ -4,18 +4,16 @@
 
     // Get the form instance
     var form = $(formObject.target);
-    var formResults = {};
-    var message = "";
-
-    // Get the BootstrapValidator instance
-    var bv = form.data('bootstrapValidator');
 
     doAjax(form, callback);
+    $("#loading").hide();
 }
 
 function doAjax(form, callback) {
     var message = "";
     var results = "";
+
+    formSerialized = form.serialize
 
     // Use Ajax to submit form data
     $.ajax({
@@ -23,21 +21,14 @@ function doAjax(form, callback) {
         dataType: 'json',
         data: form.serialize(),
         type: 'POST',
-        success: function(ajaxResults){
+
+        success: function (ajaxResults) {
             message = ajaxResults.message;
-            results = JSON.parse(ajaxResults.results);
-            window[callback](message, results);
+            window[callback](message, JSON.parse(ajaxResults.results));
         },
-        error: function (err) {
-            message = "There was an error: " + err;
+        error: function (err1) {
+            message = "There was an error: " + err1 ;
             window[callback](message, results);
         }
     });
-    clearForm(form);
-    $("#loading").hide();
-}
-function clearForm(form) {
-    form.validator('destroy');
-    form.validator('validate');
-    form.trigger('reset');
 }
