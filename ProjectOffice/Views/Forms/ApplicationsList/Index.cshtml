@@ -82,84 +82,72 @@
                 </div>
             </div>
 
-            <table id="environmentsTable" class="table-list">
-                <thead>
-                    <tr id='environmentsHeader'>
-                        <th class="table-list-th">Application</th>
-                        <th class="table-list-th">Environment Type</th>
-                        <th class="table-list-th">Server Type</th>
-                        <th class="table-list-th">Server Name</th>
-                        <th class="table-list-th">Environment Comment</th>
-                        <th class="table-list-th">Support Company</th>
-                    </tr>
-                </thead>
-                <tbody id="environmentsBody">
+
+
+            <div id="environmentsList">
+                <input class="search" placeholder="Search" />
+                <button class="sort" data-sort="searchItem">Sort</button>
+                <ul class="list list-group">
+                    <li class="list-group-item-heading"><div class="">Application Name</div></li>
+                    <li class="list-group-item-heading"><div class="form-horizontal">Environment Type</div></li>
+                    <li class="list-group-item-heading"><div>Server Type</div></li>
+                    <li class="list-group-item-heading"><div>Server Name</div></li>
+                    <li class="list-group-item-heading"><div>Environment Notes</div></li>
+                    <li class="list-group-item-heading"><div>Support Company</div></li>
                     @foreach (System.Data.DataRow row in Model.Rows)
                     {
-                        <tr id="environmentHead_@row["Environment_ID"]" class="m-top-20" data-toggle="collapse" data-target="#environmentDetailsDiv_@row["Environment_ID"]" aria-expanded="false" aria-controls="environmentContainer_@row["Environment_ID"]">
-                            <td class="table-list-td">
-                                <h5>@row["Application_Name"]</h5>
-                            </td>
-                            <td class="table-list-td">
-                                <h5>@row["Environment_Type"]</h5>
-                            </td>
-                            <td class="table-list-td">
-                                <h5>@row["Server_Type"]</h5>
-                            </td>
-                            <td class="table-list-td">
-                                <h5>@row["Server_Name"]</h5>
-                            </td>
-                            <td class="table-list-td">
-                                <h5>@row["Environment_Comment"]</h5>
-                            </td>
-                            <td class="table-list-td">
-                                <h5>@row["Support_Company_Name"]</h5>
-                            </td>
-                        </tr>
-                        <tr id="EnvironmentDetails_@row["Environment_ID"]">
-                            <td class="table-list-td" colspan="6">
-                                <div id="environmentDetailsDiv_@row["Environment_ID"]" class="collapse">
-                                    <div class="jumbotron">
-                                        <form role="form" class="environmentForm" data-toggle="validator" method="post" action="/ApplicationsList/Update" name="environmentForm" id="environmentForm_@row["Environment_ID"]">
-                                            <p>
-                                                <h5>Details for @row["Application_Name"] @row["Environment_Type"] environment<br /></h5>
+                        <li class="list-group-item m-top-20 searchItem" id="environmentHead_@row["Environment_ID"]" data-toggle="collapse" data-target="#environmentDetailsDiv_@row["Environment_ID"]" aria-expanded="false" aria-controls="environmentContainer_@row["Environment_ID"]">
+                            <div>@row["Application_Name"]</div>
+                            <div>@row["Environment_Type"]</div>
+                            <div>@row["Server_Type"]</div>
+                            <div>@row["Server_Name"]</div>
+                            <div>@row["Environment_Comment"]</div>
+                            <div>@row["Support_Company_Name"]</div>
+                            <div id="environmentDetailsDiv_@row["Environment_ID"]" class="collapse">
+                                <div class="jumbotron">
+                                    <form role="form" class="environmentForm" data-toggle="validator" method="post" action="/ApplicationsList/Update" name="environmentForm" id="environmentForm_@row["Environment_ID"]">
+                                        <p>
+                                            <h5>Details for @row["Application_Name"] @row["Environment_Type"] environment<br /></h5>
 
-                                                <input name="ID" id="ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_ID"]' />
-                                                <input name="Application_ID" id="Application_ID_@row["Environment_ID"]" type="hidden" value='@row["Application_ID"]' />
-                                                <input name="Server_ID" id="Server_ID_@row["Environment_ID"]" type="hidden" value='@row["Server_ID"]' />
-                                                <input name="Environment_Type_ID" id="Environment_Type_ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_Type_ID"]' />
-                                                <input name="Support_Company_ID" id="Support_Company_ID_@row["Environment_ID"]" type="hidden" value='@row["Support_Company_ID"]' />
-                                                <input name="Comment" id="Comment_@row["Environment_ID"]" type="hidden" value='@row["Environment_Comment"]' />
-                                                <input name="Deleted" id="Deleted_@row["Environment_ID"]" type="hidden" value='@row["Environment_Deleted"]' />
+                                            <input name="ID" id="ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_ID"]' />
+                                            <input name="Application_ID" id="Application_ID_@row["Environment_ID"]" type="hidden" value='@row["Application_ID"]' />
+                                            <input name="Server_ID" id="Server_ID_@row["Environment_ID"]" type="hidden" value='@row["Server_ID"]' />
+                                            <input name="Environment_Type_ID" id="Environment_Type_ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_Type_ID"]' />
+                                            <input name="Support_Company_ID" id="Support_Company_ID_@row["Environment_ID"]" type="hidden" value='@row["Support_Company_ID"]' />
+                                            <input name="Comment" id="Comment_@row["Environment_ID"]" type="hidden" value='@row["Environment_Comment"]' />
+                                            <input name="Deleted" id="Deleted_@row["Environment_ID"]" type="hidden" value='@row["Environment_Deleted"]' />
 
-                                                <b>Environment Created:</b> @row["Environment_Created"]<br />
-                                                <b>Application Comment:</b> @row["Application_Comment"]<br />
-                                                <b>Application Package Type:</b> @row["Application_Type"]<br /><br />
+                                            <b>Environment Created:</b> @row["Environment_Created"]<br />
+                                            <b>Application Comment:</b> @row["Application_Comment"]<br />
+                                            <b>Application Package Type:</b> @row["Application_Type"]<br /><br />
 
-                                                <b>Server:</b> @row["Server_Name"]<br />
-                                                <b>Server Type:</b> @row["Server_Type"]<br />
-                                                <b>Server Address:</b> @row["IP_Address"]<br />
-                                            </p>
-                                            <div class="btn-group" role="group" aria-label="...">
-                                                <button type="button" class="btn btn-danger" name="Delete" id="Delete_@row["Environment_ID"]" onclick="updateEnvironment('Delete', @row["Environment_ID"])">Delete <span class="glyphicon glyphicon-warning-sign"></span></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- Success message -->
-                                    <div class="alert alert-success collapse" role="alert" id="Application_List_Success_Message_@row["Environment_ID"]">
-                                        message <i class="glyphicon glyphicon-thumbs-up"></i>
-                                    </div>
-
-                                    <!-- Error message -->
-                                    <div class="alert alert-danger collapse" role="alert" id="Application_List_Error_Message_@row["Environment_ID"]">
-                                        message <i class="glyphicon glyphicon-thumbs-down"></i>
-                                    </div>
+                                            <b>Server:</b> @row["Server_Name"]<br />
+                                            <b>Server Type:</b> @row["Server_Type"]<br />
+                                            <b>Server Address:</b> @row["IP_Address"]<br />
+                                        </p>
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <button type="button" class="btn btn-danger" name="Delete" id="Delete_@row["Environment_ID"]" onclick="updateEnvironment('Delete', @row["Environment_ID"])">Delete <span class="glyphicon glyphicon-warning-sign"></span></button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </td>
-                        </tr>
+                                <!-- Success message -->
+                                <div class="alert alert-success collapse" role="alert" id="Application_List_Success_Message_@row["Environment_ID"]">
+                                    message <i class="glyphicon glyphicon-thumbs-up"></i>
+                                </div>
+
+                                <!-- Error message -->
+                                <div class="alert alert-danger collapse" role="alert" id="Application_List_Error_Message_@row["Environment_ID"]">
+                                    message <i class="glyphicon glyphicon-thumbs-down"></i>
+                                </div>
+                            </div>
+                        </li>
                     }
-                </tbody>
-            </table>
+                </ul>
+            </div>
+
+
+
+
         </fieldset>
     </div>
 </div><!-- /.container -->
