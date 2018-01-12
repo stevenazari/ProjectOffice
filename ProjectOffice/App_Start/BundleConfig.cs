@@ -8,23 +8,77 @@ namespace ProjectOffice
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //First the site core JS / CSS to avoid redundant calls.
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-2.1.4.js",
-                "~/scripts/jquery.magnific-popup.js",
-                "~/scripts/jquery.easing.1.3.js",
-                "~/scripts/jquery.collapse.js"
+                "~/Scripts/components/jQuery/jquery-2.1.4.js",
+                "~/scripts/components/jQuery/magnificPopup/jquery.magnific-popup.js",
+                "~/scripts/components/jQuery/easing/jquery.easing.1.3.js",
+                "~/scripts/components/jQuery/collapse/jquery.collapse.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/jquery.validate*"
+                "~/Scripts/components/jQuery/validate/jquery.validate*"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/vendor/bootstrap.js",
-                "~/Scripts/respond.js",
-                "~/Scripts/vendor/validator.js"
+                "~/scripts/components/vendor/bootstrap.js",
+                "~/Scripts/components/respond.js",
+                "~/Scripts/components/vendor/validator.js"
             ));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapTables").Include(
+                "~/scripts/components/bootstrapTables/bootstrap-table.min.js",
+                "~/scripts/components/bootstrapTables/bootstrap-table.en-US.min.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                "~/scripts/components/owl.carousel.min.js",
+                "~/css/components/slick/slick.js",
+                "~/css/components/slick/slick.min.js",
+                "~/scripts/components/bootsnav.js",
+                "~/scripts/components/plugins.js",
+                "~/scripts/main.js"
+            ));
+
+            // Use the development version of Modernizr to develop with and learn from. Then, when you're
+            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                "~/Scripts/components/vendor/modernizr-2.8.3-respond-1.4.2.min.js"
+            ));
+
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/css/components/bootstrap/bootstrap.css",
+                "~/css/components/bootstrap/bootstrap.min.css",
+                "~/css/components/bootstrap/bootstrap-theme.min.css",
+                "~/css/site.css",
+                "~/css/components/slick/slick.css",
+                "~/css/components/slick/slick-theme.css",
+                "~/css/components/animate.css",
+                "~/css/components/iconfont.css",
+                "~/css/components/font-awesome.min.css",
+                "~/css/components/magnific-popup.css",
+                "~/css/components/bootsnav.css",
+                //Theme Responsive css
+                "~/css/components/responsive.css",
+
+                "~/css/style.css",
+
+                //Custom CSS
+                "~/css/table-styles.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/Content/formCSS").Include(
+                "~/css/components/bootstrap/bootstrapValidator.min.css",
+                "~/css/formCSS/style.css"
+            ));
+
+
+
+
+
+
 
             //Form bundles JS
             bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
@@ -54,53 +108,6 @@ namespace ProjectOffice
             //Environment bundles JS
             bundles.Add(new ScriptBundle("~/bundles/addEnvironment").Include(
                 "~/Scripts/formJS/ApplicationList/Add_Environment_Validation.js"
-            ));
-
-            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
-                "~/scripts/owl.carousel.min.js",
-                "~/css/slick/slick.js",
-                "~/css/slick/slick.min.js",
-                "~/scripts/bootsnav.js",
-                "~/scripts/plugins.js",
-                "~/scripts/main.js"
-            ));
-
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                "~/Scripts/vendor/modernizr-2.8.3-respond-1.4.2.min.js"
-            ));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/css/bootstrap.css",
-                "~/css/site.css",
-                "~/css/slick/slick.css",
-                "~/css/slick/slick-theme.css",
-                "~/css/animate.css",
-                "~/css/iconfont.css",
-                "~/css/font-awesome.min.css",
-                "~/css/magnific-popup.css",
-                "~/css/bootsnav.css",
-                //Theme Responsive css
-                "~/css/responsive.css",
-
-                //--xsslider slider css--
-                //"~/css/xsslider.css"
-                //--For Plugins external css--
-                //"~/css/plugins.css"
-                //--Theme custom css--
-                "~/css/style.css",
-                //"~/css/colors/maron.css"
-
-                //Custom CSS
-                "~/css/table-styles.css"
-            ));
-
-            bundles.Add(new StyleBundle("~/Content/formCSS").Include(
-                "~/css/formCSS/bootstrap.min.css",
-                "~/css/formCSS/bootstrap-theme.min.css",
-                "~/css/formCSS/bootstrapValidator.min.css",
-                "~/css/formCSS/style.css"
             ));
         }
     }
