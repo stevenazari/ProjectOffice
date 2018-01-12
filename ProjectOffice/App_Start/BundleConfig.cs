@@ -8,7 +8,10 @@ namespace ProjectOffice
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //First the site core JS / CSS to avoid redundant calls.
+//Component bundles ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+            
+            //jQuery
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
                 "~/Scripts/components/jQuery/jquery-2.1.4.js",
@@ -21,17 +24,29 @@ namespace ProjectOffice
                 "~/Scripts/components/jQuery/validate/jquery.validate*"
             ));
 
+            //Bootstrap
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/scripts/components/vendor/bootstrap.js",
                 "~/Scripts/components/respond.js",
                 "~/Scripts/components/vendor/validator.js"
             ));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrapTables").Include(
+
+            //Bootstraptables
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapTable").Include(
                 "~/scripts/components/bootstrapTables/bootstrap-table.min.js",
                 "~/scripts/components/bootstrapTables/bootstrap-table.en-US.min.js"
             ));
 
+            bundles.Add(new StyleBundle("~/Content/css/bootstrapTable").Include(
+                "~/css/components/bootstrapTables/bootstarp-table.min.css"
+            ));
+
+
+// Website generic bundles ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            //Website custom
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                 "~/scripts/components/owl.carousel.min.js",
                 "~/css/components/slick/slick.js",
@@ -46,7 +61,6 @@ namespace ProjectOffice
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                 "~/Scripts/components/vendor/modernizr-2.8.3-respond-1.4.2.min.js"
             ));
-
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/css/components/bootstrap/bootstrap.css",
@@ -69,20 +83,18 @@ namespace ProjectOffice
                 "~/css/table-styles.css"
             ));
 
+
+// Website specific bundles ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+            //Form bundles JS + CSS
+            bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
+                "~/Scripts/formJS/formJS.js"
+            ));
+
             bundles.Add(new StyleBundle("~/Content/formCSS").Include(
                 "~/css/components/bootstrap/bootstrapValidator.min.css",
                 "~/css/formCSS/style.css"
-            ));
-
-
-
-
-
-
-
-            //Form bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/formJS").Include(
-                "~/Scripts/formJS/formJS.js"
             ));
 
             //Application List bundles JS

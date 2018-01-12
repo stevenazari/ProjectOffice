@@ -1,9 +1,12 @@
-﻿@model System.Data.DataTable 
+﻿@model System.Data.DataTable
 @using System.Data;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Applications List";
 }
+@Styles.Render("~/Content/css/components/bootstrapTables")
+@Styles.Render("~/Content/css/formCSS")
+
 @Scripts.Render("~/bundles/formJS")
 @Scripts.Render("~/bundles/applicationList")
 <br />
@@ -151,3 +154,4 @@
         </fieldset>
     </div>
 </div><!-- /.container -->
+@Scripts.Render("~/bundles/bootstrapTables")
