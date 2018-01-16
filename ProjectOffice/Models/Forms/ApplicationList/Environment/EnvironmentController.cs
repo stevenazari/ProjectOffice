@@ -20,7 +20,7 @@ namespace ProjectOffice.Models.Forms.ApplicationList.Environment
         public int Server_ID { get; set; }
         public int Environment_Type_ID { get; set; }
         public string Comment { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
+        public string Created { get; set; } = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
         public bool? Deleted { get; set; }
 
         public static SelectList GetApplications()

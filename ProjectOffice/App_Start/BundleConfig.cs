@@ -33,13 +33,13 @@ namespace ProjectOffice
 
 
             //Bootstraptables
-            bundles.Add(new ScriptBundle("~/bundles/bootstrapTable").Include(
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapTables").Include(
                 "~/scripts/components/bootstrapTables/bootstrap-table.min.js",
                 "~/scripts/components/bootstrapTables/bootstrap-table.en-US.min.js"
             ));
 
-            bundles.Add(new StyleBundle("~/Content/css/bootstrapTable").Include(
-                "~/css/components/bootstrapTables/bootstarp-table.min.css"
+            bundles.Add(new StyleBundle("~/css/components/bootstrapTables").Include(
+                "~/css/components/bootstrapTables/bootstrap-table.min.css"
             ));
 
 
@@ -64,7 +64,7 @@ namespace ProjectOffice
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/css/components/bootstrap/bootstrap.css",
-                "~/css/components/bootstrap/bootstrap.min.css",
+                //"~/css/components/bootstrap/bootstrap.min.css",
                 "~/css/components/bootstrap/bootstrap-theme.min.css",
                 "~/css/site.css",
                 "~/css/components/slick/slick.css",
@@ -92,7 +92,7 @@ namespace ProjectOffice
                 "~/Scripts/formJS/formJS.js"
             ));
 
-            bundles.Add(new StyleBundle("~/Content/formCSS").Include(
+            bundles.Add(new StyleBundle("~/css/formCSS").Include(
                 "~/css/components/bootstrap/bootstrapValidator.min.css",
                 "~/css/formCSS/style.css"
             ));

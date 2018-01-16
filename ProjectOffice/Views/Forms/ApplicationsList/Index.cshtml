@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Applications List";
 }
-@Styles.Render("~/Content/css/components/bootstrapTables")
-@Styles.Render("~/Content/css/formCSS")
+@Styles.Render("~/css/components/bootstrapTables")
+@Styles.Render("~/css/formCSS")
 
 @Scripts.Render("~/bundles/formJS")
 @Scripts.Render("~/bundles/applicationList")
@@ -88,25 +88,30 @@
 
 
             <div id="environmentsList">
-                <input class="search" placeholder="Search" />
-                <button class="sort" data-sort="searchItem">Sort</button>
-                <ul class="list list-group">
-                    <li class="list-group-item-heading"><div class="">Application Name</div></li>
-                    <li class="list-group-item-heading"><div class="form-horizontal">Environment Type</div></li>
-                    <li class="list-group-item-heading"><div>Server Type</div></li>
-                    <li class="list-group-item-heading"><div>Server Name</div></li>
-                    <li class="list-group-item-heading"><div>Environment Notes</div></li>
-                    <li class="list-group-item-heading"><div>Support Company</div></li>
-                    @foreach (System.Data.DataRow row in Model.Rows)
-                    {
-                        <li class="list-group-item m-top-20 searchItem" id="environmentHead_@row["Environment_ID"]" data-toggle="collapse" data-target="#environmentDetailsDiv_@row["Environment_ID"]" aria-expanded="false" aria-controls="environmentContainer_@row["Environment_ID"]">
-                            <div>@row["Application_Name"]</div>
-                            <div>@row["Environment_Type"]</div>
-                            <div>@row["Server_Type"]</div>
-                            <div>@row["Server_Name"]</div>
-                            <div>@row["Environment_Comment"]</div>
-                            <div>@row["Support_Company_Name"]</div>
-                            <div id="environmentDetailsDiv_@row["Environment_ID"]" class="collapse">
+                <table id="table" data-pagination="true" data-search="true" data-toggle="table" data-detail-formatter="detailFormatter" data-detail-view="true">
+                    <thead>
+                        <tr>
+                            <th class="detail" rowspan="1" data-sortable="true" data-field="id">Application Name</th>
+                            <th data-sortable="true" data-field="environmentType">Environment Type</th>
+                            <th data-sortable="true" data-field="serverType">Server Type</th>
+                            <th data-sortable="true" data-field="serverName">Server Name</th>
+                            <th data-sortable="true" data-field="comments">EnvironmentNotes</th>
+                            <th data-sortable="true" data-field="supportCompany">Support Company</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (System.Data.DataRow row in Model.Rows)
+                        {
+                        <tr id="environmentHead_@row["Environment_ID"]">
+                            <td>@row["Application_Name"]</td>
+                            <td>@row["Environment_Type"]</td>
+                            <td>@row["Server_Type"]</td>
+                            <td>@row["Server_Name"]</td>
+                            <td>@row["Environment_Comment"]</td>
+                            <td>@row["Support_Company_Name"]</td>
+                        </tr>
+                        <tr id="environmentDetailsDiv_@row["Environment_ID"]" class="detail-view">
+                            <td style="display: table-cell;" colspan="6">
                                 <div class="jumbotron">
                                     <form role="form" class="environmentForm" data-toggle="validator" method="post" action="/ApplicationsList/Update" name="environmentForm" id="environmentForm_@row["Environment_ID"]">
                                         <p>
@@ -142,10 +147,11 @@
                                 <div class="alert alert-danger collapse" role="alert" id="Application_List_Error_Message_@row["Environment_ID"]">
                                     message <i class="glyphicon glyphicon-thumbs-down"></i>
                                 </div>
-                            </div>
-                        </li>
-                    }
-                </ul>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
 
 

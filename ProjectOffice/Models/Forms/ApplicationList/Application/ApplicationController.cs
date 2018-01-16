@@ -20,8 +20,8 @@ namespace ProjectOffice.Models.Forms.ApplicationList.Application
         public int Application_Type_ID { get; set; }
         public int Support_Company_ID { get; set; }
         public string Comment { get; set; }
-        public DateTime Last_Used { get; set; } = DateTime.Now;
-        public DateTime Created { get; set; } = DateTime.Now;
+        public string Last_Used { get; set; } = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
+        public string Created { get; set; } = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
         public bool? Status { get; set; }
         public bool? Deleted { get; set; }
 

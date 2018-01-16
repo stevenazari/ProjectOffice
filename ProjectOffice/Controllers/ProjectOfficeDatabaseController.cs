@@ -28,6 +28,7 @@ namespace ProjectOffice.Controllers
         {
             string message = "";
             string procedure = "EXEC " + StoredProcedure + " " + values;
+            //Debug.Write(procedure + " END");
             DataTable results = new DataTable(StoredProcedure);
 
             try

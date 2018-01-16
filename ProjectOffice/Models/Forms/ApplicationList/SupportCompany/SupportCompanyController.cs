@@ -21,7 +21,7 @@ namespace ProjectOffice.Models.Forms.ApplicationList.SupportCompany
         public string Website { get; set; }
         public string Comment { get; set; }
         public bool Out_Of_Hours { get; set; } = false;
-        public DateTime Created { get; set; } = DateTime.Now;
+        public string Created { get; set; } = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
         public bool Status { get; set; } = true;
         public bool? Deleted { get; set; } = false;
     }
