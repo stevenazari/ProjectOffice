@@ -1,0 +1,231 @@
+﻿@model ProjectOffice.Models.Forms.ApplicationList.ApplicationListModel
+
+<script type="text/javascript">
+    var jsonData = @Html.Raw(Json.Encode(ProjectOffice.Models.Forms.ApplicationList.ApplicationListModel.GetEnvironments()));
+
+    var tableData = []
+    var i = 0;
+
+    for (var row in jsonData) {
+        {
+            tableData[i] = {
+                "Server_Name": row["Server_Name"],
+                "Server_Type": row["Server_Type"],
+                "Application_Name": row["Application_Name"],
+                "Environment_Type": row["Environment_Type"],
+                "Support_Company_Name": row["Support_Company_Name"],
+            }
+            i++
+        }
+    }
+</script>
+
+<div class="bootstrap-table">
+    <div class="fixed-table-toolbar">
+        <div class="bs-bars pull-left">
+            <div id="toolbar">
+                <button disabled="" class="btn btn-danger" id="remove">
+                    <i class="glyphicon glyphicon-remove"></i> Delete
+                </button>
+            </div>
+        </div>
+        <div class="columns columns-right btn-group pull-right">
+            <button class="btn btn-toolbar" type="button" aria-label="pagination Switch" name="paginationSwitch" title="Hide/Show pagination"><i class="glyphicon glyphicon-collapse-down icon-chevron-down"></i></button>
+            <button class="btn btn-toolbar" type="button" aria-label="refresh" name="refresh" title="Refresh"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
+            <button class="btn btn-toolbar" type="button" aria-label="toggle" name="toggle" title="Toggle"><i class="glyphicon glyphicon-list-alt icon-list-alt"></i></button>
+            <div title="Columns" class="keep-open btn-group">
+                <button class="btn btn-toolbar dropdown-toggle" aria-label="columns" type="button" data-toggle="dropdown"><i class="glyphicon glyphicon-th icon-th"></i> <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="1" data-field="id">Environment ID</label>
+                    </li>
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="2" data-field="name">Server Name</label>
+                    </li>
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="3" data-field="price">Server Type</label>
+                    </li>
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="4" data-field="operate">Application Name</label>
+                    </li>
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="5" data-field="operate">Environment Type</label>
+                    </li>
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="6" data-field="operate">Support Company Name</label>
+                    </li>
+                    <li role="menuitem">
+                        <label><input type="checkbox" checked="checked" value="6" data-field="operate">Environment Notes</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="export btn-group">
+                <button title="Export data" class="btn btn-toolbars dropdown-toggle" aria-label="export type" type="button" data-toggle="dropdown"><i class="glyphicon glyphicon-export icon-share"></i> <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="menuitem" data-type="json">
+                        <a href="javascript:void(0)">JSON</a>
+                    </li>
+                    <li role="menuitem" data-type="xml">
+                        <a href="javascript:void(0)">XML</a>
+                    </li>
+                    <li role="menuitem" data-type="csv">
+                        <a href="javascript:void(0)">CSV</a>
+                    </li>
+                    <li role="menuitem" data-type="txt">
+                        <a href="javascript:void(0)">TXT</a>
+                    </li>
+                    <li role="menuitem" data-type="sql">
+                        <a href="javascript:void(0)">SQL</a>
+                    </li>
+                    <li role="menuitem" data-type="excel">
+                        <a href="javascript:void(0)">MS-Excel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pull-right search">
+            <input class="form-control" type="text" placeholder="Search">
+        </div>
+    </div>
+    <div class="fixed-table-container" style="height: 150px; padding-bottom: 82px;">
+        <div class="fixed-table-header" style="margin-right: 0px;">
+        </div>
+        <div class="fixed-table-body">
+            <div class="fixed-table-loading" style="top: 83px; display: none;">Loading, please wait...</div>
+            <table class="table table-hover"
+                   id="table"
+                   data-response-handler="responseHandler"
+                   data-url="/ApplicationsList/update"
+                   data-side-pagination="server"
+                   data-show-footer="false"
+                   data-page-list="[10, 25, 50, 100, ALL]"
+                   data-id-field="id"
+                   data-pagination="true"
+                   data-show-pagination-switch="true"
+                   data-minimum-count-columns="2"
+                   data-detail-formatter="detailFormatter"
+                   data-detail-view="true"
+                   data-show-export="true"
+                   data-show-columns="true"
+                   data-show-toggle="true"
+                   data-show-refresh="true"
+                   data-search="true"
+                   data-toolbar="#toolbar">
+                <thead>
+                    <tr>
+                        <th class="detail" rowspan="2">
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2" data-field="state">
+                            <div class="th-inner ">
+                                <input name="btSelectAll" type="checkbox">
+                            </div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; vertical-align: middle; " rowspan="2" data-field="id">
+                            <div class="th-inner sortable both">Environment ID</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; " colspan="6">
+                            <div class="th-inner ">Environments</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center; " data-not-first-th="" data-field="name">
+                            <div class="th-inner sortable both">Server Name</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; " data-not-first-th="" data-field="name">
+                            <div class="th-inner sortable both">Server Type</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; " data-field="price">
+                            <div class="th-inner sortable both">Application Name</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; " data-field="operate">
+                            <div class="th-inner ">Environment Type</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; " data-field="operate">
+                            <div class="th-inner ">Support Company</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                        <th style="text-align: center; " data-field="operate">
+                            <div class="th-inner ">Environment Comment</div>
+                            <div class="fht-cell"></div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="fixed-table-footer" style="display: none;">
+            <table>
+                <tbody>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="fixed-table-pagination" style="display: block;">
+        <div class="pull-left pagination-detail">
+            <span class="pagination-info">Showing 1 to 10 of 800 rows</span>
+            <span class="page-list">
+                <span class="btn-group dropup">
+                    <button class="btn btn-toolbar dropdown-toggle" type="button" data-toggle="dropdown"><span class="page-size">10</span> <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="active" role="menuitem">
+                            <a href="#">10</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">25</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">50</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">100</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">All</a>
+                        </li>
+                    </ul>
+                </span> rows per page
+            </span>
+        </div>
+        <div class="pull-right pagination">
+            <ul class="pagination">
+                <li class="page-item page-pre">
+                    <a class="page-link" href="#">‹</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
+                <li class="page-item page-last-separator disabled">
+                    <a class="page-link" href="#">...</a>
+                </li>
+                <li class="page-item page-last">
+                    <a class="page-link" href="#">80</a>
+                </li>
+                <li class="page-item page-next">
+                    <a class="page-link" href="#">›</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

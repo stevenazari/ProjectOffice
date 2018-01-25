@@ -179,8 +179,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\components\animate.css" />
     <Content Include="css\components\bootsnav.css" />
-    <Content Include="css\components\bootstrapTables\bootstrap-table.css" />
-    <Content Include="css\components\bootstrapTables\bootstrap-table.min.css" />
+    <Content Include="css\components\bootstrapTable\bootstrap-table.css" />
+    <Content Include="css\components\bootstrapTable\bootstrap-table.min.css" />
     <Content Include="css\components\bootstrap\bootstrap.css" />
     <Content Include="css\components\bootstrap\bootstrap.min.css" />
     <Content Include="css\components\flexslider.css" />
@@ -227,6 +227,8 @@
     <Content Include="images\work-img3.jpg" />
     <Content Include="images\work-img4.jpg" />
     <Content Include="Scripts\components\bootsnav.js" />
+    <Content Include="Scripts\components\bootstrapTable\bootstrap-table-editable.js" />
+    <Content Include="Scripts\components\bootstrapTable\bootstrap-table-export.js" />
     <Content Include="Scripts\components\bootstrap\bootstrap.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -258,9 +260,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\components\jQuery\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\components\bootstrapTables\bootstrap-table-en-US.min.js" />
-    <Content Include="Scripts\components\bootstrapTables\bootstrap-table-locale-all.min.js" />
-    <Content Include="Scripts\components\bootstrapTables\bootstrap-table.min.js" />
+    <Content Include="Scripts\components\bootstrapTable\bootstrap-table-en-US.min.js" />
+    <Content Include="Scripts\components\bootstrapTable\bootstrap-table-locale-all.min.js" />
+    <Content Include="Scripts\components\bootstrapTable\bootstrap-table.min.js" />
     <Content Include="Scripts\formJS\formJS.js" />
     <Content Include="Scripts\formJS\ApplicationList\Add_Environment_Validation.js" />
     <Content Include="Scripts\formJS\ApplicationList\Add_Server_Validation.js" />
@@ -348,6 +350,7 @@
     <Content Include="Scripts\components\jQuery\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\components\jQuery\jquery-3.2.1.min.map" />
     <Content Include="Views\Forms\ApplicationsList\AddEnvironment\View.cshtml" />
+    <Content Include="Views\Forms\ApplicationsList\ApplicationListTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

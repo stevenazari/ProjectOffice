@@ -11,3 +11,7 @@
     text-align: left;
     padding-right: 10px;
 }
+/*
+td:nth-of-type(2){
+    display: none;
+}*/

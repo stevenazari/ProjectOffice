@@ -84,79 +84,9 @@
                     </div>
                 </div>
             </div>
+            <br /><br /><br />
 
-
-
-            <div id="environmentsList">
-                <table id="table" data-pagination="true" data-search="true" data-toggle="table" data-detail-formatter="detailFormatter" data-detail-view="true">
-                    <thead>
-                        <tr>
-                            <th class="detail" rowspan="1" data-sortable="true" data-field="id">Application Name</th>
-                            <th data-sortable="true" data-field="environmentType">Environment Type</th>
-                            <th data-sortable="true" data-field="serverType">Server Type</th>
-                            <th data-sortable="true" data-field="serverName">Server Name</th>
-                            <th data-sortable="true" data-field="comments">EnvironmentNotes</th>
-                            <th data-sortable="true" data-field="supportCompany">Support Company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (System.Data.DataRow row in Model.Rows)
-                        {
-                        <tr id="environmentHead_@row["Environment_ID"]">
-                            <td>@row["Application_Name"]</td>
-                            <td>@row["Environment_Type"]</td>
-                            <td>@row["Server_Type"]</td>
-                            <td>@row["Server_Name"]</td>
-                            <td>@row["Environment_Comment"]</td>
-                            <td>@row["Support_Company_Name"]</td>
-                        </tr>
-                        <tr id="environmentDetailsDiv_@row["Environment_ID"]" class="detail-view">
-                            <td style="display: table-cell;" colspan="6">
-                                <div class="jumbotron">
-                                    <form role="form" class="environmentForm" data-toggle="validator" method="post" action="/ApplicationsList/Update" name="environmentForm" id="environmentForm_@row["Environment_ID"]">
-                                        <p>
-                                            <h5>Details for @row["Application_Name"] @row["Environment_Type"] environment<br /></h5>
-
-                                            <input name="ID" id="ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_ID"]' />
-                                            <input name="Application_ID" id="Application_ID_@row["Environment_ID"]" type="hidden" value='@row["Application_ID"]' />
-                                            <input name="Server_ID" id="Server_ID_@row["Environment_ID"]" type="hidden" value='@row["Server_ID"]' />
-                                            <input name="Environment_Type_ID" id="Environment_Type_ID_@row["Environment_ID"]" type="hidden" value='@row["Environment_Type_ID"]' />
-                                            <input name="Support_Company_ID" id="Support_Company_ID_@row["Environment_ID"]" type="hidden" value='@row["Support_Company_ID"]' />
-                                            <input name="Comment" id="Comment_@row["Environment_ID"]" type="hidden" value='@row["Environment_Comment"]' />
-                                            <input name="Deleted" id="Deleted_@row["Environment_ID"]" type="hidden" value='@row["Environment_Deleted"]' />
-
-                                            <b>Environment Created:</b> @row["Environment_Created"]<br />
-                                            <b>Application Comment:</b> @row["Application_Comment"]<br />
-                                            <b>Application Package Type:</b> @row["Application_Type"]<br /><br />
-
-                                            <b>Server:</b> @row["Server_Name"]<br />
-                                            <b>Server Type:</b> @row["Server_Type"]<br />
-                                            <b>Server Address:</b> @row["IP_Address"]<br />
-                                        </p>
-                                        <div class="btn-group" role="group" aria-label="...">
-                                            <button type="button" class="btn btn-danger" name="Delete" id="Delete_@row["Environment_ID"]" onclick="updateEnvironment('Delete', @row["Environment_ID"])">Delete <span class="glyphicon glyphicon-warning-sign"></span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- Success message -->
-                                <div class="alert alert-success collapse" role="alert" id="Application_List_Success_Message_@row["Environment_ID"]">
-                                    message <i class="glyphicon glyphicon-thumbs-up"></i>
-                                </div>
-
-                                <!-- Error message -->
-                                <div class="alert alert-danger collapse" role="alert" id="Application_List_Error_Message_@row["Environment_ID"]">
-                                    message <i class="glyphicon glyphicon-thumbs-down"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-
-
-
+            @{ Html.RenderAction("getEnvironments", "ApplicationsList");}
         </fieldset>
     </div>
 </div><!-- /.container -->

@@ -23,6 +23,25 @@ namespace ProjectOffice.Controllers.Forms.ApplicationsList
             return View("~/Views/Forms/ApplicationsList/Index.cshtml", environmentsTable);
         }
 
+        public ActionResult GetEnvironments()
+        {
+            string message = "";
+            string jsonResult = "";
+            DataTable payload = null;
+
+            var resultEnvironments = DBClassController.SQLConnection("Select_Environments", "1");
+            message = resultEnvironments.Item1;
+            payload = resultEnvironments.Item2;
+
+            jsonResult = DBClassController.BuildDataTableToJson(payload);
+
+            var jsonResponse = new JsonResult();
+            jsonResponse.Data = new { results = jsonResult };
+            jsonResponse.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            Debug.Write(jsonResponse);
+            return PartialView("~/Views/Forms/ApplicationsList/ApplicationListTable.cshtml", jsonResponse);
+        }
+
         public ActionResult ApplicationListIntro()
         {
             return PartialView("~/Views/Forms/ApplicationsList/Intro.cshtml");
