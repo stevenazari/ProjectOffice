@@ -1,231 +1,264 @@
-﻿@model ProjectOffice.Models.Forms.ApplicationList.ApplicationListModel
+﻿@Styles.Render("~/css/components/bootstrapTables")
 
-<script type="text/javascript">
-    var jsonData = @Html.Raw(Json.Encode(ProjectOffice.Models.Forms.ApplicationList.ApplicationListModel.GetEnvironments()));
+<div class="container">
+    <div id="toolbar">
+        <button id="remove" class="btn btn-danger" disabled>
+            <i class="glyphicon glyphicon-remove"></i> Delete
+        </button>
+    </div>
+    <table id="table"
+           data-toolbar="#toolbar"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-export="true"
+           data-detail-view="true"
+           data-detail-formatter="detailFormatter"
+           data-minimum-count-columns="2"
+           data-show-pagination-switch="true"
+           data-pagination="true"
+           data-id-field="id"
+           data-page-list="[10, 25, 50, 100, ALL]"
+           data-show-footer="false"
+           data-side-pagination="server"
+           data-url="/ApplicationsList/getEnvironments"
+           data-response-handler="responseHandler"></table>
+</div>
 
-    var tableData = []
-    var i = 0;
+<script>
+    var $table = $('#table'),
+        $remove = $('#remove'),
+        selections = [];
 
-    for (var row in jsonData) {
-        {
-            tableData[i] = {
-                "Server_Name": row["Server_Name"],
-                "Server_Type": row["Server_Type"],
-                "Application_Name": row["Application_Name"],
-                "Environment_Type": row["Environment_Type"],
-                "Support_Company_Name": row["Support_Company_Name"],
+    function initTable() {
+        $table.bootstrapTable({
+            height: getHeight(),
+            columns: [
+                [
+                    {
+                        field: 'state',
+                        checkbox: true,
+                        rowspan: 2,
+                        align: 'center',
+                        valign: 'middle'
+                    }, {
+                        title: 'Environment ID',
+                        field: 'Environment_ID',
+                        rowspan: 2,
+                        align: 'center',
+                        valign: 'middle',
+                        sortable: true,
+                        footerFormatter: totalTextFormatter
+                    }, {
+                        title: 'Environment Details',
+                        colspan: 3,
+                        align: 'center'
+                    }
+                ],
+                [
+                    {
+                        field: 'Server_Name',
+                        title: 'Server Name',
+                        sortable: true,
+                        editable: true,
+                        footerFormatter: totalNameFormatter,
+                        align: 'center'
+                    }, {
+                        field: 'Server_Type',
+                        title: 'Server Type',
+                        sortable: true,
+                        align: 'center',
+                        editable: {
+                            type: 'text',
+                            title: 'Server_Type',
+                            validate: function (value) {
+                                value = $.trim(value);
+                                if (!value) {
+                                    return 'This field is required';
+                                }
+                                if (!/^\$/.test(value)) {
+                                    return 'This field needs to start width $.'
+                                }
+                                var data = $table.bootstrapTable('getData'),
+                                    index = $(this).parents('tr').data('index');
+                                console.log(data[index]);
+                                return '';
+                            }
+                        },
+                        footerFormatter: totalPriceFormatter
+                    }, {
+                        field: 'Application_Name',
+                        title: 'Application Name',
+                        align: 'center',
+                        events: operateEvents,
+                        formatter: operateFormatter
+                    }
+                ]
+            ]
+        });
+        // sometimes footer render error.
+        setTimeout(function () {
+            $table.bootstrapTable('resetView');
+        }, 200);
+        $table.on('check.bs.table uncheck.bs.table ' +
+            'check-all.bs.table uncheck-all.bs.table', function () {
+                $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+
+                // save your data, here just save the current page
+                selections = getIdSelections();
+                // push or splice the selections if you want to save all data selections
+            });
+        $table.on('expand-row.bs.table', function (e, index, row, $detail) {
+            if (index % 2 == 1) {
+                $detail.html('Loading from ajax request...');
+                $.get('LICENSE', function (res) {
+                    $detail.html(res.replace(/\n/g, '<br>'));
+                });
             }
-            i++
+        });
+        $table.on('all.bs.table', function (e, name, args) {
+            console.log(name, args);
+        });
+        $remove.click(function () {
+            var ids = getIdSelections();
+            $table.bootstrapTable('remove', {
+                field: 'id',
+                values: ids
+            });
+            $remove.prop('disabled', true);
+        });
+        $(window).resize(function () {
+            $table.bootstrapTable('resetView', {
+                height: getHeight()
+            });
+        });
+    }
+
+    function getIdSelections() {
+        return $.map($table.bootstrapTable('getSelections'), function (row) {
+            return row.id
+        });
+    }
+
+    function responseHandler(res) {
+        $.each(res.rows, function (i, row) {
+            row.state = $.inArray(row.id, selections) !== -1;
+        });
+        return res;
+    }
+
+    function detailFormatter(index, row) {
+        var html = [];
+        $.each(row, function (key, value) {
+            html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+        });
+        return html.join('');
+    }
+
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="like" href="javascript:void(0)" title="Like">',
+            '<i class="glyphicon glyphicon-heart"></i>',
+            '</a>  ',
+            '<a class="remove" href="javascript:void(0)" title="Remove">',
+            '<i class="glyphicon glyphicon-remove"></i>',
+            '</a>'
+        ].join('');
+    }
+
+    window.operateEvents = {
+        'click .like': function (e, value, row, index) {
+            alert('You click like action, row: ' + JSON.stringify(row));
+        },
+        'click .remove': function (e, value, row, index) {
+            $table.bootstrapTable('remove', {
+                field: 'id',
+                values: [row.id]
+            });
         }
+    };
+
+    function totalTextFormatter(data) {
+        return 'Total';
+    }
+
+    function totalNameFormatter(data) {
+        return data.length;
+    }
+
+    function totalPriceFormatter(data) {
+        var total = 0;
+        $.each(data, function (i, row) {
+            total += +(row.price.substring(1));
+        });
+        return '$' + total;
+    }
+
+    function getHeight() {
+        return $(window).height() - $('h1').outerHeight(true);
+    }
+
+    $(function () {
+        var scripts = [
+            location.search.substring(1) || '../scripts/components/bootstrapTable/bootstrap-table.js',
+            '../scripts/components/bootstrapTable/bootstrap-table-export.js',
+            'http://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js',
+            '../scripts/components/bootstrapTable/bootstrap-table-editable.js',
+            'http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/js/bootstrap-editable.js'
+        ],
+            eachSeries = function (arr, iterator, callback) {
+                callback = callback || function () { };
+                if (!arr.length) {
+                    return callback();
+                }
+                var completed = 0;
+                var iterate = function () {
+                    iterator(arr[completed], function (err) {
+                        if (err) {
+                            callback(err);
+                            callback = function () { };
+                        }
+                        else {
+                            completed += 1;
+                            if (completed >= arr.length) {
+                                callback(null);
+                            }
+                            else {
+                                iterate();
+                            }
+                        }
+                    });
+                };
+                iterate();
+            };
+
+        eachSeries(scripts, getScript, initTable);
+    });
+
+    function getScript(url, callback) {
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.src = url;
+
+        var done = false;
+        // Attach handlers for all browsers
+        script.onload = script.onreadystatechange = function () {
+            if (!done && (!this.readyState ||
+                this.readyState == 'loaded' || this.readyState == 'complete')) {
+                done = true;
+                if (callback)
+                    callback();
+
+                // Handle memory leak in IE
+                script.onload = script.onreadystatechange = null;
+            }
+        };
+
+        head.appendChild(script);
+
+        // We handle everything using the script element injection
+        return undefined;
     }
 </script>
-
-<div class="bootstrap-table">
-    <div class="fixed-table-toolbar">
-        <div class="bs-bars pull-left">
-            <div id="toolbar">
-                <button disabled="" class="btn btn-danger" id="remove">
-                    <i class="glyphicon glyphicon-remove"></i> Delete
-                </button>
-            </div>
-        </div>
-        <div class="columns columns-right btn-group pull-right">
-            <button class="btn btn-toolbar" type="button" aria-label="pagination Switch" name="paginationSwitch" title="Hide/Show pagination"><i class="glyphicon glyphicon-collapse-down icon-chevron-down"></i></button>
-            <button class="btn btn-toolbar" type="button" aria-label="refresh" name="refresh" title="Refresh"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
-            <button class="btn btn-toolbar" type="button" aria-label="toggle" name="toggle" title="Toggle"><i class="glyphicon glyphicon-list-alt icon-list-alt"></i></button>
-            <div title="Columns" class="keep-open btn-group">
-                <button class="btn btn-toolbar dropdown-toggle" aria-label="columns" type="button" data-toggle="dropdown"><i class="glyphicon glyphicon-th icon-th"></i> <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu">
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="1" data-field="id">Environment ID</label>
-                    </li>
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="2" data-field="name">Server Name</label>
-                    </li>
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="3" data-field="price">Server Type</label>
-                    </li>
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="4" data-field="operate">Application Name</label>
-                    </li>
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="5" data-field="operate">Environment Type</label>
-                    </li>
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="6" data-field="operate">Support Company Name</label>
-                    </li>
-                    <li role="menuitem">
-                        <label><input type="checkbox" checked="checked" value="6" data-field="operate">Environment Notes</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="export btn-group">
-                <button title="Export data" class="btn btn-toolbars dropdown-toggle" aria-label="export type" type="button" data-toggle="dropdown"><i class="glyphicon glyphicon-export icon-share"></i> <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu">
-                    <li role="menuitem" data-type="json">
-                        <a href="javascript:void(0)">JSON</a>
-                    </li>
-                    <li role="menuitem" data-type="xml">
-                        <a href="javascript:void(0)">XML</a>
-                    </li>
-                    <li role="menuitem" data-type="csv">
-                        <a href="javascript:void(0)">CSV</a>
-                    </li>
-                    <li role="menuitem" data-type="txt">
-                        <a href="javascript:void(0)">TXT</a>
-                    </li>
-                    <li role="menuitem" data-type="sql">
-                        <a href="javascript:void(0)">SQL</a>
-                    </li>
-                    <li role="menuitem" data-type="excel">
-                        <a href="javascript:void(0)">MS-Excel</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="pull-right search">
-            <input class="form-control" type="text" placeholder="Search">
-        </div>
-    </div>
-    <div class="fixed-table-container" style="height: 150px; padding-bottom: 82px;">
-        <div class="fixed-table-header" style="margin-right: 0px;">
-        </div>
-        <div class="fixed-table-body">
-            <div class="fixed-table-loading" style="top: 83px; display: none;">Loading, please wait...</div>
-            <table class="table table-hover"
-                   id="table"
-                   data-response-handler="responseHandler"
-                   data-url="/ApplicationsList/update"
-                   data-side-pagination="server"
-                   data-show-footer="false"
-                   data-page-list="[10, 25, 50, 100, ALL]"
-                   data-id-field="id"
-                   data-pagination="true"
-                   data-show-pagination-switch="true"
-                   data-minimum-count-columns="2"
-                   data-detail-formatter="detailFormatter"
-                   data-detail-view="true"
-                   data-show-export="true"
-                   data-show-columns="true"
-                   data-show-toggle="true"
-                   data-show-refresh="true"
-                   data-search="true"
-                   data-toolbar="#toolbar">
-                <thead>
-                    <tr>
-                        <th class="detail" rowspan="2">
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2" data-field="state">
-                            <div class="th-inner ">
-                                <input name="btSelectAll" type="checkbox">
-                            </div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; vertical-align: middle; " rowspan="2" data-field="id">
-                            <div class="th-inner sortable both">Environment ID</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; " colspan="6">
-                            <div class="th-inner ">Environments</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th style="text-align: center; " data-not-first-th="" data-field="name">
-                            <div class="th-inner sortable both">Server Name</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; " data-not-first-th="" data-field="name">
-                            <div class="th-inner sortable both">Server Type</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; " data-field="price">
-                            <div class="th-inner sortable both">Application Name</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; " data-field="operate">
-                            <div class="th-inner ">Environment Type</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; " data-field="operate">
-                            <div class="th-inner ">Support Company</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                        <th style="text-align: center; " data-field="operate">
-                            <div class="th-inner ">Environment Comment</div>
-                            <div class="fht-cell"></div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <div class="fixed-table-footer" style="display: none;">
-            <table>
-                <tbody>
-                    <tr></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="fixed-table-pagination" style="display: block;">
-        <div class="pull-left pagination-detail">
-            <span class="pagination-info">Showing 1 to 10 of 800 rows</span>
-            <span class="page-list">
-                <span class="btn-group dropup">
-                    <button class="btn btn-toolbar dropdown-toggle" type="button" data-toggle="dropdown"><span class="page-size">10</span> <span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="active" role="menuitem">
-                            <a href="#">10</a>
-                        </li>
-                        <li role="menuitem">
-                            <a href="#">25</a>
-                        </li>
-                        <li role="menuitem">
-                            <a href="#">50</a>
-                        </li>
-                        <li role="menuitem">
-                            <a href="#">100</a>
-                        </li>
-                        <li role="menuitem">
-                            <a href="#">All</a>
-                        </li>
-                    </ul>
-                </span> rows per page
-            </span>
-        </div>
-        <div class="pull-right pagination">
-            <ul class="pagination">
-                <li class="page-item page-pre">
-                    <a class="page-link" href="#">‹</a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item page-last-separator disabled">
-                    <a class="page-link" href="#">...</a>
-                </li>
-                <li class="page-item page-last">
-                    <a class="page-link" href="#">80</a>
-                </li>
-                <li class="page-item page-next">
-                    <a class="page-link" href="#">›</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="clearfix"></div>
+@Scripts.Render("~/bundles/applicationList")

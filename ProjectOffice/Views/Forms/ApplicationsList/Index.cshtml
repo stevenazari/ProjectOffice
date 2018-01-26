@@ -4,11 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Applications List";
 }
-@Styles.Render("~/css/components/bootstrapTables")
 @Styles.Render("~/css/formCSS")
-
 @Scripts.Render("~/bundles/formJS")
-@Scripts.Render("~/bundles/applicationList")
 <br />
 <div class="container">
     <div class="well form-horizontal">
@@ -86,8 +83,7 @@
             </div>
             <br /><br /><br />
 
-            @{ Html.RenderAction("getEnvironments", "ApplicationsList");}
+            @{ Html.RenderAction("ApplicationListTable", "ApplicationsList");}
         </fieldset>
     </div>
 </div><!-- /.container -->
-@Scripts.Render("~/bundles/bootstrapTables")

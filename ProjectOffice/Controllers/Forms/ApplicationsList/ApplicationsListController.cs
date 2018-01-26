@@ -23,7 +23,12 @@ namespace ProjectOffice.Controllers.Forms.ApplicationsList
             return View("~/Views/Forms/ApplicationsList/Index.cshtml", environmentsTable);
         }
 
-        public ActionResult GetEnvironments()
+        public ActionResult ApplicationListTable()
+        {
+            return PartialView("~/Views/Forms/ApplicationsList/ApplicationListTable.cshtml");
+        }
+
+        public JsonResult GetEnvironments()
         {
             string message = "";
             string jsonResult = "";
@@ -36,10 +41,10 @@ namespace ProjectOffice.Controllers.Forms.ApplicationsList
             jsonResult = DBClassController.BuildDataTableToJson(payload);
 
             var jsonResponse = new JsonResult();
-            jsonResponse.Data = new { results = jsonResult };
+            jsonResponse.Data = jsonResult;
             jsonResponse.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             Debug.Write(jsonResponse);
-            return PartialView("~/Views/Forms/ApplicationsList/ApplicationListTable.cshtml", jsonResponse);
+            return jsonResponse;
         }
 
         public ActionResult ApplicationListIntro()

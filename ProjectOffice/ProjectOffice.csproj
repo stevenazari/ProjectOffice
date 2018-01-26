@@ -229,6 +229,7 @@
     <Content Include="Scripts\components\bootsnav.js" />
     <Content Include="Scripts\components\bootstrapTable\bootstrap-table-editable.js" />
     <Content Include="Scripts\components\bootstrapTable\bootstrap-table-export.js" />
+    <Content Include="Scripts\components\bootstrapTable\bootstrap-table.js" />
     <Content Include="Scripts\components\bootstrap\bootstrap.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

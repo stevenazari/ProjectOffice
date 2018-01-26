@@ -65,7 +65,7 @@ namespace ProjectOffice
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/css/components/bootstrap/bootstrap.css",
                 //"~/css/components/bootstrap/bootstrap.min.css",
-                "~/css/components/bootstrap/bootstrap-theme.min.css",
+                //"~/css/components/bootstrap/bootstrap-theme.min.css", //Breaks CSS
                 "~/css/site.css",
                 "~/css/components/slick/slick.css",
                 "~/css/components/slick/slick-theme.css",
