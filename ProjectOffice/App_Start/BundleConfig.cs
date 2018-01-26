@@ -34,7 +34,7 @@ namespace ProjectOffice
 
             //Bootstraptable
             bundles.Add(new ScriptBundle("~/bundles/bootstrapTables").Include(
-                "~/scripts/components/bootstrapTable/bootstrap-table.min.js",
+                "~/scripts/components/bootstrapTable/bootstrap-table.js",
                 "~/scripts/components/bootstrapTable/bootstrap-table.en-US.min.js"
             ));
 

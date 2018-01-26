@@ -43,8 +43,8 @@ namespace ProjectOffice.Controllers.Forms.ApplicationsList
             var jsonResponse = new JsonResult();
             jsonResponse.Data = jsonResult;
             jsonResponse.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            Debug.Write(jsonResponse);
-            return jsonResponse;
+            //Debug.Write(jsonResponse);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult ApplicationListIntro()
