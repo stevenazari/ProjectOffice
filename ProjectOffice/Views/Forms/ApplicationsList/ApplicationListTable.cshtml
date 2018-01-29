@@ -51,10 +51,6 @@
                         valign: 'middle',
                         sortable: true,
                         footerFormatter: totalTextFormatter
-                    }, {
-                        title: 'Environment Details',
-                        colspan: 3,
-                        align: 'center'
                     }
                 ],
                 [
@@ -65,7 +61,8 @@
                         editable: true,
                         footerFormatter: totalNameFormatter,
                         align: 'center'
-                    }, {
+                    },
+                    {
                         field: 'Server_Type',
                         title: 'Server Type',
                         sortable: true,
@@ -88,9 +85,24 @@
                             }
                         },
                         footerFormatter: totalPriceFormatter
-                    }, {
+                    },
+                    {
                         field: 'Application_Name',
                         title: 'Application Name',
+                        align: 'center',
+                        events: operateEvents,
+                        formatter: operateFormatter
+                    },
+                    {
+                        field: 'Environment_Type',
+                        title: 'Environment Type',
+                        align: 'center',
+                        events: operateEvents,
+                        formatter: operateFormatter
+                    },
+                    {
+                        field: 'Support_Company_Name',
+                        title: 'Support Company',
                         align: 'center',
                         events: operateEvents,
                         formatter: operateFormatter
