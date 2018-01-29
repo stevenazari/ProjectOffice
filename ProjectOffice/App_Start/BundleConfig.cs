@@ -26,7 +26,7 @@ namespace ProjectOffice
 
             //Bootstrap
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/components/vendor/bootstrap.js",
+                "~/scripts/components/bootstrap/bootstrap.js",
                 "~/Scripts/components/respond.js",
                 "~/Scripts/components/vendor/validator.js"
             ));
@@ -39,7 +39,7 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new StyleBundle("~/css/components/bootstrapTables").Include(
-                "~/css/components/bootstrapTable/bootstrap-table.min.css"
+                "~/css/components/bootstrapTable/bootstrap-table.css"
             ));
 
 
