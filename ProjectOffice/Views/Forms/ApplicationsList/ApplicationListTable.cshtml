@@ -158,10 +158,95 @@
     }
 
     function detailFormatter(index, row) {
+        /*
+        To get the key names for each field, reference the SQL Stored Procedure "Get_Environments"
+        */
         var html = [];
+
+        html.push(
+                '<div class="main_test fix">' +
+                    '<div class="head_title text-center fix">' +
+                        '<h4>Support Company Details</h4>'+
+                    '</div> ' +
+                    '<p>' +
+                        '<div class="col-md-4">' +
+                            '<b>Name:</b> ' + row['Support_Company_Name'] +
+                        '</div><br>' +
+
+                        '<div class="col-md-4">' +
+                            '<b>Telephone:</b> ' + row['Tel'] +
+                        '</div>' +
+
+                        '<div class="col-md-4">' +
+                            '<b>Email:</b> ' + row['Email'] +
+                        '</div>' +
+
+                        '<div class="col-md-4">' +
+                            '<b>Website:</b> ' + row['Website'] +
+                        '</div><br>' +
+
+                        '<div class="col-md-4">' +
+                            '<b>Address:</b> ' + row['Address_1'] + ', ' + row['Address_2'] + 
+                        '</div>' +
+
+                        '<div class="col-md-4">' +
+                            '<b>Post / Zip Code:</b> ' + row['Post_Code'] +
+                        '</div><br>' +
+
+                        '<div class="col-md-4">' +
+                            '<b>Notes:</b> ' + row['Support_Comment'] + ' ' +
+                        '</div><br>' +
+                    '</p>' +
+                '</div><br><br>' +
+
+
+            '<div class="col-md-4">' +
+                '<div class="features_item sm-m-top-30">' +
+                    '<div class="f_item_text">' +
+                        '<h3>Application Details</h3>' +
+                        '<p>' +
+                            '<b>Name:</b> ' + row['Application_Name'] + '<br>' +
+                            '<b>Deployment:</b> ' + row['Application_Type'] + '<br>' +
+                            '<b>Notes:</b> ' + row['Application_Comment'] + '<br>' +
+                        '</p>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+
+            '<div class="col-md-4">' +
+                '<div class="features_item sm-m-top-30">' +
+                    '<div class="f_item_text">' +
+                        '<h3>Server Details</h3>' +
+                        '<p>' +
+                            '<b>Name:</b> ' + row['Server_Name'] + '<br>' +
+                            '<b>Deployment:</b> ' + row['Server_Type'] + '<br>' +
+                            '<b>Operating System:</b> ' + row['Operating_System'] + '<br>' +
+                            '<b>Notes:</b> ' + row['Server_Comment'] + '<br>' +
+                        '</p>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+
+            '<div class="col-md-4">' +
+                '<div class="features_item sm-m-top-30">' +
+                    '<div class="f_item_text">' +
+                        '<h3>Environment Details</h3>' +
+                        '<p>' +
+                            '<b>Type:</b> ' + row['Environment_Type'] + '<br>' +
+                            '<b>Notes:</b> ' + row['Environment_Comment'] + '<br>' +
+                        '</p>' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+        );
+
+        /*
         $.each(row, function (key, value) {
-            html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+            html.push('' +
+                '<p><b>' + key + ':</b> ' + value + '</p > '
+            );
         });
+        */
         return html.join('');
     }
 
