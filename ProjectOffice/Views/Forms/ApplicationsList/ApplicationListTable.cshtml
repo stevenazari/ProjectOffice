@@ -40,26 +40,22 @@
                     {
                         field: 'state',
                         checkbox: true,
-                        rowspan: 2,
                         align: 'center',
                         valign: 'middle'
                     }, {
                         title: 'Environment ID',
                         field: 'Environment_ID',
-                        rowspan: 2,
                         align: 'center',
                         valign: 'middle',
                         sortable: true,
-                        footerFormatter: totalTextFormatter
-                    }
-                ],
-                [
+                        //footerFormatter: totalTextFormatter
+                    },
                     {
                         field: 'Server_Name',
                         title: 'Server Name',
                         sortable: true,
                         editable: true,
-                        footerFormatter: totalNameFormatter,
+                        //footerFormatter: totalNameFormatter,
                         align: 'center'
                     },
                     {
@@ -84,28 +80,28 @@
                                 return '';
                             }
                         },
-                        footerFormatter: totalPriceFormatter
+                        //footerFormatter: totalPriceFormatter
                     },
                     {
                         field: 'Application_Name',
                         title: 'Application Name',
                         align: 'center',
-                        events: operateEvents,
-                        formatter: operateFormatter
+                        //events: operateEvents,
+                        //formatter: operateFormatter
                     },
                     {
                         field: 'Environment_Type',
                         title: 'Environment Type',
                         align: 'center',
-                        events: operateEvents,
-                        formatter: operateFormatter
+                        //events: operateEvents,
+                        //formatter: operateFormatter
                     },
                     {
                         field: 'Support_Company_Name',
                         title: 'Support Company',
                         align: 'center',
-                        events: operateEvents,
-                        formatter: operateFormatter
+                        //events: operateEvents,
+                        //formatter: operateFormatter
                     }
                 ]
             ]
@@ -122,17 +118,17 @@
                 selections = getIdSelections();
                 // push or splice the selections if you want to save all data selections
             });
+
+        /*
         $table.on('expand-row.bs.table', function (e, index, row, $detail) {
-            if (index % 2 == 1) {
-                $detail.html('Loading from ajax request...');
-                $.get('LICENSE', function (res) {
-                    $detail.html(res.replace(/\n/g, '<br>'));
-                });
-            }
+
         });
+        */
+
         $table.on('all.bs.table', function (e, name, args) {
             console.log(name, args);
         });
+
         $remove.click(function () {
             var ids = getIdSelections();
             $table.bootstrapTable('remove', {
@@ -214,10 +210,10 @@
 
     $(function () {
         var scripts = [
-            location.search.substring(1) || '../scripts/components/bootstrapTable/bootstrap-table.js',
-            '../scripts/components/bootstrapTable/bootstrap-table-export.js',
+            location.search.substring(1) || '../bower_components/bootstrap-Table/dist/bootstrap-table.js',
+            '../bower_components/bootstrap-Table/dist/extensions/export/bootstrap-table-export.js',
             'http://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js',
-            '../scripts/components/bootstrapTable/bootstrap-table-editable.js',
+            '../bower_components/bootstrap-Table/dist/extensions/editable/bootstrap-table-editable.js',
             'http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/js/bootstrap-editable.js'
         ],
             eachSeries = function (arr, iterator, callback) {

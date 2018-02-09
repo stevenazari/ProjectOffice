@@ -34,12 +34,12 @@ namespace ProjectOffice
 
             //Bootstraptable
             bundles.Add(new ScriptBundle("~/bundles/bootstrapTables").Include(
-                "~/scripts/components/bootstrapTable/bootstrap-table.js",
-                "~/scripts/components/bootstrapTable/bootstrap-table.en-US.min.js"
+                "~/bower_components/bootstrap-Table/dist/bootstrap-table.js",
+                "~/bower_components/bootstrap-Table/dist/locale/bootstrap-table.en-US.min.js"
             ));
 
             bundles.Add(new StyleBundle("~/css/components/bootstrapTables").Include(
-                "~/css/components/bootstrapTable/bootstrap-table.css"
+                "~/bower_components/bootstrap-Table/dist/bootstrap-table.css"
             ));
 
 

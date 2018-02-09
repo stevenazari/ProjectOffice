@@ -7,6 +7,7 @@ using System.Linq;
 using ProjectOffice.Models.Forms.ApplicationList;
 using System.Collections.Generic;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace ProjectOffice.Controllers.Forms.ApplicationsList
 {
@@ -28,23 +29,23 @@ namespace ProjectOffice.Controllers.Forms.ApplicationsList
             return PartialView("~/Views/Forms/ApplicationsList/ApplicationListTable.cshtml");
         }
 
-        public JsonResult GetEnvironments()
+        public string GetEnvironments(ApplicationListModel data)
         {
-            string message = "";
-            string jsonResult = "";
-            DataTable payload = null;
+            int rowCount = 0;
+            string procedureValues = "";
 
-            var resultEnvironments = DBClassController.SQLConnection("Select_Environments", "1");
-            message = resultEnvironments.Item1;
+            DataTable payload = null;
+            procedureValues = BuildProcedureValues(data);
+
+            var resultEnvironments = DBClassController.SQLConnection("Select_Environments", procedureValues);
+            rowCount = resultEnvironments.Item2.Rows.Count;
             payload = resultEnvironments.Item2;
 
-            jsonResult = DBClassController.BuildDataTableToJson(payload);
-
-            var jsonResponse = new JsonResult();
-            jsonResponse.Data = jsonResult;
-            jsonResponse.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            //jsonResult = DBClassController.BuildDataTableToJson(payload);
+            var jsonResponse = new { total = rowCount, rows = payload };
+            string jsonDone = JsonConvert.SerializeObject(jsonResponse);
             //Debug.Write(jsonResponse);
-            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+            return jsonDone;
         }
 
         public ActionResult ApplicationListIntro()
