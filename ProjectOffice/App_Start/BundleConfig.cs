@@ -93,8 +93,8 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new StyleBundle("~/css/formCSS").Include(
-                "~/css/components/bootstrap/bootstrapValidator.min.css",
-                "~/css/formCSS/style.css"
+                //"~/css/components/bootstrap/bootstrapValidator.min.css"
+                //"~/css/formCSS/style.css"
             ));
 
             //Application List bundles JS
