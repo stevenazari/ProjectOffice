@@ -30,8 +30,22 @@
 <script>
     var $table = $('#table'),
         $remove = $('#remove'),
-        selections = [];
+        $button = $('#remove'),
+        selections = [];     
+/*
+    $(function () {
+        $button.click(function () {
+            var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.id;
+            });
 
+            $table.bootstrapTable('remove', {
+                field: 'Environment_ID',
+                values: ids
+            });
+        });
+    });
+*/
     function initTable() {
         $table.bootstrapTable({
             height: getHeight(),
@@ -106,10 +120,12 @@
                 ]
             ]
         });
+
         // sometimes footer render error.
         setTimeout(function () {
             $table.bootstrapTable('resetView');
         }, 200);
+
         $table.on('check.bs.table uncheck.bs.table ' +
             'check-all.bs.table uncheck-all.bs.table', function () {
                 $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
@@ -129,14 +145,18 @@
             console.log(name, args);
         });
 
+        var ids = getIdSelections();
+
+        $table.bootstrapTable('remove', {
+            field: 'Environment_ID',
+            values: ids
+        });
+        alert("IDS: " + ids);
+
         $remove.click(function () {
-            var ids = getIdSelections();
-            $table.bootstrapTable('remove', {
-                field: 'id',
-                values: ids
-            });
             $remove.prop('disabled', true);
         });
+
         $(window).resize(function () {
             $table.bootstrapTable('resetView', {
                 height: getHeight()
@@ -264,7 +284,7 @@
         },
         'click .remove': function (e, value, row, index) {
             $table.bootstrapTable('remove', {
-                field: 'id',
+                field: 'Environment_ID',
                 values: [row.id]
             });
         }
