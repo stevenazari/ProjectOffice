@@ -5,15 +5,10 @@
 
             submitForm(e, "removeEnvironmentResponse");
         });
+
 });
 
-function updateEnvironment(action, environmentID) {
-    if (action == "Delete") {
-        $("#Deleted_" + environmentID).val('1');
-    }
 
-    $("#environmentForm_" + environmentID).submit();
-}
 
 function removeEnvironmentResponse(message, results) {
     $.each(results, function (key, value) {
