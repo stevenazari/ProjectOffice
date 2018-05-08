@@ -3,7 +3,11 @@ $(document).ready(function () {
         .on('submit', function (e) {
             e.preventDefault();
 
-            submitForm(e, "addServerResponse");
+            var Server_Submit = document.getElementById("Server_Submit");
+
+            if (Server_Submit.classList.contains("disabled") == false) {
+                submitForm(e, "addServerResponse");
+            }
         });
 });
 

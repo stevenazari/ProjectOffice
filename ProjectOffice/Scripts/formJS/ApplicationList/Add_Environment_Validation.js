@@ -3,7 +3,11 @@
         .on('submit', function (e) {
             e.preventDefault();
 
-            submitForm(e, "addEnvironmentResponse");
+            var Environment_Submit = document.getElementById("Environment_Submit");
+
+            if (Environment_Submit.classList.contains("disabled") == false) {
+                submitForm(e, "addEnvironmentResponse");
+            }
         });
 });
 
