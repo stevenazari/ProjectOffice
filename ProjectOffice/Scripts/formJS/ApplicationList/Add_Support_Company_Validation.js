@@ -3,7 +3,11 @@ $(document).ready(function () {
         .on('submit', function (e) {
             e.preventDefault();
 
-            submitForm(e, "addSupportCompanyResponse");
+            var submitSupport = document.getElementById("#Support_Company_Submit");
+
+            if (submitSupport.classList.contains("disabled") == false) {
+                submitForm(e, "addSupportCompanyResponse");
+            }
         });
 });
 
