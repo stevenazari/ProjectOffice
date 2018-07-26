@@ -97,29 +97,34 @@ namespace ProjectOffice
                 //"~/css/formCSS/style.css"
             ));
 
-            //Application List bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/applicationList").Include(
-                "~/Scripts/formJS/ApplicationList/ApplicationList.js"
+            //Environment List bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/EnvironmentList").Include(
+                "~/Scripts/formJS/ServiceCatalogue/EnvironmentList.js"
             ));
 
             //Support Company bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/addSupportCompany").Include(
-                "~/Scripts/formJS/ApplicationList/Add_Support_Company_Validation.js"
+            bundles.Add(new ScriptBundle("~/bundles/SupportCompany").Include(
+                "~/Scripts/formJS/ServiceCatalogue/Add_Support_Company_Validation.js"
             ));
 
             //Application bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/addApplication").Include(
-                "~/Scripts/formJS/ApplicationList/Add_Application_Validation.js"
+            bundles.Add(new ScriptBundle("~/bundles/Application").Include(
+                "~/Scripts/formJS/ServiceCatalogue/Add_Application_Validation.js"
             ));
 
             //Server bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/addServer").Include(
-                "~/Scripts/formJS/ApplicationList/Add_Server_Validation.js"
+            bundles.Add(new ScriptBundle("~/bundles/Server").Include(
+                "~/Scripts/formJS/ServiceCatalogue/Add_Server_Validation.js"
             ));
 
             //Environment bundles JS
-            bundles.Add(new ScriptBundle("~/bundles/addEnvironment").Include(
-                "~/Scripts/formJS/ApplicationList/Add_Environment_Validation.js"
+            bundles.Add(new ScriptBundle("~/bundles/Environment").Include(
+                "~/Scripts/formJS/ServiceCatalogue/Add_Environment_Validation.js"
+            ));
+
+            //Build Environment bundles JS
+            bundles.Add(new ScriptBundle("~/bundles/buildEnvironment").Include(
+                "~/Scripts/formJS/ServiceCatalogue/Build_Environment_Validation.js"
             ));
         }
     }
