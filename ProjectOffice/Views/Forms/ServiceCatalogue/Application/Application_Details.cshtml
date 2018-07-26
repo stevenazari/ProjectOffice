@@ -1,0 +1,94 @@
+﻿@model ProjectOffice.Models.Forms.ServiceCatalogue.Application.Add_Application_Model
+
+<div class="fix test_item no-padding">
+    <div class="col-md-1 m-top-20">
+        <button type="submit" class="btn btn-sq-xs btn-danger text-center"><i class="fa fa-remove"></i></button>
+    </div>
+    <div class="col-md-11 m-top-20 m-bottom-20">
+        @if (ViewBag.Row.IsNull("Application_Name") == false)
+        {
+            <div class="col-md-4 no-padding">
+                <div class="f_item_text">
+                    <b>Name:</b>  @ViewBag.Row["Application_Name"]  <br>
+                </div>
+            </div>
+        }
+
+        @if (ViewBag.Row.IsNull("Application_Type_Name") == false)
+        {
+            <div class="col-md-4 no-padding">
+                <div class="f_item_text">
+                    <b>Deployment:</b>  @ViewBag.Row["Application_Type_Name"]  <br>
+                </div>
+            </div>
+        }
+
+        @if (ViewBag.Row.IsNull("Application_Comment") == false)
+        {
+            <div class="col-md-11 no-padding">
+                <div class="f_item_text">
+                    <b>Notes:</b>  @ViewBag.Row["Application_Comment"]  <br>
+                </div>
+            </div>
+        }
+        <div class="m-top-50">
+            <div class="col-md-11 no-padding">
+                <b>Support Company Details</b>
+            </div>
+
+            @if (ViewBag.Row.IsNull("Support_Name") == false)
+            {
+                <div class="col-md-4 no-padding">
+                    <b>Name:</b>  @ViewBag.Row["Support_Name"]
+                </div>
+            }
+
+            @if (ViewBag.Row.IsNull("Support_Tel") == false)
+            {
+                <div class="col-md-4 no-padding">
+                    <b>Telephone:</b>  @ViewBag.Row["Support_Tel"]
+                </div>
+            }
+
+            @if (ViewBag.Row.IsNull("Support_Email") == false)
+            {
+                <div class="col-md-4 no-padding">
+                    <b>Email:</b>  @ViewBag.Row["Support_Email"]
+                </div>
+            }
+
+            @if (ViewBag.Row.IsNull("Support_Website") == false)
+            {
+                <div class="col-md-4 no-padding">
+                    <b>Website:</b>  @ViewBag.Row["Support_Website"]
+                </div><br>
+            }
+
+            @if (ViewBag.Row.IsNull("Support_Address_1") == false)
+            {
+                <div class="col-md-4 no-padding">
+                    <b>Address:</b>  @ViewBag.Row["Support_Address_1"]
+
+                    @if (ViewBag.Row.IsNull("Support_Address_2") == false)
+                    {
+                        @:, @ViewBag.Row["Support_Address_2"];
+                    }
+                </div>
+            }
+
+            @if (ViewBag.Row.IsNull("Support_PostCode") == false)
+            {
+                <div class="col-md-4 no-padding">
+                    <b>Post / Zip Code:</b>  @ViewBag.Row["Support_PostCode"]
+                </div><br>
+            }
+
+            @if (ViewBag.Row.IsNull("Support_Comment") == false)
+            {
+                <div class="col-md-11 no-padding">
+                    <b>Notes:</b>  @ViewBag.Row["Support_Comment"]
+                </div>
+            }
+        </div>
+    </div>
+</div>

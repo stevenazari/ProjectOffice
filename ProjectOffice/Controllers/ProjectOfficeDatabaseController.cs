@@ -24,7 +24,7 @@ namespace ProjectOffice.Controllers
             return View();
         }
 
-        public static Tuple<string, DataTable> SQLConnection(string StoredProcedure, string values)
+        public Tuple<string, DataTable> SQLConnection(string StoredProcedure, string values)
         {
             string message = "";
             string procedure = "EXEC " + StoredProcedure + " " + values;
@@ -53,7 +53,7 @@ namespace ProjectOffice.Controllers
             return Tuple.Create(message, results);
         }
 
-        public static string BuildDataTableToJson(DataTable colVal)
+        public string BuildDataTableToJson(DataTable colVal)
         {
             string JSONresult;
             JSONresult = JsonConvert.SerializeObject(colVal);
@@ -69,6 +69,44 @@ namespace ProjectOffice.Controllers
                 case "": return input;
                 default: return input.First().ToString().ToUpper() + input.Substring(1);
             }
+        }
+        public string checkDataType(object data)
+        {
+            string returnValue = "";
+            Type type = data.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+
+                if (property.GetValue(data, null) is null)
+                {
+                    returnValue += "@" + property.Name + " = " + "NULL, ";
+                }
+                else if (property.GetValue(data, null) is string)
+                {
+                    returnValue += "@" + property.Name + " = '" + property.GetValue(data, null) + "', ";
+                }
+                else if (property.GetValue(data, null) is int)
+                {
+                    returnValue += "@" + property.Name + " = " + property.GetValue(data, null) + ", ";
+                }
+                else if (property.GetValue(data, null) is bool)
+                {
+                    returnValue += "@" + property.Name + " = " + property.GetValue(data, null) + ", ";
+                }
+                else if (property.GetValue(data, null) is DateTime)
+                {
+                    returnValue += "@" + property.Name + " = '" + property.GetValue(data, null) + "', ";
+                }
+                else
+                {
+                    returnValue += "@" + property.Name + " = '" + property.GetValue(data, null) + "', ";
+                }
+            }
+            returnValue = returnValue.Remove(returnValue.Length - 2);
+
+            return returnValue;
         }
     }
 }
