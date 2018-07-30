@@ -78,11 +78,4 @@ namespace ProjectOffice.Models.Forms.ServiceCatalogue.Server
             return new SelectList(serverList.AsDataView(), "ID", "Server_Name");
         }
     }
-
-    public class Delete_Server_Model
-    {
-        public DBClassController dbObject = new DBClassController();
-
-        public int? ID { get; set; }
-    }
 }

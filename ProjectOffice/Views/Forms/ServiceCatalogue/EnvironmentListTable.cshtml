@@ -1,6 +1,6 @@
 ﻿@Styles.Render("~/css/components/bootstrapTables")
 
-<div class="container">
+<div class="container" style="margin-bottom: 10px;">
     <div id="toolbar">
         <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> Delete</button>
         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#EnvironmentListAdd" aria-expanded="false" aria-controls="collapse">Administration</button>
@@ -115,7 +115,7 @@
 */
     function initTable() {
         $table.bootstrapTable({
-            height: getHeight(),
+            //height: getHeight() //not doing this as we don't want scroll bars!
             columns: [
                 [
                     {
@@ -221,7 +221,7 @@
 
         $(window).resize(function () {
             $table.bootstrapTable('resetView', {
-                height: getHeight()
+                //height: getHeight() //not doing this as we don't want scroll bars!
             });
         });
     }

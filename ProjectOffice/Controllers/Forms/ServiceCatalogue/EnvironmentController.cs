@@ -13,6 +13,10 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Environment
     public class EnvironmentController : Controller
     {
         public DBClassController dbObject = new DBClassController();
+        string message = "";
+        string jsonResult = "";
+        string procedureValues = "";
+        DataTable payload = null;
 
         // GET: Environment
         public ActionResult Create_Environment()
@@ -117,5 +121,37 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Environment
         {
             return PartialView("~/Views/Forms/ServiceCatalogue/Intro.cshtml");
         }
+
+        [HttpPost]
+        public JsonResult Delete_Environment_Item(Delete_Environment_Item_Model data)
+        {
+            procedureValues = dbObject.checkDataType(data);
+
+            if (ModelState.IsValid)
+            {
+                var result = dbObject.SQLConnection("Delete_Environment_Item", procedureValues);
+                message = result.Item1;
+                payload = result.Item2;
+
+                if (message.ToLower().Contains("error"))
+                {
+                    message = message + ", Error_Values = " + procedureValues;
+                }
+            }
+            else
+            {
+                var err = string.Join(" | ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+
+                message = "Please provide required fields: " + err;
+            }
+
+            jsonResult = dbObject.BuildDataTableToJson(payload);
+
+            var jsonResponse = new { message = message, results = jsonResult };
+            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

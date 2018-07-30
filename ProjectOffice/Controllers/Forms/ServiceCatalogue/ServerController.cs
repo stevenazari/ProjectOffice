@@ -91,40 +91,9 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Server
             return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public JsonResult Delete_Server_Submit(Delete_Server_Model data)
-        {
-            procedureValues = dbObject.checkDataType(data);
-
-            if (ModelState.IsValid)
-            {
-                var result = dbObject.SQLConnection("Delete_Environment_Item", procedureValues);
-                message = result.Item1;
-                payload = result.Item2;
-
-                if (message.ToLower().Contains("error"))
-                {
-                    message = message + ", Error_Values = " + procedureValues;
-                }
-            }
-            else
-            {
-                var err = string.Join(" | ", ModelState.Values
-                    .SelectMany(v => v.Errors)
-                    .Select(e => e.ErrorMessage));
-
-                message = "Please provide required fields: " + err;
-            }
-
-            jsonResult = dbObject.BuildDataTableToJson(payload);
-
-            var jsonResponse = new { message = message, results = jsonResult };
-            return Json(jsonResponse, JsonRequestBehavior.AllowGet);
-        }
-
         public ActionResult Server_Details(DataRow row)
         {
-            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Server.Delete_Server_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
             ViewBag.row = row;
             return PartialView("~/Views/Forms/ServiceCatalogue/Server/Server_Details.cshtml", model);
         }

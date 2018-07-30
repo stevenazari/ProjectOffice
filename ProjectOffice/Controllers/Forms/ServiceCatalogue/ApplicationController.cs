@@ -105,7 +105,7 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Application
 
         public ActionResult Application_Details(DataRow row)
         {
-            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Application.Add_Application_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
             ViewBag.Row = row;
             return PartialView("~/Views/Forms/ServiceCatalogue/Application/Application_Details.cshtml", model);
         }

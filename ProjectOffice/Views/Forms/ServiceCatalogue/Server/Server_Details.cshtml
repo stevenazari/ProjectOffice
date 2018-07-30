@@ -1,4 +1,4 @@
-﻿@model ProjectOffice.Models.Forms.ServiceCatalogue.Server.Delete_Server_Model
+﻿@model ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model
 
 <div class="fix m-bottom-10" id="Server_@ViewBag.row["sort"]">
     <h5>Server:</h5>
@@ -6,7 +6,7 @@
 
 <div class="fix">
     <div class="col-md-1">
-        <form role="form" data-toggle="validator" method="post" action="/Server/Delete_Server_submit" id="Delete_Server_@ViewBag.row["EI_ID"]">
+        <form role="form" data-toggle="validator" method="post" action="/Environment/Delete_Environment_Item" id="Delete_Server_@ViewBag.row["EI_ID"]">
             @Html.HiddenFor(m => m.ID, new { Value = ViewBag.row["EI_ID"] })
             <input type="hidden" name="Item_Action" id="Item_Action" value="Delete" />
             <button type="submit" class="btn btn-sq-xs btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i></button>

@@ -62,4 +62,9 @@ namespace ProjectOffice.Models.Forms.ServiceCatalogue.Environment
             return environmentDetails.AsDataView();
         }
     }
+    public class Delete_Environment_Item_Model
+    {
+        public int? ID { get; set; }
+    }
+
 }
