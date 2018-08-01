@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# [![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/ProjectOffice/images/logo.png)](./)
+# [![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/ProjectOffice/images/logo.png)](https://stevenazari.github.io/ProjectOffice/)
 
 The Project Office site is the container for all the Project Management / Service Management tools hosted.
 
