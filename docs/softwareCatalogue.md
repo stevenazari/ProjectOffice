@@ -7,7 +7,7 @@ layout: default
 
 The software catalogue is a tabular representation of all physical and virtual environments held within the organisation, it is a go-to reference to find information on an applications environment.
 
-### To Create Environments / Servers / Applications / Support Companies
+### To Create Environments and items
 
 1.	Click “Administration” ![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/docs/assets/images/help1.png)
 2.	From list Click desired option
@@ -16,7 +16,7 @@ The software catalogue is a tabular representation of all physical and virtual e
 Applications require a support company to be associated to it, so if the support company is not in the list, it will need to be created first.
 Once an environment has been created, refresh the environment list to see the newly added environment
 
-### To add Servers / Applications to an Environment
+### Populate Environments
 
 From the environment list: 
 1.	Choose the desired environment by pressing the  icon to the left
@@ -28,7 +28,7 @@ From the environment list:
 4.	Click “Add”
 Note there is currently a bug that requires you to refresh the environment list to show changes
 
-### To delete servers from an environment
+### Delete environment items
 
 From the environment list:
 1.	Choose the desired environment by pressing the  icon to the left
