@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 # Project Office
 The Project Office site is the container for all the Project Management / Service Management tools hosted.
 
@@ -8,24 +9,17 @@ Made in C#.net, jQuery and other components, the goal is to provide open source 
 
 ## Software Catalogue
 
-The software catalogue is a tool within the Project office system. 
+The [Software Catalogue](./softwareCatalogue.html) is a tool within the Project office system. 
 
 It lists all environment servers, application and support companies in a list of environments that is searchable.
 
 The list itself uses [bootstrap-tables](https://github.com/wenzhixin/bootstrap-table) for the UI, and [jQuery](http://jquery.com) for linking to the backend.
 
 
+
+<!-- 
+Instructions
 Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./softwareCatalogue.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
 
 > This is a blockquote following a header.
 >
@@ -132,3 +126,4 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+-->
