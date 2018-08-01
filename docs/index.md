@@ -10,7 +10,8 @@ Made in C#.net, jQuery and other components, the goal is to provide open source 
 ## Tools
 
 [Software Catalogue](./softwareCatalogue.html) - lists all environments, servers, applications and support companies.
-
+[Project Catalogue](./projectCatalogue.html) - lists all Projects, documentation and progress. (soon™)
+[User Management](./userCatalogue.html) - lists all users, contact details, relationships. (soon™)
 
 
 
