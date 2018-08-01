@@ -1,19 +1,16 @@
 ---
 layout: default
 ---
-![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/ProjectOffice/images/logo.png)
-# Project Office
+# ![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/ProjectOffice/images/logo.png)
+
 The Project Office site is the container for all the Project Management / Service Management tools hosted.
 
 Made in C#.net, jQuery and other components, the goal is to provide open source tools for a project management team and it's related groups.
 
-## Software Catalogue
+## Tools
 
-The [Software Catalogue](./softwareCatalogue.html) is a tool within the Project office system. 
+[Software Catalogue](./softwareCatalogue.html) - lists all environments, servers, applications and support companies.
 
-It lists all environment servers, application and support companies in a list of environments that is searchable.
-
-The list itself uses [bootstrap-tables](https://github.com/wenzhixin/bootstrap-table) for the UI, and [jQuery](http://jquery.com) for linking to the backend.
 
 
 
