@@ -1,6 +1,4 @@
----
-layout: default
----
+
 # [![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/ProjectOffice/images/logo.png)](https://stevenazari.github.io/ProjectOffice/)
 
 # Software Catalogue
