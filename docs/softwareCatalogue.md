@@ -7,7 +7,7 @@ layout: default
 
 The software catalogue is a tabular representation of all physical and virtual environments held within the organisation, it is a go-to reference to find information on an applications environment.
 
-### Create Environments / items
+### Create Environments and items
 
 1.	Click “Administration” ![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/docs/assets/images/help1.png)
 2.	From list Click desired option
