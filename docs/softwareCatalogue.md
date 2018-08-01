@@ -34,6 +34,6 @@ From the environment list:
 1.	Choose the desired environment by pressing the  icon to the left
 2.	Press the  icon to the left of the server
 
-![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/docs/assets/images/help3.png)
+![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/docs/assets/images/help4.png)
 
 Note there is currently a bug when trying to delete environments and applications
