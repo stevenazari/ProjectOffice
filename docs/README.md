@@ -1,4 +1,5 @@
 # [![Project Office](https://raw.githubusercontent.com/stevenazari/ProjectOffice/master/ProjectOffice/images/logo.png)](https://stevenazari.github.io/ProjectOffice/)
+For help on using Project Office, click the logo above.
 
 ## Pre-requisits:
 MS-SQL, .net 4.7.1
