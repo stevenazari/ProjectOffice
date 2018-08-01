@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-![Octocat](../PojectOffice/images/logo.png)
+![Project Office](https://github.com/stevenazari/ProjectOffice/blob/master/ProjectOffice/images/logo.png)
 # Project Office
 The Project Office site is the container for all the Project Management / Service Management tools hosted.
 
