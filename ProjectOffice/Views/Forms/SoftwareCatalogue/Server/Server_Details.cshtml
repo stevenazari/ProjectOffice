@@ -1,0 +1,53 @@
+﻿@model ProjectOffice.Models.Forms.SoftwareCatalogue.Environment.Delete_Environment_Item_Model
+
+<div class="fix m-bottom-10" id="Server_@ViewBag.row["sort"]">
+    <h5>Server:</h5>
+</div>
+
+<div class="fix">
+    <div class="col-md-1">
+        <form role="form" data-toggle="validator" method="post" action="/Environment/Delete_Environment_Item" id="Delete_Server_@ViewBag.row["EI_ID"]">
+            @Html.HiddenFor(m => m.ID, new { Value = ViewBag.row["EI_ID"] })
+            <input type="hidden" name="Item_Action" id="Item_Action" value="Delete" />
+            <button type="submit" class="btn btn-sq-xs btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i></button>
+        </form>
+    </div>
+    <div class="m-top-20 m-bottom-10 col-md-11 no-padding">
+        <div class="col-md-4">
+            <b>Name:</b> @ViewBag.row["Server_Name"]
+        </div>
+
+        @if (ViewBag.Row.IsNull("Server_Type_Name") == false)
+        {
+            <div class="col-md-4 no-padding">
+                <div class="features_item sm-m-top-30">
+                    <div class="f_item_text">
+                        <b>Type:</b> @ViewBag.Row["Server_Type_Name"] <br>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (ViewBag.row.IsNull("IP_Address") == false)
+        {
+            <div class="col-md-4 no-padding">
+                <div class="features_item sm-m-top-30">
+                    <b>IP Address:</b> @ViewBag.Row["IP_Address"] <br>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="m-bottom-20 col-md-11">
+        <b>Notes:</b>
+        @if (ViewBag.row.IsNull("Server_Comment") == false)
+        {
+            @ViewBag.Row["Server_Comment"]
+        }
+        else
+        {
+            @: No comment
+        }
+    </div>
+</div>
+

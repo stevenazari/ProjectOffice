@@ -52,7 +52,7 @@ function buildEnvironmentResponse(message, results) {
 
             bodyCell1.innerHTML = "<div id='environmentDetailsDiv_" + this.Environment_ID + "' class='collapse'>" +
                 "<div class='jumbotron'>" +
-                    "<form role='form' class='environmentForm' data-toggle='validator' method='post' action='/ServiceCatalogue/Update' name='environmentForm' id='environmentForm_" + this.Environment_ID + "' novalidate='true'>" +
+                    "<form role='form' class='environmentForm' data-toggle='validator' method='post' action='/SoftwareCatalogue/Update' name='environmentForm' id='environmentForm_" + this.Environment_ID + "' novalidate='true'>" +
                         "<p>" +
                             "<h5>Details for " + this.Application_Name + " " + this.Environment_Type + " environment<br /></h5>" +
                             "<input name='ID' id='ID_" + this.Environment_ID + "' type='hidden' value='" + this.Environment_ID + "' />" +

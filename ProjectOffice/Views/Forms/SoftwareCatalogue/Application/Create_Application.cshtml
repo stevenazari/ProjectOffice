@@ -1,0 +1,91 @@
+﻿@model ProjectOffice.Models.Forms.SoftwareCatalogue.Application.Create_Application_Model
+@{
+    <br />
+    <form role="form" data-toggle="validator" method="post" action="/Application/Create_Application" id="Create_Application_Form">
+        <fieldset>
+            <!-- Form Name -->
+            <!--<legend>Add Application</legend>-->
+            <!-- Text input-->
+            <div class="form-group has-feedback">
+                <label for="Support_Name" class="col-md-4 control-label">@Html.LabelFor(m => m.Name, "Name:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        @Html.TextBoxFor(m => m.Name, new { placeholder = "Application Name", ID = "Application_Name", @class = "form-control", required = "required" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Name)</label>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label for="Support_Address_1" class="col-md-4 control-label">@Html.LabelFor(m => m.Version, "Version:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.TextBoxFor(m => m.Version, new { placeholder = "0.0", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dropdown input-->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Support_Company_ID, "Support Company:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.DropDownListFor(m => m.Support_Company_ID, Model.GetSupportCompanies(), "Select Support Company", new { ID = "Application_Support_Company_ID", @class = "form-control", required = "required" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Support_Company_ID) </label>
+            </div>
+
+            <!-- Dropdown input-->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Application_Type_ID, "Package Type:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.DropDownListFor(m => m.Application_Type_ID, Model.GetApplicationTypes(), "Select Application Type", new { ID = "Application_Type_ID", @class = "form-control", required = "required" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Application_Type_ID) </label>
+            </div>
+
+            <!-- Text area -->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Comment, "Application Notes:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                        @Html.TextAreaFor(m => m.Comment, new { placeholder = "Description", @class = "form-control", required = "required" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Comment) </label>
+            </div>
+
+            <!-- Success message -->
+            <div class="alert alert-success collapse" role="alert" id="Application_Success_Message">
+                Added Support Company <i class="glyphicon glyphicon-thumbs-up"></i>
+            </div>
+
+            <!-- Error message -->
+            <div class="alert alert-danger collapse" role="alert" id="Application_Error_Message">
+                <i class="glyphicon glyphicon-thumbs-down"></i> Unable to add application - 
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning" id="Application_Submit">Add Application<span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    @Scripts.Render("~/bundles/Application")
+}

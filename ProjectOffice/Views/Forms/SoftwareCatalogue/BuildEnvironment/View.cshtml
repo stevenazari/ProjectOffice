@@ -1,0 +1,67 @@
+﻿@model ProjectOffice.Models.Forms.SoftwareCatalogue.BuildEnvironment.BuildEnvironmentModel
+@{
+    <br />
+    <form role="form" data-toggle="validator" method="post" action="/Build/save" id="Build_Environment_Form">
+        <fieldset>
+            <!-- Form Name -->
+            <!--<legend>Add Application</legend>-->
+            <!-- Dropdown input-->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.ID, "Environment:")</label>
+                <div class="col-md-4 SelectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.DropDownListFor(m => m.ID, Model.GetEnvironments(), "Select Environment", new { ID = "Build_Environment_ID", @class = "form-control SelectPicker" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.ID) </label>
+            </div>
+
+            <!-- Dropdown input-->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Server_ID, "Server:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.DropDownListFor(m => m.Server_ID, Model.GetServers(), "Select Server", new { ID = "Build_Server_ID", @class = "form-control" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Server_ID) </label>
+            </div>
+
+            <!-- Dropdown input-->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Application_ID, "Application:")</label>
+                <div class="col-md-4 SelectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.DropDownListFor(m => m.Application_ID, Model.GetApplications(), "Select Application", new { ID = "Build_Application_ID", @class = "form-control SelectPicker" })
+                    </div>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <label class="help-block with-errors">*@Html.ValidationMessageFor(m => m.Application_ID) </label>
+            </div>
+
+            <!-- Success message -->
+            <div class="alert alert-success collapse" role="alert" id="Build_Environment_Success_Message">
+                Created environment <i class="glyphicon glyphicon-thumbs-up"></i>
+            </div>
+
+            <!-- Error message -->
+            <div class="alert alert-danger collapse" role="alert" id="Build_Environment_Error_Message">
+                Unable to create environment - either the environment already exists, or a key field is missing. <i class="glyphicon glyphicon-thumbs-down"></i>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning" id="Build_Environment_Submit">Build Environment<span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    @Scripts.Render("~/bundles/buildEnvironment")
+}
