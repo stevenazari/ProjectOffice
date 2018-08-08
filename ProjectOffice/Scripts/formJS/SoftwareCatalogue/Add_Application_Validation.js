@@ -5,7 +5,7 @@ $(document).ready(function () {
 
             var Application_Submit = document.getElementById("Application_Submit");
 
-            if (Application_Submit.classList.contains("disabled") == false) {
+            if (Application_Submit.classList.contains("disabled") === false) {
                 submitForm(e, "Create_Application_Response");
             }
         });
@@ -15,14 +15,14 @@ function Add_Application(environmentID, submit) {
     $('#Add_Application_Form_' + environmentID)
         .on('submit', function (form) {
             form.preventDefault();
-            form.stopImmediatePropagation()
+            form.stopImmediatePropagation();
 
             Validate_Submit(form, submit);
         });
 }
 
 function Create_Application_Response(message, results, form) {
-    if (message == "Success") {
+    if (message === "Success") {
         $('#Create_Application_Form').trigger("reset");
         $('#Application_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
         $("#Application_Success_Message").fadeTo(5000, 500).slideUp(500, function () {
@@ -40,7 +40,7 @@ function Create_Application_Response(message, results, form) {
 }
 
 function Add_Add_Response(message, results, form) {
-    if (message == "Success") {
+    if (message === "Success") {
         $('#Add_Application_Form').trigger("reset");
         $('#Add_Application_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
         $("#Add_Application_Success_Message").fadeTo(5000, 500).slideUp(500, function () {

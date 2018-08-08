@@ -70,7 +70,7 @@ function itemResponse(message, results, form) {
 
 }
 function refreshDetails(row, $detail) {
-    $table.('expand-row.bs.table', function (e, index, row, $detail) {
+ /*   $table.('expand-row.bs.table', function (e, index, row, $detail) {
         $detail.html('Loading from ajax request...');
 
         $.ajax({
@@ -83,4 +83,5 @@ function refreshDetails(row, $detail) {
         })
 
     });
+*/
 }
