@@ -111,8 +111,8 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Environment
         public ActionResult EnvironmentDetails(EnvironmentModel data)
         {
             var model = new EnvironmentModel();
-            ViewBag.environmentDetails = model.EnvironmentDetails(data.ID);
-            ViewBag.ID = data.ID;
+            ViewBag.environmentDetails = model.EnvironmentDetails(data.Environment_ID);
+            ViewBag.ID = data.Environment_ID;
 
             return PartialView("~/Views/Forms/SoftwareCatalogue/Environment/Environment_Details.cshtml", model);
         }

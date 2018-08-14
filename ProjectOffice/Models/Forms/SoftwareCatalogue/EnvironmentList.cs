@@ -22,7 +22,7 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue
 
         public int? SEARCH { get; set; }
         public string ORDER_BY { get; set; }
-        public int ID { get; set; }
+        public int Environment_ID { get; set; }
         public string Name { get; set; }
         public string Environment_Type { get; set; }
         public string Comment { get; set; }

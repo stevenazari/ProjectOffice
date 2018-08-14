@@ -12,7 +12,7 @@
 
 function removeEnvironmentResponse(message, results, form) {
     $.each(results, function (key, value) {
-       if (message == "Success") {
+       if (message === "Success") {
            $("#Application_List_Success_Message_" + this.Environment_ID).slideDown({ opacity: "show" }, "slow"); // Do something ...
 
            $("#environmentDetailsDiv_" + this.Environment_ID).fadeTo(5000, 500).slideUp(500, function () {

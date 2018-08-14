@@ -14,9 +14,9 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Environment
     {
         public DBClassController dbObject = new DBClassController();
 
-        public string search { get; set; }
+        public string SEARCH { get; set; }
         public string ORDER_BY { get; set; }
-        public int ID { get; set; }
+        public int Environment_ID { get; set; }
         public string Name { get; set; }
         public Int32? Environment_Type_ID { get; set; }
         public string Environment_Type { get; set; }

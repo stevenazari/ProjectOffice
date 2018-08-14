@@ -43,7 +43,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-warning" id="Application_Submit_@ViewBag.Environment_ID" onclick="Add_Item(document.getElementById('Add_Application_Form_@ViewBag.Environment_ID'), this, 'Add_Application_Response')">Add Application<span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" class="btn btn-warning" id="Application_Submit_@ViewBag.Environment_ID" onclick="Add_Item(this.form, this, 'Add_Application_Response')">Add Application<span class="glyphicon glyphicon-send"></span></button>
                 </div>
             </div>
         </fieldset>

@@ -1,7 +1,7 @@
 ﻿@model ProjectOffice.Models.Forms.SoftwareCatalogue.Environment.EnvironmentModel
 @{
     var environmentDetails = ViewBag.environmentDetails;
-
+    @:<div id="environmentDetails_@ViewBag.ID">
     if (environmentDetails.Table.Rows.Count > 0)
     {
         int Environment_Count = 0;
@@ -61,9 +61,9 @@
     }
     else
     {
-        @:<div> There are no servers or applications for this environment.</div><br />
+        @:There are no servers or applications for this environment.
     }
-
+    @:</div><br />
     <div class="panel-group" id="NewEntry_@ViewBag.ID" role="tablist" aria-multiselectable="false">
         <ul class="nav nav-tabs">
             <li role="presentation"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry_@ViewBag.ID" href="#Add_ServerContainer_@ViewBag.ID" aria-expanded="false" aria-controls="Add_ServerContainer_@ViewBag.ID">Add Server</a></li>

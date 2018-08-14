@@ -4,7 +4,7 @@
         e.preventDefault();
 
         Validate_Submit(e, submit, response, form);
-        refreshDetails(form.ID);
+        refreshDetails(e, submit, form);
     });
 }
 
@@ -14,7 +14,8 @@ function Delete_Item(form, submit, response) {
         e.preventDefault();
 
         Validate_Submit(e, submit, response, form);
-        refreshDetails(form.ID);
+        //alert(form.elements.ID.value);
+        //refreshDetails(form.elements.ID.value);
     });
 }
 
@@ -69,19 +70,19 @@ function itemResponse(message, results, form) {
     }
 
 }
-function refreshDetails(row, $detail) {
- /*   $table.('expand-row.bs.table', function (e, index, row, $detail) {
-        $detail.html('Loading from ajax request...');
+function refreshDetails(e, callback, form) {
+    $detail = $("#environmentDetails_" + form.elements.Parent_ID.value).parent();
+    var formTarget = $(e.target);
 
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Content("/Environment/EnvironmentDetails")',
-            data: row,
-            success: function (data) {
-                $detail.html(data);
-            }
-        })
+    $detail.html('Loading from ajax request...');
 
+    $.ajax({
+        url: "/Environment/EnvironmentDetails",
+        data: {Environment_ID : form.elements.Parent_ID.value},
+        type: 'POST',
+
+        success: function (ajaxResults) {
+            $detail.html(ajaxResults);
+        }
     });
-*/
-}
+}     

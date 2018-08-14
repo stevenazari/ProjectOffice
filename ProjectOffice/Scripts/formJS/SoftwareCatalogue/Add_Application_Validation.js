@@ -39,7 +39,7 @@ function Create_Application_Response(message, results, form) {
     }
 }
 
-function Add_Add_Response(message, results, form) {
+function Add_Application_Response(message, results, form) {
     if (message === "Success") {
         $('#Add_Application_Form').trigger("reset");
         $('#Add_Application_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...

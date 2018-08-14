@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('#Create_Server_Form')
     .on('submit', function (form) {
         form.preventDefault();
-        form.stopImmediatePropagation()
+        form.stopImmediatePropagation();
 
         var Server_Submit = document.getElementById("Create_Server_Submit");
 
@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 
 function Add_Server_Response(message, results, form) {
-    if (message == "Success") {
+    if (message === "Success") {
         $('#Add_Server_Form').trigger("reset");
         $('#Add_Server_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
         $("#Add_Server_Success_Message").fadeTo(5000, 500).slideUp(500, function () {
@@ -30,7 +30,7 @@ function Add_Server_Response(message, results, form) {
 }
 
 function Server_Response(message, results, form) {
-    if (message == "Success") {
+    if (message === "Success") {
         $('#Create_Server_Form').trigger("reset");
         $('#Server_Success_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
         $("#Server_Success_Message").fadeTo(5000, 500).slideUp(500, function () {
