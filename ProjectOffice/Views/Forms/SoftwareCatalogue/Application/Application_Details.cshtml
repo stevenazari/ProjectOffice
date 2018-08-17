@@ -1,8 +1,8 @@
 ﻿@model ProjectOffice.Models.Forms.SoftwareCatalogue.Environment.Delete_Environment_Item_Model
 
-<div class="fix test_item no-padding">
+<div class="fix test_item no-padding" id="EI_@ViewBag.row["EI_ID"]">
     <div class="col-md-1 m-top-20">
-        <form role="form" data-toggle="validator" method="post" action="/Environment/Delete_Environment_Item" id="Delete_Server_@ViewBag.row["EI_ID"]">
+        <form role="form" data-toggle="validator" method="post" action="/Environment/Delete_Environment_Item" id="Delete_Item_@ViewBag.row["EI_ID"]">
             @Html.HiddenFor(m => m.ID, new { Value = ViewBag.row["EI_ID"] })
             <input type="hidden" name="Item_Action" id="Item_Action" value="Delete" />
             <button type="submit" class="btn btn-sq-xs btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i></button>

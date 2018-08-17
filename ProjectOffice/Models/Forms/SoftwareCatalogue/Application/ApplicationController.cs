@@ -54,6 +54,7 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Application
         public int? Item_ID { get; set; }
         public int? Item_Type_ID { get; set; }
         public int? Parent_ID { get; set; }
+        public int? Environment_ID { get; set; }
 
         public SelectList Add_Server(int EnvironmentID)
         {

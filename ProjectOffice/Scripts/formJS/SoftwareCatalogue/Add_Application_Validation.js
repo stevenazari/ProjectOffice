@@ -11,16 +11,6 @@ $(document).ready(function () {
         });
 });
 
-function Add_Application(environmentID, submit) {
-    $('#Add_Application_Form_' + environmentID)
-        .on('submit', function (form) {
-            form.preventDefault();
-            form.stopImmediatePropagation();
-
-            Validate_Submit(form, submit);
-        });
-}
-
 function Create_Application_Response(message, results, form) {
     if (message === "Success") {
         $('#Create_Application_Form').trigger("reset");

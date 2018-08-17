@@ -15,6 +15,7 @@
             </div>
 
             @Html.HiddenFor(m => m.Item_Type_ID, new { Value = 1 })
+            @Html.HiddenFor(m => m.Environment_ID, new { Value = @ViewBag.Environment_ID })
 
             <!-- Dropdown input-->
             <div class="form-group has-feedback">

@@ -5,6 +5,7 @@
         <fieldset>
             @Html.HiddenFor(m => m.Parent_ID, new { Value = ViewBag.Environment_ID })
             @Html.HiddenFor(m => m.Item_Type_ID, new { Value = 2 })
+            @Html.HiddenFor(m => m.Environment_ID, new { Value = ViewBag.Environment_ID })
 
             <!-- Dropdown input-->
             <div class="form-group has-feedback">

@@ -52,6 +52,7 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Server
         public int? Item_ID { get; set; }
         public int? Item_Type_ID { get; set; }
         public int? Parent_ID { get; set; }
+        public int? Environment_ID { get; set; }
 
         public SelectList GetServerTypes()
         {
@@ -65,17 +66,23 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Server
         public SelectList GetServersList(int Environment_ID, int Exclude)
         {
             string search = "0";
+            string listID = "ID";
 
-            if (Environment_ID >= 1)
+            if (Environment_ID > 0)
             {
                 search = search + ", " + Environment_ID + ", " + Exclude;
+            }
+
+            if (Exclude == 0)
+            {
+                listID = "EI_ID";
             }
 
             var servers = dbObject.SQLConnection("Select_Servers_List", search);
             string message = servers.Item1;
             DataTable serverList = servers.Item2;
 
-            return new SelectList(serverList.AsDataView(), "ID", "Server_Name");
+            return new SelectList(serverList.AsDataView(), listID, "Server_Name");
         }
     }
 }

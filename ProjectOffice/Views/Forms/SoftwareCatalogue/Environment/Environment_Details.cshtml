@@ -53,7 +53,7 @@
                     </div>
                 }
 
-                Html.RenderAction("Application_Details", "Application", new { row = row });
+                Html.RenderAction("Application_Details", "Application", new { row = row, Environment_ID = ViewBag.ID });
             }
         }
 

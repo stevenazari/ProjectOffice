@@ -14,8 +14,7 @@ function Delete_Item(form, submit, response) {
         e.preventDefault();
 
         Validate_Submit(e, submit, response, form);
-        //alert(form.elements.ID.value);
-        //refreshDetails(form.elements.ID.value);
+        //refreshDetails(e, submit, form);
     });
 }
 
@@ -71,14 +70,14 @@ function itemResponse(message, results, form) {
 
 }
 function refreshDetails(e, callback, form) {
-    $detail = $("#environmentDetails_" + form.elements.Parent_ID.value).parent();
+    $detail = $("#environmentDetails_" + form.elements.Environment_ID.value).parent();
     var formTarget = $(e.target);
 
     $detail.html('Loading from ajax request...');
 
     $.ajax({
         url: "/Environment/EnvironmentDetails",
-        data: {Environment_ID : form.elements.Parent_ID.value},
+        data: {Environment_ID : form.elements.Environment_ID.value},
         type: 'POST',
 
         success: function (ajaxResults) {
