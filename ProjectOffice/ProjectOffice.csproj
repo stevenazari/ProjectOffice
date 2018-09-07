@@ -41,7 +41,11 @@
     <PublishDatabaseSettings>
       <Objects>
         <ObjectGroup Name="projectOffice" Order="1" Enabled="True">
-          <Destination Path="Data Source=BH02DS0PM\SQLEXPRESS%3bInitial Catalog=projectOfficeDB%3bPersist Security Info=True%3bUser ID=projectOfficeDB%3bPassword=projectOffice" />
+          <Destination Path="Data Source=BEDSQLSC01\PROJECTOFFICE%3bInitial Catalog=projectOfficeDB%3bPersist Security Info=True%3bUser ID=projectOfficeDB%3bPassword=projectOffice" />
+          <Object Type="DbFullSql" Enabled="True" xmlns="">
+            <PreSource Path="Data Source=BH02DS0PM\SQLEXPRESS%3bInitial Catalog=projectOfficeDB%3bIntegrated Security=False%3bUser Id=projectOfficeDB%3bPassword=projectOffice%3bMultipleActiveResultSets=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\projectOffice_SchemaOnly.sql" Transacted="True" />
+          </Object>
         </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
