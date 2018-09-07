@@ -47,7 +47,21 @@ namespace ProjectOffice.Controllers
             }
             catch (Exception ex)
             {
-                message = "Error running query (" + StoredProcedure + ") " + ex;
+                string error = ex.ToString();
+
+                if (error.Contains("Violation of UNIQUE KEY") == true)
+                {
+                    error = "object already exists";
+                } else if (error.Contains("Error converting data type") == true)
+                {
+                    error = "A column has the the wrong format";
+                } else
+                {
+                    //Cater for next friendly error message
+                }
+
+                //message = "Error running query (" + StoredProcedure + ") " + ex; //Detailed error message
+                message = "Error: " + error;
             }
 
             return Tuple.Create(message, results);

@@ -31,8 +31,10 @@ function Support_Company_Response(message, results, form) {
             $("#Support_Company_Success_Message").slideUp(500);
         });
     } else {
+        message = message.replace("object", "Company Name");
+
         var content = document.createTextNode(message);
-        $('#Support_Company_Error_Message').append(content);
+        $('#Support_Company_Error_Message').html(content);
 
         $('#Support_Company_Error_Message').slideDown({ opacity: "show" }, "slow"); // Do something ...
         $("#Support_Company_Error_Message").fadeTo(5000, 500).slideUp(500, function () {

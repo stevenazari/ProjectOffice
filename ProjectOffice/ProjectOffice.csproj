@@ -1195,7 +1195,6 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\formJS\SoftwareCatalogue\Build_Environment_Validation.js" />
     <Content Include="Scripts\formJS\formJS.js" />
     <Content Include="Scripts\formJS\SoftwareCatalogue\Add_Environment_Validation.js" />
     <Content Include="Scripts\formJS\SoftwareCatalogue\Add_Server_Validation.js" />
@@ -1299,7 +1298,6 @@
     <Content Include="Scripts\components\jQuery\jquery-3.2.1.min.map" />
     <Content Include="Views\Forms\SoftwareCatalogue\Environment\Create_Environment.cshtml" />
     <Content Include="Views\Forms\SoftwareCatalogue\EnvironmentListTable.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\BuildEnvironment\View.cshtml" />
     <Content Include="Views\Forms\SoftwareCatalogue\Environment\Environment_Details.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />

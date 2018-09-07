@@ -16,7 +16,7 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue.SupportCompany
         public string Address_1 { get; set; }
         public string Address_2 { get; set; }
         public string Post_Code { get; set; }
-        public int? Tel { get; set; }
+        public string Tel { get; set; }
         public string Email { get; set; }
         public string Website { get; set; }
         public string Comment { get; set; }

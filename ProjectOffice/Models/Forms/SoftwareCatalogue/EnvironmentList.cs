@@ -11,9 +11,6 @@ using System.Web.Helpers;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-
-
-
 namespace ProjectOffice.Models.Forms.SoftwareCatalogue
 {
     public class EnvironmentListModel
