@@ -52,6 +52,12 @@ a:hover {
 abbr[title] {
   border-bottom: 1px dotted;
 }
+.field-validation-error {
+    color: #A94442;
+}
+.input-validation-error {
+    color: #A94442;
+}
 b,
 strong {
   font-weight: bold;

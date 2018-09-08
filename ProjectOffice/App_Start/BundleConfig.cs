@@ -21,7 +21,12 @@ namespace ProjectOffice
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/components/jQuery/validate/jquery.validate*"
+                "~/Scripts/components/jQuery/validate/jquery.validate.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryvalidateUnobtrusive").Include(
+                "~/Scripts/components/jQuery/validate/jquery.validate.unobtrusive.js",
+                "~/Scripts/components/jQuery/validate/jquery.validate.definition.js"
             ));
 
             //Bootstrap
