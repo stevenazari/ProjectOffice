@@ -14,6 +14,10 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogueController
     public class SupportCompanyController : Controller
     {
         public DBClassController dbObject = new DBClassController();
+        string message = "";
+        string jsonResult = "";
+        string procedureValues = "";
+        DataTable payload = null;
 
         // GET: SupportCompany
         public ActionResult Create_Support_Company()
@@ -38,11 +42,6 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogueController
         [HttpPost]
         public JsonResult Save(SupportCompanyModel data)
         {
-            string message = "";
-            string jsonResult = "";
-            string procedureValues = "";
-            DataTable payload = null;
-
             procedureValues = dbObject.checkDataType(data);
 
             if (ModelState.IsValid)
@@ -64,6 +63,23 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogueController
 
             var jsonResponse = new { message = message, results = jsonResult };
             return Json(jsonResponse, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult SupportCompanyValidation(string Name)
+        {
+            //procedureValues = dbObject.checkDataType(supportCompany);
+
+            var result = dbObject.SQLConnection("Select_Support_Companies", "@NAME = N'" + Name + "'");
+            message = result.Item1;
+            payload = result.Item2;
+            bool notExists = true;
+
+            if (payload.Rows.Count > 0)
+            {
+                notExists = false;
+            }
+
+            return Json(notExists, JsonRequestBehavior.AllowGet);
         }
     }
 }
