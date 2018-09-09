@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
 
 //for Preloader
 
-    $(window).load(function () {
+    $(window).on('load',function () {
         $("#loading").fadeOut(500);
     });
 

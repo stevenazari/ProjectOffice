@@ -14,24 +14,24 @@ namespace ProjectOffice
             //jQuery
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 //                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/components/jQuery/jquery-2.1.4.js",
+                "~/Scripts/jquery-{version}.js",
                 "~/scripts/components/jQuery/magnificPopup/jquery.magnific-popup.js",
-                "~/scripts/components/jQuery/easing/jquery.easing.1.3.js",
+                "~/scripts/jquery.easing.1.3.js",
                 "~/scripts/components/jQuery/collapse/jquery.collapse.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/components/jQuery/validate/jquery.validate.js"
+                "~/Scripts/jquery.validate.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryvalidateUnobtrusive").Include(
-                "~/Scripts/components/jQuery/validate/jquery.validate.unobtrusive.js",
+                "~/Scripts/jquery.validate.unobtrusive.js",
                 "~/Scripts/components/jQuery/validate/jquery.validate.definition.js"
             ));
 
             //Bootstrap
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/scripts/components/bootstrap/bootstrap.js",
+                "~/scripts/bootstrap.js",
                 "~/Scripts/components/respond.js",
                 "~/Scripts/components/vendor/validator.js"
             ));

@@ -12,7 +12,7 @@ namespace ProjectOffice.Models.Forms.SoftwareCatalogue.SupportCompany
         public string ORDER_BY { get; set; }
         public int? Get_All { get; set; }
         public int? ID { get; set; }
-        [Remote("SupportCompanyValidation", "SupportCompany", ErrorMessage = "Company name already exists", AdditionalFields = "Name")]
+        [Remote("SupportCompanyValidation", "SupportCompany", ErrorMessage = "Company name already exists")]
         public string Name { get; set; }
         public string Address_1 { get; set; }
         public string Address_2 { get; set; }
