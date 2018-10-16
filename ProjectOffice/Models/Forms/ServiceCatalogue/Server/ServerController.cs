@@ -8,7 +8,7 @@ using ProjectOffice.Controllers;
 using System.Data;
 using System.Web.UI.WebControls;
 
-namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Server
+namespace ProjectOffice.Models.Forms.ServiceCatalogue.Server
 {
     public class Create_Server_Model
     {

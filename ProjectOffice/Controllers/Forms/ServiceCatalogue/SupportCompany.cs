@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using ProjectOffice.Models.Forms.SoftwareCatalogue.SupportCompany;
+using ProjectOffice.Models.Forms.ServiceCatalogue.SupportCompany;
 using ProjectOffice.Controllers;
 using System.Data;
 using System.Reflection;
@@ -9,7 +9,7 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 
-namespace ProjectOffice.Controllers.Forms.SoftwareCatalogueController
+namespace ProjectOffice.Controllers.Forms.ServiceCatalogueController
 {
     public class SupportCompanyController : Controller
     {
@@ -27,16 +27,16 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogueController
 
             ViewBag.SupportCompaniesTable = companiesTable;
             ViewBag.Title = "Add Support Company";
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.SupportCompany.SupportCompanyModel();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.SupportCompany.SupportCompanyModel();
 
-            return PartialView("~/Views/Forms/SoftwareCatalogue/SupportCompany/Index.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/SupportCompany/Index.cshtml", model);
         }
 
         public ActionResult SupportCompanyIntro()
         {
             ViewBag.Title = "Add Support Company";
 
-            return PartialView("~/Views/Forms/SoftwareCatalogue/SupportCompany/Intro.cshtml");
+            return PartialView("~/Views/Forms/ServiceCatalogue/SupportCompany/Intro.cshtml");
         }
 
         [HttpPost]

@@ -8,7 +8,7 @@ using ProjectOffice.Controllers;
 using System.Data;
 using System.Web.UI.WebControls;
 
-namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Environment
+namespace ProjectOffice.Models.Forms.ServiceCatalogue.Environment
 {
     public class EnvironmentModel
     {

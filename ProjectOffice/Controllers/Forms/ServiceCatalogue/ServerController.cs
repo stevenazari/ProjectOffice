@@ -6,9 +6,9 @@ using System.Data;
 using System.Reflection;
 using System.Diagnostics;
 using System.Linq;
-using ProjectOffice.Models.Forms.SoftwareCatalogue.Server;
+using ProjectOffice.Models.Forms.ServiceCatalogue.Server;
 
-namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Server
+namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Server
 {
     public class ServerController : Controller
     {
@@ -23,9 +23,9 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Server
         public ActionResult Create_Server()
         {
             ViewBag.Title = "Create Server";
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Server.Create_Server_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Server.Create_Server_Model();
 
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Server/Create_Server.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Server/Create_Server.cshtml", model);
         }
 
         [HttpPost]
@@ -57,12 +57,12 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Server
         [HttpPost]
         public ActionResult Add_Server(int Environment_ID)
         {
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Server.Add_Server_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Server.Add_Server_Model();
 
             ViewBag.Environment_ID = Environment_ID;
             ViewBag.Server_List = model.GetServersList(Environment_ID, 1);
 
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Server/Add_Server.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Server/Add_Server.cshtml", model);
         }
 
         [HttpPost]
@@ -93,9 +93,9 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Server
 
         public ActionResult Server_Details(DataRow row)
         {
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Environment.Delete_Environment_Item_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
             ViewBag.row = row;
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Server/Server_Details.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Server/Server_Details.cshtml", model);
         }
     }
 }

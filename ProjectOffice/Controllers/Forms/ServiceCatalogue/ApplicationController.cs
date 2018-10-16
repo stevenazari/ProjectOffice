@@ -7,10 +7,10 @@ using System.Reflection;
 using System.Diagnostics;
 using System.Linq;
 using System.Dynamic;
-using ProjectOffice.Models.Forms.SoftwareCatalogue.Application;
-using ProjectOffice.Models.Forms.SoftwareCatalogue.Server;
+using ProjectOffice.Models.Forms.ServiceCatalogue.Application;
+using ProjectOffice.Models.Forms.ServiceCatalogue.Server;
 
-namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Application
+namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Application
 {
     public class ApplicationController : Controller
     {
@@ -25,8 +25,8 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Application
         public ActionResult Create_Application()
         {
             ViewBag.Title = "Add Application";
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Application.Create_Application_Model();
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Application/Create_Application.cshtml", model);
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Application.Create_Application_Model();
+            return PartialView("~/Views/Forms/ServiceCatalogue/Application/Create_Application.cshtml", model);
         }
 
         [HttpPost]
@@ -58,14 +58,14 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Application
         [HttpPost]
         public ActionResult Add_Application(int Environment_ID)
         {
-            Add_Server_Model ServerObject = new ProjectOffice.Models.Forms.SoftwareCatalogue.Server.Add_Server_Model();
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Application.Add_Application_Model();
+            Add_Server_Model ServerObject = new ProjectOffice.Models.Forms.ServiceCatalogue.Server.Add_Server_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Application.Add_Application_Model();
 
             ViewBag.Environment_ID = Environment_ID;
             ViewBag.Add_Application = GetApplications();
             ViewBag.Server_List = ServerObject.GetServersList(Environment_ID, 0);
             
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Application/Add_Application.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Application/Add_Application.cshtml", model);
         }
 
         [HttpPost]
@@ -105,9 +105,9 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Application
 
         public ActionResult Application_Details(DataRow row)
         {
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Environment.Delete_Environment_Item_Model();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
             ViewBag.Row = row;
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Application/Application_Details.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Application/Application_Details.cshtml", model);
         }
     }
 }

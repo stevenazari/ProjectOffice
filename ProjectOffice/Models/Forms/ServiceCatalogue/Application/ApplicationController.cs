@@ -7,9 +7,9 @@ using System.Web.Mvc;
 using ProjectOffice.Controllers;
 using System.Data;
 using System.Web.UI.WebControls;
-using ProjectOffice.Models.Forms.SoftwareCatalogue.Server;
+using ProjectOffice.Models.Forms.ServiceCatalogue.Server;
 
-namespace ProjectOffice.Models.Forms.SoftwareCatalogue.Application
+namespace ProjectOffice.Models.Forms.ServiceCatalogue.Application
 {
     public class Create_Application_Model
     {

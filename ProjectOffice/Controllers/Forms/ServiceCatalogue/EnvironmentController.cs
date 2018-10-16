@@ -4,11 +4,11 @@ using System.Data;
 using System.Reflection;
 using System.Diagnostics;
 using System.Linq;
-using ProjectOffice.Models.Forms.SoftwareCatalogue.Environment;
+using ProjectOffice.Models.Forms.ServiceCatalogue.Environment;
 using Newtonsoft.Json;
 
 
-namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Environment
+namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Environment
 {
     public class EnvironmentController : Controller
     {
@@ -22,9 +22,9 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Environment
         public ActionResult Create_Environment()
         {
             ViewBag.Title = "Add Environment";
-            var model = new ProjectOffice.Models.Forms.SoftwareCatalogue.Environment.EnvironmentModel();
+            var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.EnvironmentModel();
 
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Environment/Create_Environment.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Environment/Create_Environment.cshtml", model);
         }
 
         [HttpPost]
@@ -114,12 +114,12 @@ namespace ProjectOffice.Controllers.Forms.SoftwareCatalogue.Environment
             ViewBag.environmentDetails = model.EnvironmentDetails(data.Environment_ID);
             ViewBag.ID = data.Environment_ID;
 
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Environment/Environment_Details.cshtml", model);
+            return PartialView("~/Views/Forms/ServiceCatalogue/Environment/Environment_Details.cshtml", model);
         }
 
         public ActionResult EnvironmentListIntro()
         {
-            return PartialView("~/Views/Forms/SoftwareCatalogue/Intro.cshtml");
+            return PartialView("~/Views/Forms/ServiceCatalogue/Intro.cshtml");
         }
 
         [HttpPost]

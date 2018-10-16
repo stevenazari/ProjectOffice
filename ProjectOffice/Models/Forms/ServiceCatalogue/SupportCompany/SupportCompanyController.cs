@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjectOffice.Models.Forms.SoftwareCatalogue.SupportCompany
+namespace ProjectOffice.Models.Forms.ServiceCatalogue.SupportCompany
 {
     public class SupportCompanyModel
     {
