@@ -17,6 +17,7 @@ namespace ProjectOffice.Models.Forms.ServiceCatalogue.Server
         public string ORDER_BY { get; set; }
         public int? Get_All { get; set; }
         public int? ID { get; set; }
+        [Remote("ServerValidation", "Server", ErrorMessage = "Server already exists")]
         public string Name { get; set; }
         public string IP_Address { get; set; }
         public int Operating_Systems_ID { get; set; }

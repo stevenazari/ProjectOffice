@@ -4,75 +4,74 @@
     <div id="toolbar">
         <button id="remove" class="btn btn-danger" disabled><i class="glyphicon glyphicon-remove"></i> Delete</button>
         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#EnvironmentListAdd" aria-expanded="false" aria-controls="collapse">Administration</button>
-        
     </div>
+    <fieldset>
+        <div id="EnvironmentListAdd" class="collapse">
+            
+            <div class="panel-group" id="admin" role="tablist" aria-multiselectable="true">
 
-        <fieldset>
-            <div id="EnvironmentListAdd" class="collapse">
-                <div class="panel-group" id="NewEntry" role="tablist" aria-multiselectable="false">
-
-                    <div class="panel panel-default well form-horizontal">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#CreateEnvironmentContainer" aria-expanded="false" aria-controls="CreateEnvironmentContainer">
-                            <div role="tab" id="CreateEnvironmentButton">
-                                <h4 class="panel-title">
-                                    Create Environment
-                                </h4>
-                            </div>
-                        </a>
-                        <div id="CreateEnvironmentContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateEnvironmentButton">
-                            <div class="panel-body">
-                                @{ Html.RenderAction("Create_Environment", "Environment");}
-                            </div>
+                <div class="panel panel-default well form-horizontal">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#admin" href="#CreateEnvironmentContainer" aria-expanded="false" aria-controls="CreateEnvironmentContainer">
+                        <div role="tab" id="CreateEnvironmentButton">
+                            <h4 class="panel-title">
+                                Create Environment
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="CreateEnvironmentContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateEnvironmentButton">
+                        <div class="panel-body">
+                            @{ Html.RenderAction("Create_Environment", "Environment");}
                         </div>
                     </div>
+                </div>
 
-                    <div class="panel panel-default well form-horizontal">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#CreateServerContainer" aria-expanded="false" aria-controls="CreateServerContainer">
-                            <div role="tab" id="CreateServerButton">
-                                <h4 class="panel-title">
-                                    Create Server
-                                </h4>
-                            </div>
-                        </a>
-                        <div id="CreateServerContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateServerButton">
-                            <div class="panel-body">
-                                @{ Html.RenderAction("Create_Server", "Server");}
-                            </div>
+                <div class="panel panel-default well form-horizontal">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#admin" href="#CreateServerContainer" aria-expanded="false" aria-controls="CreateServerContainer">
+                        <div role="tab" id="CreateServerButton">
+                            <h4 class="panel-title">
+                                Create Server
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="CreateServerContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateServerButton">
+                        <div class="panel-body">
+                            @{ Html.RenderAction("Create_Server", "Server");}
                         </div>
                     </div>
+                </div>
 
-                    <div class="panel panel-default well form-horizontal">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#CreateSupportCompanyContainer" aria-expanded="false" aria-controls="SupportCompanyContainer">
-                            <div role="tab" id="CreateSupportCompanyButton">
-                                <h4 class="panel-title">
-                                    Create Support Company
-                                </h4>
-                            </div>
-                        </a>
-                        <div id="CreateSupportCompanyContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateSupportCompanyButton">
-                            <div class="panel-body">
-                                @{ Html.RenderAction("Create_Support_Company", "SupportCompany");}
-                            </div>
+                <div class="panel panel-default well form-horizontal">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#admin" href="#CreateSupportCompanyContainer" aria-expanded="false" aria-controls="SupportCompanyContainer">
+                        <div role="tab" id="CreateSupportCompanyButton">
+                            <h4 class="panel-title">
+                                Create Support Company
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="CreateSupportCompanyContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateSupportCompanyButton">
+                        <div class="panel-body">
+                            @{ Html.RenderAction("Create_Support_Company", "SupportCompany");}
                         </div>
                     </div>
+                </div>
 
-                    <div class="panel panel-default well form-horizontal">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#NewEntry" href="#CreateApplicationContainer" aria-expanded="false" aria-controls="CreateApplicationContainer">
-                            <div role="tab" id="CreateApplicationButton">
-                                <h4 class="panel-title">
-                                    Create Application
-                                </h4>
-                            </div>
-                        </a>
-                        <div id="CreateApplicationContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateApplicationButton">
-                            <div class="panel-body">
-                                @{ Html.RenderAction("Create_Application", "Application");}
-                            </div>
+                <div class="panel panel-default well form-horizontal">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#admin" href="#CreateApplicationContainer" aria-expanded="false" aria-controls="CreateApplicationContainer">
+                        <div role="tab" id="CreateApplicationButton">
+                            <h4 class="panel-title">
+                                Create Application
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="CreateApplicationContainer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="CreateApplicationButton">
+                        <div class="panel-body">
+                            @{ Html.RenderAction("Create_Application", "Application");}
                         </div>
                     </div>
                 </div>
             </div>
-        </fieldset>
+        </div>
+    </fieldset>
 
     <table id="table"
            data-toolbar="#toolbar"

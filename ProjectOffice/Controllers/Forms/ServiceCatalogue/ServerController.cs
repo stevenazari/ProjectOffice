@@ -97,5 +97,23 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Server
             ViewBag.row = row;
             return PartialView("~/Views/Forms/ServiceCatalogue/Server/Server_Details.cshtml", model);
         }
+
+        public ActionResult ServerValidation(string Name)
+        {
+            //procedureValues = dbObject.checkDataType(supportCompany);
+
+            var result = dbObject.SQLConnection("Select_Servers", "@SEARCH = 1, @NAME = N'" + Name + "'");
+            message = result.Item1;
+            payload = result.Item2;
+            bool exists = false;
+
+            if (payload.Rows.Count > 0)
+            {
+                return HttpNotFound("Server already exists");
+            }
+
+            return Json(exists, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

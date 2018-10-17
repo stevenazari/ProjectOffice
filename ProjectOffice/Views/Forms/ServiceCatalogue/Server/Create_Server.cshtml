@@ -11,7 +11,7 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        @Html.TextBoxFor(m => m.Name, new { placeholder = "Server Name", ID = "Server_Name", @class = "form-control", required = "required" })
+                        @Html.TextBoxFor(m => m.Name, new { placeholder = "Server Name", ID = "Server_Name", @class = "form-control", required = "required", @data_remote = "/Server/ServerValidation" })
                     </div>
                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 </div>
