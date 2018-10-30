@@ -2,67 +2,52 @@
 @{
     var environmentDetails = ViewBag.environmentDetails;
     @:<div id="environmentDetails_@ViewBag.ID">
-    if (environmentDetails.Table.Rows.Count > 0)
-    {
-        int Environment_Count = 0;
-        int Server_Check = 0;
-        int Application_Check = 0;
-        IHtmlString closeDiv = new HtmlString("</div></div>"); //Close app and server div
-
-        foreach (var row in environmentDetails.Table.Rows)
-        {
-            IHtmlString openDiv15 = new HtmlString("<div class='test_item m-l-15' id='EI_" + @row["EI_ID"] + "'>");
-            IHtmlString replaceDiv = new HtmlString("</div></div><div class='test_item m-l-15' id='EI_" + @row["EI_ID"] + "'>");//Close app and server div
-            if (Environment_Count == 0)
-            {
-                Environment_Count++;
-                <div class="features_item sm-m-top-30 m-bottom-30 m-l-15">
-                    <div class="f_item_text">
-                        <h2>@row["Environment_Name"] @row["Environment_Type_Name"] Environment Details</h2>
-                        <div class="col-md-4">
-                            <b>Notes:</b>  @row["Environment_Comment"]  <br>
-                        </div>
-                    </div>
+        <div class="features_item sm-m-top-30 m-bottom-30 m-l-15">
+            <div class="f_item_text">
+                <h2>@environmentDetails.Rows[0]["Environment_Name"] @environmentDetails.Rows[0]["Environment_Type_Name"] Environment Details</h2>
+                <div class="col-md-4">
+                    <b>Notes:</b>  @environmentDetails.Rows[0]["Environment_Comment"]  <br>
                 </div>
-            }
+            </div>
+        </div>
 
+    if (environmentDetails.Rows.Count > 0)
+    {
+        bool Server_Check = false;
+        bool Application_Check = false;
+
+        @:<div class="panel-group" id="Environment_Item_List" role="tablist" aria-multiselectable="false">
+
+        foreach (var row in environmentDetails.Rows)
+        {
             if (row["Item_Type_ID"] == 2)
             {
-                if (Server_Check == 0)
-                {
-                    Server_Check = 1;
-                    @openDiv15
-                    Html.RenderAction("Server_Details", "Server", new { row = row });
-                }
-                else
-                {
-                    Application_Check = 0; //Reset application count for new server
-                    @replaceDiv
-                    Html.RenderAction("Server_Details", "Server", new { row = row });
-                }
+                @:<div id="Environment_Item_Container_@row["EI_ID"]" class="panel-collapse collapse" role="tabpanel" aria-labelledby="Environment_Item_Button_@row["EI_ID"]">
+                    @:<div class="panel-body">
+                        Html.RenderAction("Server_Details", "Server", new { Server_Check = Server_Check, row = row, Environment_Details = environmentDetails });
+                    @:</div>
+                @:</div>
 
+                Server_Check = true;
+                Application_Check = false;
             }
-            if (row["Item_Type_ID"] == 1)
+            else if (row["Item_Type_ID"] == 1 && row["Parent_ID"] == row["Environment_ID"])
             {
-                if (Application_Check == 0)
-                {
-                    Application_Check = row["Item_ID"];
-                    @openDiv15
-                    <div class="main_features fix m-top-20 m-bottom-10">
-                        <h5>Application Details</h5>
-                    </div>
-                }
+                @:<div id="Environment_Item_Container_@row["EI_ID"]" class="panel-collapse collapse" role="tabpanel" aria-labelledby="Environment_Item_Button_@row["EI_ID"]">
+                    @:<div class="panel-body">
+                        Html.RenderAction("Application_Details", "Application", new {Application_Check = Application_Check, row = row, Environment_ID = ViewBag.ID,  });
+                    @:</div>
+                @:</div>
 
-                Html.RenderAction("Application_Details", "Application", new { row = row, Environment_ID = ViewBag.ID });
+                Application_Check = true;
             }
         }
-
-        @closeDiv;
     }
     else
     {
         @:There are no servers or applications for this environment.
     }
+
     @:</div><br />
     <div class="panel-group" id="NewEntry_@ViewBag.ID" role="tablist" aria-multiselectable="false">
         <ul class="nav nav-tabs">

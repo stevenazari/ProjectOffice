@@ -1,4 +1,12 @@
 ﻿@model ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model
+@{
+    if (ViewBag.Application_Check == false)
+    {
+        @:<div class="main_features fix m-top-20 m-bottom-10">
+            <h5>Application Details</h5>
+        @:</div>
+    }
+}
 
 <div class="fix test_item no-padding" id="EI_@ViewBag.row["EI_ID"]">
     <div class="col-md-1 m-top-20">

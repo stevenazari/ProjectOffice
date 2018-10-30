@@ -91,10 +91,19 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Server
             return Json(jsonResponse, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Server_Details(DataRow row)
+        public ActionResult Server_Details(bool Server_Check, DataRow row, DataTable Environment_Details)
         {
             var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
+
+            DataView Application_List = new DataView(Environment_Details);
+            Application_List.RowFilter = "Parent_ID = " + row["EI_ID"] + " AND Item_Type_ID = 1";
+
             ViewBag.row = row;
+            ViewBag.Application_List = Application_List;
+            ViewBag.Environment_ID = row["Environment_ID"];
+            ViewBag.Server_Check = Server_Check;
+
+
             return PartialView("~/Views/Forms/ServiceCatalogue/Server/Server_Details.cshtml", model);
         }
 

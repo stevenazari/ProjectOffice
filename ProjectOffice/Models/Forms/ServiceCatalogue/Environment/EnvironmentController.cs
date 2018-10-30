@@ -53,13 +53,13 @@ namespace ProjectOffice.Models.Forms.ServiceCatalogue.Environment
             return EnvironmentListTable.AsDataView();
         }
 
-        public DataView EnvironmentDetails(int ID)
+        public DataTable EnvironmentDetails(int ID)
         {
             var resultEnvironments = dbObject.SQLConnection("Select_Environment_Details", ID.ToString());
             string message = resultEnvironments.Item1;
             DataTable environmentDetails = resultEnvironments.Item2;
 
-            return environmentDetails.AsDataView();
+            return environmentDetails;
         }
     }
     public class Delete_Environment_Item_Model

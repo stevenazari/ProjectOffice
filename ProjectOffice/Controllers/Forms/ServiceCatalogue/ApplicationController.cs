@@ -71,6 +71,11 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Application
         [HttpPost]
         public JsonResult Add_Application_Submit(Add_Application_Model data)
         {
+            if (data.Parent_ID == null)
+            {
+                data.Parent_ID = data.Environment_ID;
+            }
+
             procedureValues = dbObject.checkDataType(data);
 
             if (ModelState.IsValid)
@@ -103,10 +108,13 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Application
             return new SelectList(applicationListTable.AsDataView(), "ID", "Application_Name");
         }
 
-        public ActionResult Application_Details(DataRow row)
+        public ActionResult Application_Details(bool Application_Check, DataRow row, int Environment_ID)
         {
             var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
             ViewBag.Row = row;
+            ViewBag.Environment_ID = Environment_ID;
+            ViewBag.Application_Check = Application_Check;
+
             return PartialView("~/Views/Forms/ServiceCatalogue/Application/Application_Details.cshtml", model);
         }
     }
