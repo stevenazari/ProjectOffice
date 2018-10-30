@@ -1,0 +1,40 @@
+﻿@model ProjectOffice.Models.Forms.ServiceCatalogue.Server.Add_Server_Model
+@{
+    <br />
+    <form role="form" data-toggle="validator" method="post" action="/Server/Add_Server_submit" id="Add_Server_Form_@ViewBag.Environment_ID">
+        <fieldset>
+            @Html.HiddenFor(m => m.Parent_ID, new { Value = ViewBag.Environment_ID })
+            @Html.HiddenFor(m => m.Item_Type_ID, new { Value = 2 })
+            @Html.HiddenFor(m => m.Environment_ID, new { Value = ViewBag.Environment_ID })
+
+            <!-- Dropdown input-->
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label">@Html.LabelFor(m => m.Item_ID, "Server:")</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        @Html.DropDownListFor(m => m.Item_ID, (SelectList)Model.GetServersList(@ViewBag.Environment_ID, 1), "Select Server", new { ID = "Server_ID_" + @ViewBag.Environment_ID, @class = "form-control", required = "required" })
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success message -->
+            <div class="alert alert-success collapse" role="alert" id="Add_Server_Success_Message">
+                Added server <i class="glyphicon glyphicon-thumbs-up"></i>
+            </div>
+
+            <!-- Error message -->
+            <div class="alert alert-danger collapse" role="alert" id="Add_Server_Error_Message">
+                Unable to add server <i class="glyphicon glyphicon-thumbs-down"></i>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-warning" id="Add_Server_Submit_@ViewBag.Environment_ID" onclick="Add_Item(this.form, this, 'Add_Server_Response')">Add Server<span class="glyphicon glyphicon-send"></span></button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+}

@@ -105,32 +105,32 @@ namespace ProjectOffice
 
             //Environment List bundles JS
             bundles.Add(new ScriptBundle("~/bundles/EnvironmentList").Include(
-                "~/Scripts/formJS/SoftwareCatalogue/EnvironmentList.js"
+                "~/Scripts/formJS/serviceCatalogue/EnvironmentList.js"
             ));
 
             //Support Company bundles JS
             bundles.Add(new ScriptBundle("~/bundles/SupportCompany").Include(
-                "~/Scripts/formJS/SoftwareCatalogue/Add_Support_Company_Validation.js"
+                "~/Scripts/formJS/ServiceCatalogue/Add_Support_Company_Validation.js"
             ));
 
             //Application bundles JS
             bundles.Add(new ScriptBundle("~/bundles/Application").Include(
-                "~/Scripts/formJS/SoftwareCatalogue/Add_Application_Validation.js"
+                "~/Scripts/formJS/ServiceCatalogue/Add_Application_Validation.js"
             ));
 
             //Server bundles JS
             bundles.Add(new ScriptBundle("~/bundles/Server").Include(
-                "~/Scripts/formJS/SoftwareCatalogue/Add_Server_Validation.js"
+                "~/Scripts/formJS/ServiceCatalogue/Add_Server_Validation.js"
             ));
 
             //Environment bundles JS
             bundles.Add(new ScriptBundle("~/bundles/Environment").Include(
-                "~/Scripts/formJS/SoftwareCatalogue/Add_Environment_Validation.js"
+                "~/Scripts/formJS/ServiceCatalogue/Add_Environment_Validation.js"
             ));
 
             //Build Environment bundles JS
             bundles.Add(new ScriptBundle("~/bundles/buildEnvironment").Include(
-                "~/Scripts/formJS/SoftwareCatalogue/Build_Environment_Validation.js"
+                "~/Scripts/formJS/ServiceCatalogue/Build_Environment_Validation.js"
             ));
         }
     }

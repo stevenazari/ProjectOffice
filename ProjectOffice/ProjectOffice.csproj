@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -92,29 +92,29 @@
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.7.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.7.2\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.8.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.7.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.7.2\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.8.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.7.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.7.2\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.8.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.7.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.7.2\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    <Reference Include="Microsoft.AI.Web, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.8.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.7.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.7.2\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.8.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.7.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.7.2\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.8.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.4\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -123,8 +123,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -177,12 +177,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Forms\SoftwareCatalogue\ApplicationController.cs" />
-    <Compile Include="Controllers\Forms\SoftwareCatalogue\SoftwareCatalogueController.cs" />
-    <Compile Include="Controllers\Forms\SoftwareCatalogue\EnvironmentController.cs" />
+    <Compile Include="Controllers\Forms\ServiceCatalogue\ApplicationController.cs" />
+    <Compile Include="Controllers\Forms\ServiceCatalogue\ServiceCatalogueController.cs" />
+    <Compile Include="Controllers\Forms\ServiceCatalogue\EnvironmentController.cs" />
     <Compile Include="Controllers\Forms\FormsController.cs" />
-    <Compile Include="Controllers\Forms\SoftwareCatalogue\ServerController.cs" />
-    <Compile Include="Controllers\Forms\SoftwareCatalogue\SupportCompany.cs" />
+    <Compile Include="Controllers\Forms\ServiceCatalogue\ServerController.cs" />
+    <Compile Include="Controllers\Forms\ServiceCatalogue\SupportCompany.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectOfficeDatabaseController.cs" />
     <Compile Include="Controllers\SiteLayoutController.cs" />
@@ -190,11 +190,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\formController.cs" />
-    <Compile Include="Models\Forms\SoftwareCatalogue\EnvironmentList.cs" />
-    <Compile Include="Models\Forms\SoftwareCatalogue\Application\ApplicationController.cs" />
-    <Compile Include="Models\Forms\SoftwareCatalogue\Environment\EnvironmentController.cs" />
-    <Compile Include="Models\Forms\SoftwareCatalogue\Server\ServerController.cs" />
-    <Compile Include="Models\Forms\SoftwareCatalogue\SupportCompany\SupportCompanyController.cs" />
+    <Compile Include="Models\Forms\ServiceCatalogue\EnvironmentList.cs" />
+    <Compile Include="Models\Forms\ServiceCatalogue\Application\ApplicationController.cs" />
+    <Compile Include="Models\Forms\ServiceCatalogue\Environment\EnvironmentController.cs" />
+    <Compile Include="Models\Forms\ServiceCatalogue\Server\ServerController.cs" />
+    <Compile Include="Models\Forms\ServiceCatalogue\SupportCompany\SupportCompanyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1214,11 +1214,11 @@
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
     <Content Include="Scripts\formJS\formJS.js" />
-    <Content Include="Scripts\formJS\SoftwareCatalogue\Add_Environment_Validation.js" />
-    <Content Include="Scripts\formJS\SoftwareCatalogue\Add_Server_Validation.js" />
-    <Content Include="Scripts\formJS\SoftwareCatalogue\Add_Support_Company_Validation.js" />
-    <Content Include="Scripts\formJS\SoftwareCatalogue\Add_Application_Validation.js" />
-    <Content Include="Scripts\formJS\SoftwareCatalogue\EnvironmentList.js" />
+    <Content Include="Scripts\formJS\ServiceCatalogue\Add_Environment_Validation.js" />
+    <Content Include="Scripts\formJS\ServiceCatalogue\Add_Server_Validation.js" />
+    <Content Include="Scripts\formJS\ServiceCatalogue\Add_Support_Company_Validation.js" />
+    <Content Include="Scripts\formJS\ServiceCatalogue\Add_Application_Validation.js" />
+    <Content Include="Scripts\formJS\ServiceCatalogue\EnvironmentList.js" />
     <Content Include="Scripts\components\jQuery\counterUp\jquery.counterup.js" />
     <Content Include="Scripts\components\jQuery\localScroll\jquery.localScroll.js" />
     <Content Include="Scripts\components\jQuery\wayPoints\jquery.waypoints.js" />
@@ -1287,7 +1287,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Server\Create_Server.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Server\Create_Server.cshtml" />
     <Content Include="Views\Home\Features\Index.cshtml" />
     <Content Include="Views\Home\Service\Index.cshtml" />
     <Content Include="Views\Home\Portfolio\Index.cshtml" />
@@ -1310,21 +1310,21 @@
     <Content Include="Views\Forms\_components\fieldTypes\textAreaField.cshtml" />
     <Content Include="Views\Forms\_components\fieldTypes\messageField.cshtml" />
     <Content Include="Views\Forms\_components\fieldTypes\submit.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Index.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Application\Create_Application.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\SupportCompany\Index.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Intro.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Index.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Application\Create_Application.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\SupportCompany\Index.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Intro.cshtml" />
     <Content Include="Scripts\components\jQuery\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\components\jQuery\jquery-3.2.1.min.map" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Environment\Create_Environment.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\EnvironmentListTable.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Environment\Environment_Details.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Environment\Create_Environment.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\EnvironmentListTable.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Environment\Environment_Details.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Application\Add_Application.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Server\Add_Server.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Server\Server_Details.cshtml" />
-    <Content Include="Views\Forms\SoftwareCatalogue\Application\Application_Details.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Application\Add_Application.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Server\Add_Server.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Server\Server_Details.cshtml" />
+    <Content Include="Views\Forms\ServiceCatalogue\Application\Application_Details.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -1388,8 +1388,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
