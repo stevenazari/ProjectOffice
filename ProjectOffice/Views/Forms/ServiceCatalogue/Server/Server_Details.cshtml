@@ -1,69 +1,78 @@
 ﻿@model ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model
-<div class="main_features fix m-top-20 m-bottom-10 test_item">
     @{
         if (@ViewBag.Server_Check == false)
         {
             @:<div id="Server_@ViewBag.row["EI_ID"]">
-                <h5>Server:</h5>
+                <h5>Servers:</h5>
             @:</div>
         }
     }
 
-    <div class="fix">
+<div class="test_item form-horizontal" id="Server_Details_Container_@ViewBag.row["EI_ID"]" role="tablist" aria-multiselectable="true">
+    <!--<div class="panel panel-default well form-horizontal">-->
+    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#Server_Details_Container_@ViewBag.row["EI_ID"]" href="#Server_Details_@ViewBag.row["EI_ID"]" aria-expanded="false" aria-controls="Server_Details_@ViewBag.row["EI_ID"]">
+        <div role="tab" id="Server_Details_Button_@ViewBag.row["EI_ID"]">
+            <div class="m-top-20 m-bottom-10 col-md-11 no-padding">
+                <div class="col-md-4">
+                    <b>Name:</b> @ViewBag.row["Server_Name"]
+                </div>
+
+                @if (ViewBag.Row.IsNull("Server_Type_Name") == false)
+                {
+                    <div class="col-md-4 no-padding">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_text">
+                                <b>Type:</b> @ViewBag.Row["Server_Type_Name"] <br>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (ViewBag.row.IsNull("IP_Address") == false)
+                {
+                    <div class="col-md-4 no-padding">
+                        <div class="features_item sm-m-top-30">
+                            <b>IP Address:</b> @ViewBag.Row["IP_Address"] <br>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="m-bottom-20 col-md-11">
+                <b>Notes:</b>
+                @if (ViewBag.row.IsNull("Server_Comment") == false)
+                {
+                    @ViewBag.Row["Server_Comment"]
+                }
+                else
+                {
+                    @: No comment
+                }
+            </div>
+        </div>
+    </a>
+    <br /><br /><br />
+    <div id="Server_Details_@ViewBag.row["EI_ID"]" class="panel-collapse collapse" role="tabpanel" aria-labelledby="Server_Details_Button_@ViewBag.row["EI_ID"]">
         <div class="col-md-1">
             <form role="form" data-toggle="validator" method="post" action="/Environment/Delete_Environment_Item" id="Delete_Server_@ViewBag.row["EI_ID"]">
                 @Html.HiddenFor(m => m.ID, new { Value = ViewBag.row["EI_ID"] })
                 <input type="hidden" name="Item_Action" id="Item_Action" value="Delete" />
-                <button type="submit" class="btn btn-sq-xs btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i></button>
+                <button type="submit" class="btn btn-sq-xs btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i> Delete Server</button>
             </form>
         </div>
-        <div class="m-top-20 m-bottom-10 col-md-11 no-padding">
-            <div class="col-md-4">
-                <b>Name:</b> @ViewBag.row["Server_Name"]
-            </div>
 
-            @if (ViewBag.Row.IsNull("Server_Type_Name") == false)
-            {
-                <div class="col-md-4 no-padding">
-                    <div class="features_item sm-m-top-30">
-                        <div class="f_item_text">
-                            <b>Type:</b> @ViewBag.Row["Server_Type_Name"] <br>
-                        </div>
-                    </div>
-                </div>
-            }
-
-            @if (ViewBag.row.IsNull("IP_Address") == false)
-            {
-                <div class="col-md-4 no-padding">
-                    <div class="features_item sm-m-top-30">
-                        <b>IP Address:</b> @ViewBag.Row["IP_Address"] <br>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <div class="m-bottom-20 col-md-11">
-            <b>Notes:</b>
-            @if (ViewBag.row.IsNull("Server_Comment") == false)
-            {
-                @ViewBag.Row["Server_Comment"]
-            }
-            else
-            {
-                @: No comment
-            }
-        </div>
         @{
             var Application_List = ViewBag.Application_List;
+
             if (Application_List.Table.Rows.Count > 0)
             {
                 bool check = false;
 
                 foreach (var App_List_Item in Application_List.Table.Rows)
                 {
-                    @:test
-                    Html.RenderAction("Application_Details", "Application", new { Application_Check = check, row = App_List_Item, Environment_ID = ViewBag.Environment_ID, });
+                    @:<div class="panel-body">
+                        Html.RenderAction("Application_Details", "Application", new { Application_Check = check, row = App_List_Item, Environment_ID = ViewBag.Environment_ID });
+                    @:</div>
                     check = true;
                 }
             }
