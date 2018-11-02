@@ -2,18 +2,18 @@
     @{
         if (@ViewBag.Server_Check == false)
         {
-            @:<div id="Server_@ViewBag.row["EI_ID"]">
+            @:<div class="main_features fix m-top-20 m-bottom-10 col-md-12" id="Server_@ViewBag.row["EI_ID"]">
                 <h5>Servers:</h5>
             @:</div>
         }
     }
 
-<div class="test_item form-horizontal" id="Server_Details_Container_@ViewBag.row["EI_ID"]" role="tablist" aria-multiselectable="true">
+<div class="fix test_item no-padding" id="Server_Details_Container_@ViewBag.row["EI_ID"]" role="tablist" aria-multiselectable="true">
     <!--<div class="panel panel-default well form-horizontal">-->
     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#Server_Details_Container_@ViewBag.row["EI_ID"]" href="#Server_Details_@ViewBag.row["EI_ID"]" aria-expanded="false" aria-controls="Server_Details_@ViewBag.row["EI_ID"]">
-        <div role="tab" id="Server_Details_Button_@ViewBag.row["EI_ID"]">
+        <div class="col-md-12 m-top-20 m-bottom-20" role="tab" id="Server_Details_Button_@ViewBag.row["EI_ID"]">
             <div class="m-top-20 m-bottom-10 col-md-11 no-padding">
-                <div class="col-md-4">
+                <div class="col-md-4 no-padding">
                     <b>Name:</b> @ViewBag.row["Server_Name"]
                 </div>
 
@@ -38,7 +38,7 @@
                 }
             </div>
 
-            <div class="m-bottom-20 col-md-11">
+            <div class="col-md-12 no-padding">
                 <b>Notes:</b>
                 @if (ViewBag.row.IsNull("Server_Comment") == false)
                 {
@@ -51,16 +51,16 @@
             </div>
         </div>
     </a>
-    <br /><br /><br />
-    <div id="Server_Details_@ViewBag.row["EI_ID"]" class="panel-collapse collapse" role="tabpanel" aria-labelledby="Server_Details_Button_@ViewBag.row["EI_ID"]">
-        <div class="col-md-1">
+
+    <div id="Server_Details_@ViewBag.row["EI_ID"]" class="panel-collapse collapse col-md-12 m-top-20 m-bottom-20" role="tabpanel" aria-labelledby="Server_Details_Button_@ViewBag.row["EI_ID"]">
+        <div class="">
             <form role="form" data-toggle="validator" method="post" action="/Environment/Delete_Environment_Item" id="Delete_Server_@ViewBag.row["EI_ID"]">
                 @Html.HiddenFor(m => m.ID, new { Value = ViewBag.row["EI_ID"] })
                 <input type="hidden" name="Item_Action" id="Item_Action" value="Delete" />
-                <button type="submit" class="btn btn-sq-xs btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i> Delete Server</button>
+                <button type="submit" class="btn btn-danger text-center" id="Item_Delete_@ViewBag.row["EI_ID"]" onclick="Delete_Item(this.form, this, 'itemResponse')"><i class="fa fa-remove"></i> Delete Server</button>
             </form>
         </div>
-
+        <br />
         @{
             var Application_List = ViewBag.Application_List;
 
@@ -70,9 +70,7 @@
 
                 foreach (var App_List_Item in Application_List.Table.Rows)
                 {
-                    @:<div class="panel-body">
-                        Html.RenderAction("Application_Details", "Application", new { Application_Check = check, row = App_List_Item, Environment_ID = ViewBag.Environment_ID });
-                    @:</div>
+                    Html.RenderAction("Application_Details", "Application", new { Application_Check = check, row = App_List_Item, Environment_ID = ViewBag.Environment_ID });
                     check = true;
                 }
             }

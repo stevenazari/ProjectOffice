@@ -24,11 +24,10 @@
             {
                 Html.RenderAction("Server_Details", "Server", new { Server_Check = Server_Check, row = row, Environment_Details = environmentDetails });
                 Server_Check = true;
-                Application_Check = false;
             }
             else if (row["Item_Type_ID"] == 1 && row["Parent_ID"] == row["Environment_ID"])
             {
-                Html.RenderAction("Application_Details", "Application", new {Application_Check = Application_Check, row = row, Environment_ID = ViewBag.ID,  });
+                Html.RenderAction("Application_Details", "Application", new {Application_Check = Application_Check, row = row, Environment_ID = ViewBag.ID });
                 Application_Check = true;
             }
         }

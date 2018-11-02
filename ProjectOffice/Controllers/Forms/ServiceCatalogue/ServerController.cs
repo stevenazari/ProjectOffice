@@ -96,8 +96,9 @@ namespace ProjectOffice.Controllers.Forms.ServiceCatalogue.Server
             var model = new ProjectOffice.Models.Forms.ServiceCatalogue.Environment.Delete_Environment_Item_Model();
 
             DataView Application_List = new DataView(Environment_Details);
-            Application_List.RowFilter = "Item_Type_ID = 1";
-            //Application_List.RowFilter = "Parent_ID = " + row["EI_ID"];
+            Application_List.RowFilter = " Item_Type_ID = 1 ";
+            //Application_List.RowFilter = "Parent_ID = {0}", row["EI_ID"];
+            
 
             ViewBag.row = row;
             ViewBag.Application_List = Application_List;
